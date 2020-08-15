@@ -45,7 +45,7 @@ public class AioSCardService {
 	int year = Year.now().getValue();
 	
 	
-	private static String QRSCANCODEPATH = "C:\\Users\\Theophile\\Desktop\\Vali aios\\aios\\aios\\src\\main\\resources\\static\\uploads\\";
+	private static String QRSCANCODEPATH = "C:\\Users\\Theophile\\Desktop\\aiosmartcard\\aios\\aios\\src\\main\\resources\\static\\uploads\\";
 	
 	//return List of all aioSCards
 		public List<AioSCard> getAioSCards(){

@@ -142,10 +142,13 @@ public class CitizenController {
 		try {
 			citizenService.save(citizen, file);
 			
+			
+			
 		    RedirectView  redirectView = new RedirectView("/citizens",true);
 		    redir.addFlashAttribute("reqM","Request Sent Successfully!");
 		    return redirectView;
 		} catch (Exception e) {
+			
 			 RedirectView  redirectView = new RedirectView("/citizens",true);
 			 redir.addFlashAttribute("reqM","Form Failed To Submit!");
 			return redirectView;

@@ -56,14 +56,16 @@ public class CitizenService {
 		// save a new citizen
 		public void save(Citizen citizen,@RequestParam("file") MultipartFile file) throws IllegalStateException, IOException {
 			
-			String baseDir = "C:\\Users\\Theophile\\Desktop\\Vali aios\\aios\\aios\\src\\main\\resources\\static\\uploads\\";
+			String baseDir = "C:\\Users\\Theophile\\Desktop\\aiosmartcard\\aios\\aios\\src\\main\\resources\\static\\uploads\\";
+			
+
 			
 			User user = userService.findByUsername(citizen.getUsername());
 			file.transferTo(new File(baseDir + user.getUsername()+".jpg"));
 			
 			citizen.setPhoto(baseDir + user.getUsername()+".jpg");
 			
-       
+			
 			
 			 user = userRepository.findByUsername(citizen.getUsername());
 			citizen.setUser(user);
