@@ -20,12 +20,16 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.google.zxing.WriterException;
 import com.smartcard.aios.models.AioSCard;
+import com.smartcard.aios.models.Citizen;
 import com.smartcard.aios.models.District;
+import com.smartcard.aios.models.NationalId;
 import com.smartcard.aios.models.Sector;
 import com.smartcard.aios.models.Village;
+import com.smartcard.aios.repositories.NationalIdRepository;
 import com.smartcard.aios.services.AioSCardService;
 import com.smartcard.aios.services.CitizenService;
 import com.smartcard.aios.services.DistrictService;
+import com.smartcard.aios.services.NationalIdService;
 import com.smartcard.aios.services.SectorService;
 import com.smartcard.aios.services.VillageService;
 
@@ -48,6 +52,12 @@ public class AioSCardController {
 	
 	@Autowired
 	private VillageService villageService;
+	
+	@Autowired
+	private NationalIdService nationalIdService;
+	
+	@Autowired
+	private NationalIdRepository nationalIdRepository;
 
 	
 	@GetMapping("/aioSCards")
@@ -108,6 +118,32 @@ public class AioSCardController {
 		return "aioSCard";
 	}
 	
+	@GetMapping("/LinkNidAndAio")
+	public String getNidAndAioSCard(Model model,String keyword) {
+		if(keyword!=null) {
+			model.addAttribute("citizens", citizenService.findByKeyword(keyword));
+			model.addAttribute("aioSCards", aioSCardService.findByKeyword(keyword));
+			model.addAttribute("nationalIds", nationalIdService.findByKeyword(keyword));
+			List<Sector> sectorList = sectorService.getSectors();
+			model.addAttribute("sectors", sectorList);
+		}else {
+			
+			//List<Citizen> citizenList = citizenService.getCitizens();
+			//model.addAttribute("citizens", citizenList);
+		}
+		
+		List<District> districtList = districtService.getDistricts();
+		model.addAttribute("districts", districtList);
+		
+		List<Village> villageList = villageService.getVillages();
+		model.addAttribute("villages", villageList);
+		
+		List<Sector> sectorList = sectorService.getSectors();
+		model.addAttribute("sectors", sectorList);
+		
+		return "linknid";
+	}
+	
 	
 	
 	
@@ -125,18 +161,21 @@ public class AioSCardController {
 	
 	@RequestMapping(value = "/aioSCards/update", method= {RequestMethod.PUT,RequestMethod.GET})
 	public String update(AioSCard aioSCard) {
-	   try {
-//	    AioSCard nid = aioSCardService.getAioSCard(aioSCard.getCitizenUsername());   
-//		nid.setPlaceIssueId(aioSCard.getPlaceIssueId());
-//		aioSCardService.update(nid);   
-   
-	} catch (Exception e) {
-		return "error update"+e;
-	}
-		
-		
-
+		aioSCardService.update(aioSCard);
 	    return "redirect:/aioSCards";
+	}
+	
+	@RequestMapping(value = "/linkAioSCardWithNid", method= {RequestMethod.PUT,RequestMethod.GET})
+	public String linkNid(AioSCard aioSCard,String keyword) throws WriterException, IOException {
+		
+		aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+		
+		NationalId nationalId = nationalIdService.getNationalId(aioSCard.getCitizenUsername());
+		
+		aioSCard.setNationalId(nationalId);
+		
+		aioSCardService.linkNidService(aioSCard, keyword);
+		return "linknid";
 	}
 	
 	

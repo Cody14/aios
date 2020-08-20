@@ -13,13 +13,14 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>ALL IN ONE SMART CARD</title>
+    <title>Link National Id</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/aioscard.css">
+    <link rel="stylesheet" type="text/css" href="css/nid.css">
+    <link rel="stylesheet" type="text/css" href="css/aioscardLink.css">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -91,22 +92,22 @@
        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" th:src=" @{'/uploads/' +  ${#authentication.getPrincipal().getUsername()} + '.jpg'}" height="38" width="38" alt="User">
         <div>
           <p class="app-sidebar__user-name"> <span style="font-weight: bolder;font-family:Cambria Math;text-transform: capitalize; font-size: 16px;" th:text="${#authentication.getPrincipal().getUsername()}"></span></p>
-          <p class="app-sidebar__user-designation" style="font-family: Monaco; font-size: 12px; text-transform:capitalize ;font-weight: bolder;" >AIO SYSTEM USER</p>
+          <p class="app-sidebar__user-designation" style="font-family: Monaco; font-size: 12px; text-transform:capitalize ;font-weight: bolder;">AIO SYSTEM USER</p>
         </div>
       </div>
       
       <ul class="app-menu">
        <li><a class="app-menu__item " th:href="@{/citizens}"><i class="app-menu__icon fa fa-edit"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Fill The Form</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-id-card"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Add Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-id-card"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Add Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
             <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
             <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Health Insurance</a></li>
           </ul>
         </li>
-        <li><a class="app-menu__item active" th:href="@{/aioSCards}"><i class="app-menu__icon fa fa-credit-card-alt"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label" >AIO SMART CARD</span></a></li>
+        <li><a class="app-menu__item" th:href="@{/aioSCards}"><i class="app-menu__icon fa fa-credit-card-alt"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label" >AIO SMART CARD</span></a></li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-link"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">LINK Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-link"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">LINK Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" th:href="@{/linkNid}"><i class="icon fa fa-dot-circle-o"></i> Link National Id</a></li>
             <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Link Driving License</a></li>
@@ -116,9 +117,9 @@
         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-chain-broken"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">UNLINK Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
-            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
-            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Health Insurance</a></li>
+            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-dot-circle-o"></i> Unlink National Id</a></li>
+            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Unlink Driving License</a></li>
+            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Unlink Health Insurance</a></li>
           </ul>
         </li>
         
@@ -133,15 +134,15 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;" ><i class="fa fa-credit-card-alt"></i> ALL IN ONE SMART CARD</h1>
-          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">Smart Card That is able to hold other cards information</p>
+          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;" ><i class="fa fa-id-card"></i> Link NATIONAL ID</h1>
+          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">Link National Id with AIO Smart Card</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item" style="font-weight: bolder;font-family:Cambria Math;text-transform: capitalize; font-size: 12px;" ><a th:href="@{/citizens}">Back</a></li>
+          <li style="font-weight: bolder;font-family:Cambria Math;text-transform: capitalize; font-size: 12px;" class="breadcrumb-item"><a th:href="@{/citizens}">Back</a></li>
         </ul>
       </div>
-     <div class="row">
+        <div class="row">
         <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
             <div class="info">
@@ -180,189 +181,342 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="page-header">
-              <h2 style=" border-bottom-color: #009688; font-family: Gabriola; text-transform:uppercase ;"  class="mb-3 line-head" id="dialogs">INFOS</h2>
+              <h2 style=" border-bottom-color: #009688; font-family: Gabriola; text-transform:uppercase ;" class="mb-3 line-head" id="dialogs">INFOS</h2>
             </div>
             
        <div class="row">
-        <div class="col-md-7">
+        <div class="col-lg-12">
+        <div style="height: 680px; width: 100%; ">
+        <div style="height: 50px; width: 100%; background-color: #222d32; border-bottom: 1px solid white;">
+        <form th:action="@{/LinkNidAndAio}" method="get"> 
+         <button class="btn btn-light px-4" style="margin-top:0.6%; margin-left:0.7%; font-weight: bolder;font-family: BrowalliaUPC;float: left;">CARDS INFO</button>
+         <input type="text"  name="keyword" style="margin-top: 1%;float: left;" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"   placeholder="Username">
+         </form>
+         
+         <form th:action="@{/linkAioSCardWithNid}" method="put">
+          <button class="btn btn-light px-4" style="margin-top:0.6%; margin-left:52.6%; font-weight: bolder;font-family: BrowalliaUPC;float: left;">LINK CARDS</button>
+          <input type="text"  name="keyword" style="margin-top: 1%;float: left;" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"   placeholder="Username">
+          
+         </form>
         
-        <div style="height: 320px; width: 100%; background-color:#dc3545;border-radius: 3px;">
+        </div>
+        <div style="height: 290px; width: 100%;">
+        
+        <div style="height: 290px; width: 63%;float: left;">
+        <form th:action="@{/LinkNidAndAio}"  method="get">
+        <div style="height: 25px; width: 98.7%;margin-left: 0%;background-color: #009688;">
+        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1%;">NATIONAL ID INFORMATION</h5>
+        </div>
+        
+        <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 3%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;"  th:each="citizen:${citizens}" th:text="${citizen.firstname}"></h5>
+        </div>
+      
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.gender}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.martialStatus}"></h5>
+        </div>
+          
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.currentPlace.villageName}"></h5>
+        </div>
+         
+         <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.fatherName}"></h5>
+        </div>
+         
         
         
-        <form th:action="@{/aioSCardCitizenInfos}" method="get"> 
-        <div style="height: 50px; width: 100%; background-color: #222d32;border-bottom: 1px solid white;">
+        </div>
+        
+        <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 3%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.lastname}"></h5>
+        </div>
+        
+       
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.dateOfBirth}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.category}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.birthPlace.districtName}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.motherName}"></h5>
+        </div>
+       
+        
+        </div>
+        
+        <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 3%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="nationalId:${nationalIds}" th:text="${nationalId.nidNo}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="nationalId:${nationalIds}" th:text="${nationalId.NIDplaceIssue.sectorName}"></h5>
+        </div>
         
         
-		    <button class="btn btn-light px-5" style="margin-top:1%; margin-left:1%; font-weight: bolder;font-family: BrowalliaUPC;">GET INFO</button>
-		    <input type="text"  name="keyword" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"  placeholder="Username">
-		     
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.phoneNumber}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.username}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.formRequest}"></h5>
+        </div>
+        
+        </div>
+        </form>
+        </div>
+        <div style="height: 290px; width: 37%;float: left;">
+        <div style="height: 25px; width: 98%;margin-left: 2%;background-color: #009688;">
+        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1.5%;">NATIONAL ID CARD</h5>
+        </div>
+         <div class="cardi" style=" margin-left: 2%;margin-top: 1%;">
+       <div class="additional" >
+      <div class="user-cardi">
+ 
+      <div style="padding-top: 42%;margin-left: 14%;">
+          <span style="padding-bottom: 20%;">
+             <img style=" border-radius: 50%;"  th:src="@{'/uploads/' +  ${#authentication.getPrincipal().getUsername()} + '.jpg'}" width="108" height="138" >
+           </span>
+           <div style="padding-top: 14%;">
+            <span style="color: black; font-weight: bolder;font-family:Cambria Math; font-size: 14px;margin-left: 9%;">NATIONAL ID </span> 
+           </div>
+          
+      </div>
+ 
+      
+ 
+        
+        
+      </div>
+      <div class="more-info">
+          <div class="hder" style="height: 40px; width: 100%; border-bottom: 2px solid black;">
+            <div style=" padding-top:3%;  float: left; padding-left: 15%; font-weight: bolder; color: black; font-family: Cambria Math;">REPUBLIC OF RWANDA</div>
+            <div class="flg" style="float: right; margin-right: 1%;margin-top: 4px;">
+                <span class="lo">
+                  <img alt="" th:src="@{'/uploads/' +  flag + '.png'}" width="60" height="30">
+                 </span>
+            </div>
+          </div>
+          <div class="crdType" style="width: 100%; height: 25px;">
+           <div style="margin-left: 15%;"><span style="color: black;font-family: Cambria; font-size: 12px; font-weight: bolder;">NATIONAL IDENTITY CARD</span> </div>
+          </div>
+          
+          <div class="crdBody" style="width: 100%; height: 150px;border-bottom: 2px solid black;">
+          <div style="padding-top: 2%;"></div>
+           <span style="margin-left:10px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >FULL NAMES</span>
+              <br>
+       <tr  th:each="nationalId:${nationalIds}">
+         <td >
+            <span style="color: #fff;
+	text-transform: uppercase;
+
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${nationalId.ownerName}"></span>
+         </td> 
+        </tr>
+     <br>
+     <span style="margin-left:10px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >DATE OF BIRTH</span>
+      <br>
+           <tr  th:each="nationalId:${nationalIds}">
+         <td >
+            <span style="color: #fff;
+	text-transform: uppercase;
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:13px; font-weight: bolder; font-family:Cambria Math;" th:text="${nationalId.ownerDob}"></span>
+         </td> 
+        </tr>
+         <br>
+     <span style="margin-left:10px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >GENDER</span>
+     <span style="margin-left:85px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >PLACE ISSUE</span>
+       <br>
+        <tr  th:each="nationalId:${nationalIds}">
+         <td >
+            <span style="color: #fff;
+	text-transform: uppercase;
+
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${nationalId.ownerGender}"></span>
+         </td> 
+     </tr>
+     
+     <tr  th:each="nationalId:${nationalIds}">
+         <td >
+            <span style="color: #fff;
+	text-transform: uppercase;
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:38%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${nationalId.NIDplaceIssue.sectorName}"></span>
+         </td> 
+     </tr>        
+          </div>
+          
+          <div class="crdNo" style="width: 100%; height: 33px;margin-left: 4%;">
+          
+        
+        <tr  th:each="nationalId:${nationalIds}">
+           <td >
+           
+            <span style="color:white;font-weight:bolder;font-size:17px;" th:text="${nationalId.nidNo}"></span>
+           
+         </td> 
+        </tr>
+         
+          
        
         </div>
-         </form>
-        <form th:action="@{/nationalIdCitizenInfos}" th:object="${citizen}" method="get"> 
-				<div style="height: 260px;margin-top:3px; width: 96%; margin-left:2%;">
-			
-			<div style="float: left;height: 260px;width: 33.5%; padding-right: 7px;">
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%; color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">FIRST NAME</label>
-			</div>
-			
-			<div style=" border-radius:3px;  margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			  <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.firstname}"></span>
-			 </td> 
-             </tr>
-			</div>
-			
-			<div style="text-align: center;">
-			  	<label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">LAST NAME</label>
-			</div>
-			
-		
-			<div style=" border-radius:3px; margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			  <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.lastname}"></span>
-			 </td> 
-             </tr>
-			
-			</div>
-			
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">DOB</label>
-			</div>
-			
-			<div style=" border-radius:3px;  margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			 <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.dateOfBirth}"></span>
-			 </td> 
-             </tr>
-			
-			</div>
-			
-           
-            
-           
-			
-			</div>
-			
-			<div style="float: left;height: 260px;width: 33.5%;padding-right: 7px;">
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">GENDER</label>
-			</div>
-			
-			<div style=" border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.gender}"></span>
-			 </td> 
-             </tr>
-			
-			
-			</div>
-			<div style="text-align: center;">
-			<label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">CATEGORY</label>
-			</div>
-			
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.category}"></span>
-			 </td> 
-             </tr>
-			
-			</div>
-			<div style="text-align: center;">
-			 <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">B.PLACE</label>
-			</div>
-			
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.birthPlace.districtName}"></span>
-			 </td> 
-             </tr>
-			
-			
-			</div>
-            
+      </div>
+    </div>
+    <div class="general">
+     <div style="padding-top: 3%;">
+      <span style="margin-left:5%;color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;">If found, please return this card to</span><br>
+      <span style=" margin-left:14%; color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;"> the nearest police station</span> 
+     </div>
+     <div style="margin-top:2%; background-color:black; height: 2px;width: 100%;"></div>
+    
+    
+     
+     
+    
+    <div style="padding-top: 48%;">
+       <span class="lo">
+       <img alt="" th:src="@{'/uploads/' +  scn21 + '.jpg'}" width="275" height="55">
+      </span>
+    </div>
+     
+    </div>
+  </div>
+        
+        
+        </div>
+        
+        
+        </div>
+        <div style="height: 300px; width: 100%;">
+        
+         <div style="height: 290px; width: 63%;float: left;">
+        <div style="height: 25px; width: 98.5%;margin-left: 0%;background-color: #dc3545;">
+        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1%;">AIO SMART CARD INFORMATION</h5>
+        </div>
+        
+        <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 3%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.firstname}"></h5>
+        </div>
+      
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.gender}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.martialStatus}"></h5>
+        </div>
           
-           
-           
-			
-			</div>
-			
-			<div style="float: left;height: 260px;width: 33%;padding-right: 7px;">
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">C.PLACE</label>
-			</div>
-            
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.currentPlace.villageName}"></span>
-			 </td> 
-             </tr>
-			
-			
-			</div>
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">M.STATUS</label>
-			</div>
-			
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			 <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.martialStatus}"></span>
-			 </td> 
-             </tr>
-			
-			</div>
-			<div style="text-align: center;">
-			 <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">USERNAME</label>
-			</div>
-			
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			 <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.username}"></span>
-			 </td> 
-             </tr>
-			
-			</div>
-           
-           
-           
-			</div>
-			
-			
-			</div>
-            </form>
-        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.currentPlace.villageName}"></h5>
         </div>
-        </div>
-        <div class="col-md-5">
-        
-        <div style="height: 320px; width: 100%; background-color: #dc3545;border-radius: 3px;">
-          <form >
-        <div style="height: 50px; width: 100%;padding-top: 1%; background-color: #222d32;border-bottom: 1px solid white;">
-        
-        <div style="margin-left: 1.4%;margin-top: 1.5px;">
-		    <button style="font-family: BrowalliaUPC;font-weight: bolder;"  type="button" id="submit" class="btn btn-light px-5" data-toggle="modal" data-target="#addModal">ADD AIO</button>  
+         
+         <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.fatherName}"></h5>
         </div>
         
-         <div class="scene scene--cardi" style="margin-top: 2.5%;margin-left: 1.5%;">
-           <div class="cardi">
+        </div>
+        
+        <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
+        
+         <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 3%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.lastname}"></h5>
+        </div>
+        
+       
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.dateOfBirth}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.category}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.birthPlace.districtName}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.motherName}"></h5>
+        </div>
+        
+        </div>
+        
+        <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
+        
+         <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 3%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="aioSCard:${aioSCards}" th:text="${aioSCard.aioscardNo}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="aioSCard:${aioSCards}" th:text="${aioSCard.cvv}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="aioSCard:${aioSCards}" th:text="${aioSCard.issuedDate}"></h5>
+        </div>
+        
+        <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="aioSCard:${aioSCards}" th:text="${aioSCard.expireDate}"></h5>
+        </div>
+        
+        
+         <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="citizen:${citizens}" th:text="${citizen.formRequest}"></h5>
+        </div>
+        
+        
+        </div>
+        
+        </div>
+         <div style="height: 310px; width: 37%;float: left;">
+        <div style="height: 25px; width: 97%;margin-left: 2%; background-color: #dc3545;">
+        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1.5%;">AIO SMART CARD</h5>
+        </div>
+        
+         <div class="scene scene--cardo" style="margin-top: 1%;margin-left: 1.5%;">
+           <div class="cardo">
            <div class="card__face card__face--front">
           <div style="height: 35px; width: 100%;">
           
@@ -597,37 +751,36 @@
            </div>
            </div>
         
-        </div>
         
-   
-   </form>
         </div>
         
         </div>
+      
+       
+       <div style="height: 50px; width: 100%; background-color: #222d32; border-bottom: 1px solid white;"></div>
+        </div>
+        
+        </div>
+        
+        
+        
+        
+       
+       
       </div>
             
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-6">
-           
-           
-          </div>
-          <div class="col-lg-6">
-          
-            
-          
-          </div>
-        </div>
+        
       </div>
       
        <!-- ADD MODAL -->
   <div  class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <form th:action="@{/aioSCards/addNew}" method="post">
+ <form th:action="@{/nationalIds/addNew}" method="post">
   <div class="modal-dialog modal-lg" role="document" style="width:70%">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">AIO Data</h5>
+        <h5 class="modal-title" id="exampleModalLabel">NID Data</h5>
       
       </div>
 
@@ -638,9 +791,15 @@
 				<td width="50%">
 				
 				 <div class="form-group row">
-				    <label for="issuedDate" class="col-sm-4 col-form-label">Issued Date</label>
+				    <label for="sectorAdd" class="col-sm-4 col-form-label">Place Issue</label>
 				    <div class="col-sm-6">
-				      <input type="date" class="form-control" id="issuedDate" name="issuedDate">
+					    <select class="form-control" id="sectorAdd" name="placeIssueId">
+		        	       <option>SELECT</option>			    					  					    					    
+					       <option th:each="sector : ${sectors}"
+						        th:value="${sector.id}"
+						        th:text="${sector.sectorName}">
+						   </option>
+					    </select>				    
 				    </div>
 				  </div>
 				 
@@ -747,9 +906,9 @@
     
     <script type="text/javascript">
  
- var cardi = document.querySelector('.cardi');
- cardi.addEventListener( 'click', function() {
-   cardi.classList.toggle('is-flipped');
+ var cardo = document.querySelector('.cardo');
+ cardo.addEventListener( 'click', function() {
+   cardo.classList.toggle('is-flipped');
  });
  
  </script>

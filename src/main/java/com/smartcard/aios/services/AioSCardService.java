@@ -24,8 +24,10 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.smartcard.aios.models.AioSCard;
 import com.smartcard.aios.models.Citizen;
+import com.smartcard.aios.models.NationalId;
 import com.smartcard.aios.repositories.AioSCardRepository;
 import com.smartcard.aios.repositories.CitizenRepository;
+import com.smartcard.aios.repositories.NationalIdRepository;
 
 
 
@@ -42,6 +44,9 @@ public class AioSCardService {
 	@Autowired
 	private CitizenRepository citizenRepository;
 	
+	@Autowired
+	private NationalIdRepository nationalIdRepository;
+	
 	int year = Year.now().getValue();
 	
 	
@@ -54,6 +59,10 @@ public class AioSCardService {
 		
 		public AioSCard getAioSCard(String citizenUsername) {
 			return aioSCardRepository.findByCitizenUsername(citizenUsername);
+		}
+		
+		public AioSCard getAioSCardByKeyword(String keyword) {
+			return aioSCardRepository.findByKeywordUsername(keyword);
 		}
 		
 
@@ -73,20 +82,23 @@ public class AioSCardService {
 			
 		    Citizen citizen = citizenRepository.findAllByUsername(aioSCard.getCitizenUsername());
 		    
+		    NationalId nationalId = nationalIdRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+		    
 		    QRCodeWriter writer = new QRCodeWriter();
 		    
 		    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
 		    int yearDiff = year - citizen.getDateOfBirth().getYear();
-		     
-		    BitMatrix bitMatrix = writer.encode(		
-		    citizen.getFirstname()+" "+citizen.getLastname()+"\n"
-		    +yearDiff+"\n"+
-		    	   citizen.getGender()+"\n"+
-		            citizen.getMartialStatus()
-		            ,BarcodeFormat.QR_CODE, 350, 350);
-		    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
-			MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
-			
+		
+		    	
+		    	  BitMatrix bitMatrix = writer.encode(		
+		    			  "NAME   : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+		    	          "OTHER CARDS : Not Yet Linked"
+		    			  
+		    			            ,BarcodeFormat.QR_CODE, 350, 350);
+		    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+		    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+	    
+		  
 		   
 			
 		    if(citizen.getGender().equalsIgnoreCase("M")) {
@@ -132,6 +144,34 @@ public class AioSCardService {
 
 		}
 		
+		
+		public void linkNidService(AioSCard aioSCard,String keyword) throws WriterException, IOException {
+			
+			aioSCard = aioSCardRepository.findByKeywordUsername(keyword);
+
+		    Citizen citizen = citizenRepository.findAllByUsername(aioSCard.getCitizenUsername());
+		    
+		    NationalId nationalId = nationalIdRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+			
+			 QRCodeWriter writer = new QRCodeWriter();
+			    
+			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+			    int yearDiff = year - citizen.getDateOfBirth().getYear();
+			
+			    	
+			    	  BitMatrix bitMatrix = writer.encode(
+			    			  
+			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+			    			  "NID No   : "+  nationalId.getNidNo()
+			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+			
+			aioSCard.setNationalId(nationalId);
+			aioSCard.setNid(qrcodePicture);
+			aioSCardRepository.save(aioSCard);
+		}
+		
 		public void update(AioSCard aioSCard) {
 			aioSCardRepository.save(aioSCard);
 		}
@@ -143,7 +183,7 @@ public class AioSCardService {
 		// Get aioSCard by keyword
 		
 		public List<AioSCard> findByKeyword(String keyword){
-			return aioSCardRepository.findByKeyowrd(keyword);
+			return aioSCardRepository.findByKeyword(keyword);
 		}		
 		
 		

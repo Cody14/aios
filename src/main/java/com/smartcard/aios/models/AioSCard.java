@@ -34,6 +34,8 @@ public class AioSCard extends Card {
 	
 	private String ownerStatus;
 	
+	private String nid="No";
+	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate issuedDate;
 	

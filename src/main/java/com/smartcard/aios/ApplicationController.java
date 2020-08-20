@@ -21,6 +21,11 @@ public class ApplicationController {
 		return "register";
 	}
 	
+	@GetMapping("/linkNid")
+	public String linkNid() {
+		return "linknid";
+	}
+	
 	
 	
 

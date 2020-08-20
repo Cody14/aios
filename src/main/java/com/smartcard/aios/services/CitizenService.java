@@ -58,7 +58,7 @@ public class CitizenService {
 			
 			String baseDir = "C:\\Users\\Theophile\\Desktop\\aiosmartcard\\aios\\aios\\src\\main\\resources\\static\\uploads\\";
 			
-
+            
 			
 			User user = userService.findByUsername(citizen.getUsername());
 			file.transferTo(new File(baseDir + user.getUsername()+".jpg"));
