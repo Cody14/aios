@@ -33,6 +33,8 @@ public class Test {
 		aioSCard.setCitizen(citizen);
 		
 		
+		
+		
 		System.out.println("AIO SMART CARD "+aioSCard.getCitizen().getFirstname() + " National Id No "+aioSCard.getNationalId().getNidNo() );
 		
 

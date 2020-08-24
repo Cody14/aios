@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.OneToOne;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -85,6 +85,9 @@ public class DrivingLicense extends Card {
     private LocalDate issuedDate_D1;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate expireDate_D1;
+    
+    @OneToOne(mappedBy = "drivingLicense")
+    private AioSCard aioSCard;
 
   
 }

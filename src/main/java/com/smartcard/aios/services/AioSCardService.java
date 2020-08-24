@@ -24,9 +24,13 @@ import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.smartcard.aios.models.AioSCard;
 import com.smartcard.aios.models.Citizen;
+import com.smartcard.aios.models.DrivingLicense;
+import com.smartcard.aios.models.HealthInsurance;
 import com.smartcard.aios.models.NationalId;
 import com.smartcard.aios.repositories.AioSCardRepository;
 import com.smartcard.aios.repositories.CitizenRepository;
+import com.smartcard.aios.repositories.DrivingLicenseRepository;
+import com.smartcard.aios.repositories.HealthInsuranceRepository;
 import com.smartcard.aios.repositories.NationalIdRepository;
 
 
@@ -46,6 +50,12 @@ public class AioSCardService {
 	
 	@Autowired
 	private NationalIdRepository nationalIdRepository;
+	
+	@Autowired
+	private DrivingLicenseRepository drivingLicenseRepository;
+	
+	@Autowired
+	private HealthInsuranceRepository healthInsuranceRepository;
 	
 	int year = Year.now().getValue();
 	
@@ -82,19 +92,17 @@ public class AioSCardService {
 			
 		    Citizen citizen = citizenRepository.findAllByUsername(aioSCard.getCitizenUsername());
 		    
-		    NationalId nationalId = nationalIdRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
-		    
+
 		    QRCodeWriter writer = new QRCodeWriter();
 		    
 		    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
-		    int yearDiff = year - citizen.getDateOfBirth().getYear();
+
 		
 		    	
 		    	  BitMatrix bitMatrix = writer.encode(		
 		    			  "NAME   : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
-		    	          "OTHER CARDS : Not Yet Linked"
-		    			  
-		    			            ,BarcodeFormat.QR_CODE, 350, 350);
+		    	          "OTHER CARDS : NOT LINKED"
+		    			   ,BarcodeFormat.QR_CODE, 350, 350);
 		    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
 		    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
 	    
@@ -151,26 +159,301 @@ public class AioSCardService {
 
 		    Citizen citizen = citizenRepository.findAllByUsername(aioSCard.getCitizenUsername());
 		    
+		   
+		    
 		    NationalId nationalId = nationalIdRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
-			
-			 QRCodeWriter writer = new QRCodeWriter();
+		    
+		    DrivingLicense drivingLicense = drivingLicenseRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+		    
+		    HealthInsurance healthInsurance = healthInsuranceRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+
+		    if(aioSCard.getDrivingLicense()==null && aioSCard.getHealthInsurance()==null) {
+		    	 QRCodeWriter writer = new QRCodeWriter();
+				    
+				    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+				
+				    	
+				    	  BitMatrix bitMatrix = writer.encode(
+				    			  
+				    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+				    			  "NID No   : "+  nationalId.getNidNo()
+				    			            ,BarcodeFormat.QR_CODE, 350, 350);
+				    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+				    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+				
+				aioSCard.setNationalId(nationalId);
+				aioSCard.setQrcodePhoto(qrcodePicture);
+				aioSCardRepository.save(aioSCard);
+		
+		    }else if(aioSCard.getDrivingLicense()!=null && aioSCard.getHealthInsurance()==null) {
+		    	
+		    	QRCodeWriter writer = new QRCodeWriter();
 			    
 			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
-			    int yearDiff = year - citizen.getDateOfBirth().getYear();
 			
 			    	
 			    	  BitMatrix bitMatrix = writer.encode(
 			    			  
 			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
-			    			  "NID No   : "+  nationalId.getNidNo()
+			    			  "NID No   : "+  nationalId.getNidNo()+"\n"+
+			    		      "DL No    : "+ drivingLicense.getDlNo()			  
 			    			            ,BarcodeFormat.QR_CODE, 350, 350);
 			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
 			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
 			
 			aioSCard.setNationalId(nationalId);
-			aioSCard.setNid(qrcodePicture);
+			aioSCard.setQrcodePhoto(qrcodePicture);
 			aioSCardRepository.save(aioSCard);
+	
+		    	
+		    }else if(aioSCard.getDrivingLicense()==null && aioSCard.getHealthInsurance()!=null) {
+		    	
+                QRCodeWriter writer = new QRCodeWriter();
+			    
+			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+			
+			    	
+			    	  BitMatrix bitMatrix = writer.encode(
+			    			  
+			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+			    			  "NID No   : "+  nationalId.getNidNo()+"\n"+
+			    		      "HL No    : "+ healthInsurance.getRssbNo()			  
+			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+			
+			aioSCard.setNationalId(nationalId);
+			aioSCard.setQrcodePhoto(qrcodePicture);
+			aioSCardRepository.save(aioSCard);
+		    	
+		    }else if(aioSCard.getDrivingLicense()!=null && aioSCard.getHealthInsurance()!=null) {
+		    	
+		    	 QRCodeWriter writer = new QRCodeWriter();
+				    
+				    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+				
+				    	
+				    	  BitMatrix bitMatrix = writer.encode(
+				    			  
+				    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+				    			  "NID No   : "+  nationalId.getNidNo()+"\n"+
+				    			  "DL No    : "+ drivingLicense.getDlNo()+"\n"+		  
+				    		      "HL No    : "+ healthInsurance.getRssbNo()			  
+				    			            ,BarcodeFormat.QR_CODE, 350, 350);
+				    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+				    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+				
+				aioSCard.setNationalId(nationalId);
+				aioSCard.setQrcodePhoto(qrcodePicture);
+				aioSCardRepository.save(aioSCard);
+		    	
+		    }
+		    
+		    
+		    	
+		    	
+		    	
+		    
+		    
+		    
+			
 		}
+		
+		
+        public void linkDlService(AioSCard aioSCard,String keyword) throws WriterException, IOException {
+			
+			aioSCard = aioSCardRepository.findByKeywordUsername(keyword);
+
+		    Citizen citizen = citizenRepository.findAllByUsername(aioSCard.getCitizenUsername());
+		    
+		     NationalId nationalId = nationalIdRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+		     
+		     HealthInsurance healthInsurance = healthInsuranceRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+		    
+		    DrivingLicense drivingLicense = drivingLicenseRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+		    
+             if(aioSCard.getNationalId()==null && aioSCard.getHealthInsurance()==null) {
+            	 QRCodeWriter writer = new QRCodeWriter();
+ 			    
+ 			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+ 			    
+ 			
+ 			    	
+ 			    	  BitMatrix bitMatrix = writer.encode(
+ 			    			  
+ 			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+ 			    		      "DL No   : "+ drivingLicense.getDlNo()			  
+ 			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+ 			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+ 			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+ 			aioSCard.setDrivingLicense(drivingLicense);
+ 			aioSCard.setQrcodePhoto(qrcodePicture);
+ 			aioSCardRepository.save(aioSCard);
+ 		    
+             }else if(aioSCard.getNationalId()!=null && aioSCard.getHealthInsurance()==null) {
+            	 QRCodeWriter writer = new QRCodeWriter();
+  			    
+  			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+  			    
+  			
+  			    	
+  			    	  BitMatrix bitMatrix = writer.encode(
+  			    			  
+  			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+  			    			  "NID No  : "+ nationalId.getNidNo()+"\n"+
+  			    		      "DL No   : "+ drivingLicense.getDlNo()			  
+  			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+  			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+  			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+  			aioSCard.setDrivingLicense(drivingLicense);
+  			aioSCard.setQrcodePhoto(qrcodePicture);
+  			aioSCardRepository.save(aioSCard);
+            	 
+             }else if(aioSCard.getNationalId()==null && aioSCard.getHealthInsurance()!=null) {
+            	 QRCodeWriter writer = new QRCodeWriter();
+   			    
+   			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+   			    
+   			
+   			    	
+   			    	  BitMatrix bitMatrix = writer.encode(
+   			    			  
+   			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+   			    			  "NID No  : "+ nationalId.getNidNo()+"\n"+
+   			    		      "HL No   : "+ healthInsurance.getRssbNo()			  
+   			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+   			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+   			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+   			aioSCard.setDrivingLicense(drivingLicense);
+   			aioSCard.setQrcodePhoto(qrcodePicture);
+   			aioSCardRepository.save(aioSCard);
+             }else if(aioSCard.getNationalId()!=null && aioSCard.getHealthInsurance()!=null) {
+            	 QRCodeWriter writer = new QRCodeWriter();
+    			    
+    			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+    			    
+    			
+    			    	
+    			    	  BitMatrix bitMatrix = writer.encode(
+    			    			  
+    			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+    			    			  "NID No  : "+ nationalId.getNidNo()+"\n"+
+    			    			  "DL No   : "+ drivingLicense.getDlNo()+"\n"+			  
+    			    		      "HL No   : "+ healthInsurance.getRssbNo()			  
+    			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+    			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+    			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+    			aioSCard.setDrivingLicense(drivingLicense);
+    			aioSCard.setQrcodePhoto(qrcodePicture);
+    			aioSCardRepository.save(aioSCard);
+             }
+            
+		   
+			
+			 
+		}
+		
+           public void linkHiService(AioSCard aioSCard,String keyword) throws WriterException, IOException {
+			
+			aioSCard = aioSCardRepository.findByKeywordUsername(keyword);
+
+		    Citizen citizen = citizenRepository.findAllByUsername(aioSCard.getCitizenUsername());
+		    
+		     NationalId nationalId = nationalIdRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+		     
+		     HealthInsurance healthInsurance = healthInsuranceRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+		    
+		      DrivingLicense drivingLicense = drivingLicenseRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
+		    
+             if(aioSCard.getNationalId()==null && aioSCard.getDrivingLicense()==null) {
+            	 QRCodeWriter writer = new QRCodeWriter();
+ 			    
+ 			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+ 			    
+ 			
+ 			    	
+ 			    	  BitMatrix bitMatrix = writer.encode(
+ 			    			  
+ 			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+ 			    		      "HL No   : "+  healthInsurance.getRssbNo()			  
+ 			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+ 			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+ 			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+ 			aioSCard.setHealthInsurance(healthInsurance);
+ 			aioSCard.setQrcodePhoto(qrcodePicture);
+ 			aioSCardRepository.save(aioSCard);
+ 		    
+             }else if(aioSCard.getNationalId()!=null && aioSCard.getDrivingLicense()==null) {
+            	 QRCodeWriter writer = new QRCodeWriter();
+  			    
+  			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+  			    
+  			
+  			    	
+  			    	  BitMatrix bitMatrix = writer.encode(
+  			    			  
+  			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+  			    			  "NID No  : "+ nationalId.getNidNo()+"\n"+
+  			    		      "HL No   : "+ healthInsurance.getRssbNo()			  
+  			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+  			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+  			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+  			aioSCard.setHealthInsurance(healthInsurance);
+  			aioSCard.setQrcodePhoto(qrcodePicture);
+  			aioSCardRepository.save(aioSCard);
+            	 
+             }else if(aioSCard.getNationalId()==null && aioSCard.getDrivingLicense()!=null) {
+            	 QRCodeWriter writer = new QRCodeWriter();
+   			    
+   			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+   			    
+   			
+   			    	
+   			    	  BitMatrix bitMatrix = writer.encode(
+   			    			  
+   			    			  "NAME    : "+  citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+   			    			  "DL No  : "+ drivingLicense.getDlNo() +"\n"+
+   			    		      "HL No   : "+ healthInsurance.getRssbNo()			  
+   			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+   			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+   			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+   			aioSCard.setHealthInsurance(healthInsurance);
+   			aioSCard.setQrcodePhoto(qrcodePicture);
+   			aioSCardRepository.save(aioSCard);
+             }else if(aioSCard.getNationalId()!=null && aioSCard.getDrivingLicense()!=null) {
+            	 QRCodeWriter writer = new QRCodeWriter();
+    			    
+    			    String qrcodePicture = QRSCANCODEPATH + citizen.getUsername()+"_qr"+".png";
+    			    
+    			
+    			    	
+    			    	  BitMatrix bitMatrix = writer.encode(
+    			    			  
+    			    			  "NAME    : "+ citizen.getFirstname()+" "+citizen.getLastname()+"\n"+
+    			    			  "NID No  : "+ nationalId.getNidNo()+"\n"+
+    			    			  "DL No   : "+ drivingLicense.getDlNo()+"\n"+			  
+    			    		      "HL No   : "+ healthInsurance.getRssbNo()			  
+    			    			            ,BarcodeFormat.QR_CODE, 350, 350);
+    			    			    Path path = FileSystems.getDefault().getPath(qrcodePicture);		
+    			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
+
+    			aioSCard.setHealthInsurance(healthInsurance);
+    			aioSCard.setQrcodePhoto(qrcodePicture);
+    			aioSCardRepository.save(aioSCard);
+             }
+            
+		   
+			
+			 
+		}
+		
 		
 		public void update(AioSCard aioSCard) {
 			aioSCardRepository.save(aioSCard);

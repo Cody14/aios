@@ -26,6 +26,16 @@ public class ApplicationController {
 		return "linknid";
 	}
 	
+	@GetMapping("/linkDl")
+	public String linkDl() {
+		return "linkdl";
+	}
+	
+	@GetMapping("/linkHi")
+	public String linkHi() {
+		return "linkhi";
+	}
+	
 	
 	
 

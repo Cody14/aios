@@ -34,7 +34,6 @@ public class AioSCard extends Card {
 	
 	private String ownerStatus;
 	
-	private String nid="No";
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate issuedDate;
@@ -45,4 +44,15 @@ public class AioSCard extends Card {
 	@OneToOne
 	@JoinColumn(name = "nationalId", referencedColumnName = "id")
     private NationalId nationalId;
+	
+	@OneToOne
+	@JoinColumn(name = "drivingLicense",referencedColumnName = "id")
+	private DrivingLicense drivingLicense;
+	
+	
+	@OneToOne
+	@JoinColumn(name = "healthInsurance",referencedColumnName = "id")
+	private HealthInsurance healthInsurance;
+	
+	
 }

@@ -13,13 +13,13 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Link National Id</title>
+    <title>Link Health Insurance</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/nid.css">
+    <link rel="stylesheet" type="text/css" href="css/hi.css">
     <link rel="stylesheet" type="text/css" href="css/aioscardLink.css">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
     <!-- Font-icon css-->
@@ -188,12 +188,12 @@
         <div class="col-lg-12">
         <div style="height: 680px; width: 100%; ">
         <div style="height: 50px; width: 100%; background-color: #222d32; border-bottom: 1px solid white;">
-        <form th:action="@{/LinkNidAndAio}" method="get"> 
+        <form th:action="@{/LinkHiAndAio}" method="get"> 
          <button class="btn btn-light px-4" style="margin-top:0.6%; margin-left:0.7%; font-weight: bolder;font-family: BrowalliaUPC;float: left;">CARDS INFO</button>
          <input type="text"  name="keyword" style="margin-top: 1%;float: left;" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"   placeholder="Username">
          </form>
          
-         <form th:action="@{/linkAioSCardWithNid}" method="put">
+         <form th:action="@{/linkAioSCardWithHi}" method="put">
           <button class="btn btn-light px-4" style="margin-top:0.6%; margin-left:52.6%; font-weight: bolder;font-family: BrowalliaUPC;float: left;">LINK CARDS</button>
           <input type="text"  name="keyword" style="margin-top: 1%;float: left;" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"   placeholder="Username">
           
@@ -204,8 +204,8 @@
         
         <div style="height: 290px; width: 63%;float: left;">
         <form th:action="@{/LinkNidAndAio}"  method="get">
-        <div style="height: 25px; width: 98.7%;margin-left: 0%;background-color: #009688;">
-        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1%;">NATIONAL ID INFORMATION</h5>
+        <div style="height: 25px; width: 98.7%;margin-left: 0%;background-color: #ffc107;">
+        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1%;">HEALTH INSURANCE INFORMATION</h5>
         </div>
         
         <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
@@ -263,11 +263,11 @@
         <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
         
         <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 3%;">
-        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="nationalId:${nationalIds}" th:text="${nationalId.nidNo}"></h5>
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.rssbNo}"></h5>
         </div>
         
         <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
-        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="nationalId:${nationalIds}" th:text="${nationalId.NIDplaceIssue.sectorName}"></h5>
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.affiliateName}"></h5>
         </div>
         
         
@@ -287,19 +287,20 @@
         </form>
         </div>
         <div style="height: 290px; width: 37%;float: left;">
-        <div style="height: 25px; width: 98%;margin-left: 2%;background-color: #009688;">
-        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1.5%;">NATIONAL ID CARD</h5>
+        <div style="height: 25px; width: 98%;margin-left: 2%;background-color: #ffc107;">
+        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1.5%;">HEALTH INSURANCE CARD</h5>
         </div>
-         <div class="cardi" style=" margin-left: 2%;margin-top: 1%;">
-       <div class="additional" >
+           <div class="cardi " style=" margin-left: 2%;margin-top: 1.8%;">
+    <div class="additional" >
       <div class="user-cardi">
- 
-      <div style="padding-top: 42%;margin-left: 14%;">
-          <span style="padding-bottom: 20%;">
-             <img style=" border-radius: 50%;"  th:src="@{'/uploads/' +  ${#authentication.getPrincipal().getUsername()} + '.jpg'}" width="108" height="138" >
+      <div style="height: 28px; width:100%;padding-top:5%; margin-left:8%; font-size: 18px; color: white; font-weight: bolder;font-family: SimHei;">R.S.S.B</div>
+      <div style="height: 10px; width: 100%; text-transform:uppercase;margin-left:6%; color: white;font-family:Tahoma; font-size: 7px; font-weight: bolder;">Rwanda Social Security Board</div>
+      <div style="padding-top: 26%;margin-left: 14%;" >
+          <span style="padding-bottom: 13%;" >
+             <img alt="" th:src="@{'/uploads/' +  ${#authentication.getPrincipal().getUsername()} + '.jpg'}" width="108" height="132">
            </span>
            <div style="padding-top: 14%;">
-            <span style="color: black; font-weight: bolder;font-family:Cambria Math; font-size: 14px;margin-left: 9%;">NATIONAL ID </span> 
+            <span style="color: black; font-weight: bold;font-family:Lucida Bright; font-size: 13px;">AFFILIATE NAME </span> 
            </div>
           
       </div>
@@ -311,7 +312,7 @@
       </div>
       <div class="more-info">
           <div class="hder" style="height: 40px; width: 100%; border-bottom: 2px solid black;">
-            <div style=" padding-top:3%;  float: left; padding-left: 15%; font-weight: bolder; color: black; font-family: Cambria Math;">REPUBLIC OF RWANDA</div>
+            <div style=" padding-top:3%;  float: left; padding-left: 15%; font-weight: bolder; color: black;font-family: Cambria Math;">REPUBLIC OF RWANDA</div>
             <div class="flg" style="float: right; margin-right: 1%;margin-top: 4px;">
                 <span class="lo">
                   <img alt="" th:src="@{'/uploads/' +  flag + '.png'}" width="60" height="30">
@@ -319,93 +320,93 @@
             </div>
           </div>
           <div class="crdType" style="width: 100%; height: 25px;">
-           <div style="margin-left: 15%;"><span style="color: black;font-family: Cambria; font-size: 12px; font-weight: bolder;">NATIONAL IDENTITY CARD</span> </div>
+           <div style="margin-left: 15%;"><span style="color: black;font-family: Cambria; font-size: 12px; font-weight: bolder;">HEALTH INSURANCE CARD</span> </div>
           </div>
           
-          <div class="crdBody" style="width: 100%; height: 150px;border-bottom: 2px solid black;">
+          <div class="crdBody" style="width: 100%;height: 162px;border-bottom: 2px solid black;">
           <div style="padding-top: 2%;"></div>
-           <span style="margin-left:10px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >FULL NAMES</span>
+           <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >FULL NAMES</span>
               <br>
-       <tr  th:each="nationalId:${nationalIds}">
+       <tr  th:each="healthInsurance:${healthInsurances}">
          <td >
             <span style="color: #fff;
 	text-transform: uppercase;
-
+	
 	border-radius: 90px;
 	font-weight: bold;
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${nationalId.ownerName}"></span>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${healthInsurance.ownerName}"></span>
          </td> 
         </tr>
      <br>
-     <span style="margin-left:10px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >DATE OF BIRTH</span>
+     <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >DATE OF BIRTH</span>
       <br>
-           <tr  th:each="nationalId:${nationalIds}">
+           <tr  th:each="healthInsurance:${healthInsurances}">
          <td >
             <span style="color: #fff;
 	text-transform: uppercase;
+	
 	border-radius: 90px;
 	font-weight: bold;
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:13px; font-weight: bolder; font-family:Cambria Math;" th:text="${nationalId.ownerDob}"></span>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:13px; font-weight: bolder; font-family: Cambria Math;" th:text="${healthInsurance.ownerDob}"></span>
          </td> 
         </tr>
          <br>
-     <span style="margin-left:10px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >GENDER</span>
-     <span style="margin-left:85px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >PLACE ISSUE</span>
+     <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >GENDER</span>
        <br>
-        <tr  th:each="nationalId:${nationalIds}">
+        <tr  th:each="healthInsurance:${healthInsurances}">
          <td >
             <span style="color: #fff;
 	text-transform: uppercase;
-
+	
 	border-radius: 90px;
 	font-weight: bold;
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${nationalId.ownerGender}"></span>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${healthInsurance.ownerGender}"></span>
          </td> 
      </tr>
-     
-     <tr  th:each="nationalId:${nationalIds}">
+     <br>
+     <span style="margin-left:10px;color: black;font-family:Futara; font-size:11px; font-weight: bold" >RSSB ID No</span>
+
+     <tr  th:each="healthInsurance:${healthInsurances}">
          <td >
             <span style="color: #fff;
 	text-transform: uppercase;
+	
 	border-radius: 90px;
 	font-weight: bold;
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:38%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${nationalId.NIDplaceIssue.sectorName}"></span>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:1%; font-size:15px; font-weight: bolder; font-family: Cambria Math;" th:text="${healthInsurance.rssbNo}"></span>
          </td> 
      </tr>        
           </div>
           
-          <div class="crdNo" style="width: 100%; height: 33px;margin-left: 4%;">
+          <div class="crdNo" style="width: 100%; height: 23px;padding-left: 3%;">
           
-        
-        <tr  th:each="nationalId:${nationalIds}">
+          <tr  th:each="healthInsurance:${healthInsurances}">
            <td >
-           
-            <span style="color:white;font-weight:bolder;font-size:17px;" th:text="${nationalId.nidNo}"></span>
-           
+            <span style="color:white;font-weight:bolder;font-size:14px; " th:text="${healthInsurance.affiliateName}"></span>
          </td> 
         </tr>
-         
           
-       
+          
+          
         </div>
       </div>
     </div>
     <div class="general">
      <div style="padding-top: 3%;">
-      <span style="margin-left:5%;color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;">If found, please return this card to</span><br>
-      <span style=" margin-left:14%; color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;"> the nearest police station</span> 
+      <span style=" margin-left:5.5%; color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;">If found, please return this card to</span><br>
+      <span style=" margin-left:15%; color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;"> the nearest police station</span> 
      </div>
      <div style="margin-top:2%; background-color:black; height: 2px;width: 100%;"></div>
     
@@ -413,9 +414,9 @@
      
      
     
-    <div style="padding-top: 48%;">
+    <div style="padding-top: 45%;">
        <span class="lo">
-       <img alt="" th:src="@{'/uploads/' +  scn21 + '.jpg'}" width="275" height="55">
+       <img alt="" th:src="@{'/uploads/' +  scn21 + '.jpg'}" width="272" height="60">
       </span>
     </div>
      

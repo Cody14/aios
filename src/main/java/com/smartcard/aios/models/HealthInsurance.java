@@ -3,7 +3,7 @@ package com.smartcard.aios.models;
 
 
 import javax.persistence.Entity;
-
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,4 +19,6 @@ public class HealthInsurance extends Card {
        private String rssbNo;
        private String affiliateName;
        private String citizenUsername;
+       @OneToOne(mappedBy = "healthInsurance")
+       private AioSCard aioSCard;
 }

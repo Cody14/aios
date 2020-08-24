@@ -13,13 +13,13 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Link National Id</title>
+    <title>LINK Driving License</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/nid.css">
+    <link rel="stylesheet" type="text/css" href="css/dl.css">
     <link rel="stylesheet" type="text/css" href="css/aioscardLink.css">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
     <!-- Font-icon css-->
@@ -98,7 +98,7 @@
       
       <ul class="app-menu">
        <li><a class="app-menu__item " th:href="@{/citizens}"><i class="app-menu__icon fa fa-edit"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Fill The Form</span></a></li>
-        <li class="treeview"><a class="app-menu__item " href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-id-card"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Add Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-id-card"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Add Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
             <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
@@ -107,7 +107,7 @@
         </li>
         <li><a class="app-menu__item" th:href="@{/aioSCards}"><i class="app-menu__icon fa fa-credit-card-alt"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label" >AIO SMART CARD</span></a></li>
         
-        <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-link"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">LINK Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-link"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">LINK Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" th:href="@{/linkNid}"><i class="icon fa fa-dot-circle-o"></i> Link National Id</a></li>
             <li><a class="treeview-item" th:href="@{/linkDl}" ><i class="icon fa fa-dot-circle-o"></i> Link Driving License</a></li>
@@ -117,9 +117,9 @@
         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-chain-broken"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">UNLINK Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-dot-circle-o"></i> Unlink National Id</a></li>
-            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Unlink Driving License</a></li>
-            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Unlink Health Insurance</a></li>
+            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
+            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
+            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Health Insurance</a></li>
           </ul>
         </li>
         
@@ -134,15 +134,15 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;" ><i class="fa fa-id-card"></i> Link NATIONAL ID</h1>
-          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">Link National Id with AIO Smart Card</p>
+          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;"  ><i class="fa fa-id-card"></i> LINK DRIVING LICENSE</h1>
+          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">Link Driving License With AIO Smart Card</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
           <li style="font-weight: bolder;font-family:Cambria Math;text-transform: capitalize; font-size: 12px;" class="breadcrumb-item"><a th:href="@{/citizens}">Back</a></li>
         </ul>
       </div>
-        <div class="row">
+      <div class="row">
         <div class="col-md-6 col-lg-3">
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
             <div class="info">
@@ -184,16 +184,16 @@
               <h2 style=" border-bottom-color: #009688; font-family: Gabriola; text-transform:uppercase ;" class="mb-3 line-head" id="dialogs">INFOS</h2>
             </div>
             
-       <div class="row">
+         <div class="row">
         <div class="col-lg-12">
         <div style="height: 680px; width: 100%; ">
         <div style="height: 50px; width: 100%; background-color: #222d32; border-bottom: 1px solid white;">
-        <form th:action="@{/LinkNidAndAio}" method="get"> 
+        <form th:action="@{/LinkDlAndAio}" method="get"> 
          <button class="btn btn-light px-4" style="margin-top:0.6%; margin-left:0.7%; font-weight: bolder;font-family: BrowalliaUPC;float: left;">CARDS INFO</button>
          <input type="text"  name="keyword" style="margin-top: 1%;float: left;" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"   placeholder="Username">
          </form>
          
-         <form th:action="@{/linkAioSCardWithNid}" method="put">
+         <form th:action="@{/linkAioSCardWithDl}" method="put">
           <button class="btn btn-light px-4" style="margin-top:0.6%; margin-left:52.6%; font-weight: bolder;font-family: BrowalliaUPC;float: left;">LINK CARDS</button>
           <input type="text"  name="keyword" style="margin-top: 1%;float: left;" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"   placeholder="Username">
           
@@ -204,8 +204,8 @@
         
         <div style="height: 290px; width: 63%;float: left;">
         <form th:action="@{/LinkNidAndAio}"  method="get">
-        <div style="height: 25px; width: 98.7%;margin-left: 0%;background-color: #009688;">
-        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1%;">NATIONAL ID INFORMATION</h5>
+        <div style="height: 25px; width: 98.7%;margin-left: 0%;background-color: #17a2b8;">
+        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1%;">DRIVING LICENSE INFORMATION</h5>
         </div>
         
         <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
@@ -263,11 +263,11 @@
         <div style="height: 245px; width: 32%;float: left; margin-left: 1%; ">
         
         <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 3%;">
-        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="nationalId:${nationalIds}" th:text="${nationalId.nidNo}"></h5>
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.dlNo}"></h5>
         </div>
         
         <div style="border-width:2px;border-style:solid; border-color:#babfbb; border-radius:3px; height: 37px; width: 99%;margin-top: 6%;">
-        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="nationalId:${nationalIds}" th:text="${nationalId.NIDplaceIssue.sectorName}"></h5>
+        <h5  style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px; color: #555c58; margin-left: 4%; margin-top: 3.2%;" th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.dlplaceIssue.districtName}"></h5>
         </div>
         
         
@@ -287,19 +287,21 @@
         </form>
         </div>
         <div style="height: 290px; width: 37%;float: left;">
-        <div style="height: 25px; width: 98%;margin-left: 2%;background-color: #009688;">
-        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1.5%;">NATIONAL ID CARD</h5>
+        <div style="height: 25px; width: 98%;margin-left: 2%;background-color: #17a2b8;">
+        <h5 style="font-size: 13px; color: black;font-weight: bolder;font-family: Cambria Math; text-align: center;padding-top: 1.5%;">DRIVING LICENSE CARD</h5>
         </div>
-         <div class="cardi" style=" margin-left: 2%;margin-top: 1%;">
-       <div class="additional" >
+        
+        
+           <div class="cardi"  style="float:left; margin-left: 2%;margin-top: 1.8%;margin-bottom: 1.2%;">
+    <div class="additional" >
       <div class="user-cardi">
  
-      <div style="padding-top: 42%;margin-left: 14%;">
+      <div style="padding-top: 42%;margin-left: 14%;" >
           <span style="padding-bottom: 20%;">
-             <img style=" border-radius: 50%;"  th:src="@{'/uploads/' +  ${#authentication.getPrincipal().getUsername()} + '.jpg'}" width="108" height="138" >
+             <img style=" border-radius: 50%;"  th:src="@{'/uploads/' +  ${#authentication.getPrincipal().getUsername()} + '.jpg'}" width="108" height="138">
            </span>
            <div style="padding-top: 14%;">
-            <span style="color: black; font-weight: bolder;font-family:Cambria Math; font-size: 14px;margin-left: 9%;">NATIONAL ID </span> 
+            <span style="color: black; font-weight: bold;font-family:Lucida Bright; font-size: 13px;">DRIVING LICENSE</span> 
            </div>
           
       </div>
@@ -311,7 +313,7 @@
       </div>
       <div class="more-info">
           <div class="hder" style="height: 40px; width: 100%; border-bottom: 2px solid black;">
-            <div style=" padding-top:3%;  float: left; padding-left: 15%; font-weight: bolder; color: black; font-family: Cambria Math;">REPUBLIC OF RWANDA</div>
+            <div style=" padding-top:3%;  float: left; padding-left: 15%; font-weight: bolder; color: black;font-family: Cambria Math;">REPUBLIC OF RWANDA</div>
             <div class="flg" style="float: right; margin-right: 1%;margin-top: 4px;">
                 <span class="lo">
                   <img alt="" th:src="@{'/uploads/' +  flag + '.png'}" width="60" height="30">
@@ -319,108 +321,325 @@
             </div>
           </div>
           <div class="crdType" style="width: 100%; height: 25px;">
-           <div style="margin-left: 15%;"><span style="color: black;font-family: Cambria; font-size: 12px; font-weight: bolder;">NATIONAL IDENTITY CARD</span> </div>
+           <div style="margin-left: 22%;"><span style="color: black;font-family: Cambria; font-size: 12px; font-weight: bolder;">DRIVING LICENSE</span> </div>
           </div>
           
-          <div class="crdBody" style="width: 100%; height: 150px;border-bottom: 2px solid black;">
-          <div style="padding-top: 2%;"></div>
-           <span style="margin-left:10px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >FULL NAMES</span>
+          <div class="crdBody" style="width: 100%; height: 150px; border-bottom: 2px solid black;">
+          
+           <div style="padding-top: 2%;"></div>
+           <div style="height: 45px; width: 100%;">
+           <span style="margin-left:10px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >FULL NAMES</span>
               <br>
-       <tr  th:each="nationalId:${nationalIds}">
+           <tr  th:each="drivingLicense:${drivingLicenses}">
          <td >
             <span style="color: #fff;
 	text-transform: uppercase;
-
+	
 	border-radius: 90px;
 	font-weight: bold;
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${nationalId.ownerName}"></span>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${drivingLicense.ownerName}"></span>
          </td> 
         </tr>
-     <br>
-     <span style="margin-left:10px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >DATE OF BIRTH</span>
-      <br>
-           <tr  th:each="nationalId:${nationalIds}">
+
+           </div>
+           <div style="height: 45px; width: 100%;">
+            <span style="margin-left:10px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >DATE OF BIRTH</span>
+            <span style="margin-left:130px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >GENDER</span>
+            <br>
+           
+           <tr  th:each="drivingLicense:${drivingLicenses}">
          <td >
             <span style="color: #fff;
 	text-transform: uppercase;
+	
 	border-radius: 90px;
 	font-weight: bold;
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:13px; font-weight: bolder; font-family:Cambria Math;" th:text="${nationalId.ownerDob}"></span>
+    -webkit-transform: translate(-50%, -50%);color:white;margin-left:0%; text-align:center; font-size:13px; font-weight: bolder; font-family: Cambria Math;" th:text="${drivingLicense.ownerDob}"></span>
          </td> 
         </tr>
-         <br>
-     <span style="margin-left:10px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >GENDER</span>
-     <span style="margin-left:85px; color: black;font-family:Cambria Math; font-size:12px; font-weight: bold" >PLACE ISSUE</span>
-       <br>
-        <tr  th:each="nationalId:${nationalIds}">
+        
+        <tr  th:each="drivingLicense:${drivingLicenses}">
          <td >
             <span style="color: #fff;
 	text-transform: uppercase;
-
+	
 	border-radius: 90px;
 	font-weight: bold;
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${nationalId.ownerGender}"></span>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:42%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${drivingLicense.ownerGender}"></span>
+         </td> 
+        </tr>
+           
+           
+           </div>
+           <div style="height: 50px; width: 100%; ">
+           <div style="height: 50px; width: 35%; float: left;">
+           <span style="margin-left:10px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >CATEGORY</span>
+           
+           <br>
+      
+      <tr  th:each="drivingLicense:${drivingLicenses}">
+         <td >
+            <span style="color: #fff;
+	text-transform: uppercase;
+	
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:12%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${drivingLicense.cat_A} + ' ' + ${drivingLicense.cat_A1}  + ' ' + ${drivingLicense.cat_B} + ' ' +  ${drivingLicense.cat_B1} +  ' ' + ${drivingLicense.cat_C} + ' ' + ${drivingLicense.cat_D} + ' ' + ${drivingLicense.cat_D1} + ' ' + ${drivingLicense.cat_E}"></span>
          </td> 
      </tr>
-     
-     <tr  th:each="nationalId:${nationalIds}">
+          
+       
+           </div>
+           
+           <div style="height: 50px; width: 36%; float: left;">
+            <span style=" margin-left:5px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >PLACE ISSUE</span>
+            <br>
+            
+            <tr  th:each="drivingLicense:${drivingLicenses}">
          <td >
             <span style="color: #fff;
 	text-transform: uppercase;
+	
 	border-radius: 90px;
 	font-weight: bold;
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:38%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${nationalId.NIDplaceIssue.sectorName}"></span>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:10%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${drivingLicense.dlplaceIssue.districtName}"></span>
          </td> 
-     </tr>        
+     </tr>  
+            
+           </div>
+           
+           <div style="height: 50px; width: 28%; float: left;">
+           <span style="margin-left:6px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >EXPIRY DATE</span>
+           <br>
+           <tr  th:each="drivingLicense:${drivingLicenses}">
+         <td >
+            <span style="color: #fff;
+	text-transform: uppercase;
+	
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white;text-align:center; font-size:12px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.expireDate_B}"></span>
+         </td> 
+     </tr>
+           </div>
+           
+           </div>       
+           
+           
           </div>
           
-          <div class="crdNo" style="width: 100%; height: 33px;margin-left: 4%;">
+          <div class="crdNo" style="width: 100%; height: 33px;">
           
         
-        <tr  th:each="nationalId:${nationalIds}">
+        <div style="padding-top: 1%;margin-left: 2%;">
+        <tr  th:each="drivingLicense:${drivingLicenses}">
            <td >
-           
-            <span style="color:white;font-weight:bolder;font-size:17px;" th:text="${nationalId.nidNo}"></span>
-           
+            <span style="color:white;font-weight:bolder; font-size:17px; padding-right: 37%; " th:text="${drivingLicense.dlNo}"></span>
          </td> 
         </tr>
-         
+                
+      
           
-       
+        </div>
         </div>
       </div>
     </div>
     <div class="general">
      <div style="padding-top: 3%;">
-      <span style="margin-left:5%;color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;">If found, please return this card to</span><br>
-      <span style=" margin-left:14%; color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;"> the nearest police station</span> 
+      <span style="color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;">If found, please return this card to</span><br>
+      <span style=" margin-left:11%; color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;"> the nearest police station</span> 
      </div>
-     <div style="margin-top:2%; background-color:black; height: 2px;width: 100%;"></div>
+     <div style="margin-top:1%; background-color:black; height: 2px;width: 100%;"></div>
+      <div style="margin-top:3px; width: 100%; height: 135px; background-color: white;">
+      <div style="height: 5px; width: 100%;"></div>
+      <div style=" border-right: 1px solid white; height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
+      <span style="color: #f2aecb; font-size: 10px; font-family:Rockwell Nova Cond; font-weight: bolder;">CATEGORY</span>
+      </div>
+      <div style=" border-right: 1px solid white; height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
+      <span style="color:#f2aecb; font-size: 10px; font-family:Rockwell Nova Cond; font-weight: bolder;text-align: center;">ISSUED DATE</span>
+      </div>
+      <div style=" border-right: 1px solid white; height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
+       <span style="color: #f2aecb; font-size: 10px; font-family:Rockwell Nova Cond; font-weight: bolder;text-align: center;">CATEGORY</span>
+      </div>
+      <div style=" border-right: 1px solid white; height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
+      <span style="color: #f2aecb; font-size: 10px; font-family:Rockwell Nova Cond; font-weight: bolder;text-align: center;">ISSUED DATE</span>
+      </div>
+      <br>
+      <div style="border-right: 1px solid white; margin-top:1px; height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
+      <span style="color: white; font-size: 10px; font-weight: bolder;">   A1  <img src="/uploads/A1.png"  style="margin-left: 4%;" alt="Bus"  width="17" height="20">  <img src="/assets/uploads/w.png"  style="margin-left: 4%; " alt="Bus"  width="12" height="10"></span>
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
+     
+      <tr  th:each="drivingLicense:${drivingLicenses}">
+         
+         <td >
+         
+            <span style="color: #fff;
+	text-transform: uppercase;
+color:white;  font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_A1}"></span>
+         </td> 
+        </tr>
+     
+      </div>
+      <div style="border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
+       <span style=" color: white; font-size: 10px; font-weight: bolder;text-align: center; ">A<img src="/uploads/A1.png"  style="margin-left: 4%;" alt="Bus"  width="17" height="20"></span>
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;   height: 24px; width: 25%; background-color: #292929; float: left;text-align:center; ">
+      
+       <tr  th:each="drivingLicense:${drivingLicenses}">
+         
+         <td >
+         
+            <span style="color: #fff;
+	text-transform: uppercase;
+color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_A}"></span>
+         </td> 
+        </tr>
+        
+        
+      </div>
+      <br>
+      <div style=" border-right: 1px solid white; margin-top:1px; height: 24px; width: 25%; background-color: #292929; float: left; padding-left: 3%;">
+      <span style="color: white; font-size: 10px; font-weight: bolder;">B1 <img src="/uploads/B1.png"  style="margin-left: 4%;" alt="Bus"  width="22" height="27"> <img src="/assets/uploads/w.png"  style="margin-left: 2%; " alt="Bus"  width="12" height="10"></span>
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
+      
+      <tr  th:each="drivingLicense:${drivingLicenses}">
+         
+         <td >
+         
+            <span style="color: #fff;
+	text-transform: uppercase;
+ color:white; font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_B1}"></span>
+         </td> 
+        </tr>
+      
+      
+      
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
+       <span style="color: white; font-size: 10px; font-weight: bolder;text-align: center;">B  <img src="/uploads/B1.png"  style="margin-left: 4%;" alt="Bus"  width="22" height="27"></span>
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;   height: 24px; width: 25%; background-color: #292929;text-align:center; float: left;">
+       
+      
+        
+        <tr  th:each="drivingLicense:${drivingLicenses}">
+         
+         <td >
+         
+    <span style="color: #fff;
+	text-transform: uppercase;
+	color:white;  font-size:11px; text-align:center; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_B}"></span>
+         </td> 
+        </tr>
     
-    
+        
+      </div>
+      <br>
+      <div style=" border-right: 1px solid white; margin-top:1px; height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
+      <span style="color: white; font-size: 10px; font-weight: bolder;">D1 <img src="/uploads/D1.png"  style="margin-left: 4%;" alt="Bus"  width="25" height="28"></span>
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
+       <tr  th:each="drivingLicense:${drivingLicenses}">
+         
+         <td >
+         
+            <span style="color: #fff;
+	text-transform: uppercase;
+   color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_D1}"></span>
+         </td> 
+        </tr>
+        
+        
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
+       <span style="color: white; font-size: 10px; font-weight: bolder;text-align: center;">D <img src="/uploads/D.png"  style="margin-left: 4%;" alt="Bus"  width="22" height="24"></span>
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;   height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
+      
+      <tr  th:each="drivingLicense:${drivingLicenses}">
+         
+         <td >
+         
+            <span style="color: #fff;
+	text-transform: uppercase;
+color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_D}"></span>
+         </td> 
+        </tr>
+      
+      
+      </div>
+      <br>
+      <div style=" border-right: 1px solid white; margin-top:1px; height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
+      <span style="color: white; font-size: 10px; font-weight: bolder;">C <img src="/uploads/C.png"  style="margin-left: 14%;" alt="Bus"  width="26" height="24"></span>
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
+      
+             <tr  th:each="drivingLicense:${drivingLicenses}">
+         
+         <td >
+         
+            <span style="color: #fff;
+	text-transform: uppercase;
+color:white;  font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_C}"></span>
+         </td> 
+        </tr>
+      
+      
+      
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
+       <span style="color: white; font-size: 10px; font-weight: bolder;text-align: center;">E  <img src="/uploads/E.png"  style="margin-left: 8%;" alt="Bus"  width="25" height="30"></span>
+      </div>
+      <div style=" border-right: 1px solid white; margin-top:1px;   height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
      
      
+      <tr  th:each="drivingLicense:${drivingLicenses}">
+         
+         <td >
+         
+            <span style="color: #fff;
+	text-transform: uppercase;
+color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_E}"></span>
+         </td> 
+        </tr>
+     
+     
+      </div>
+      <br>
+       
+
+
+      </div>
     
-    <div style="padding-top: 48%;">
+      <div style="padding-top: 1%;">
        <span class="lo">
-       <img alt="" th:src="@{'/uploads/' +  scn21 + '.jpg'}" width="275" height="55">
+       <img alt="" th:src="@{'/uploads/' +  scn21 + '.jpg'}" width="268" height="48">
       </span>
     </div>
-     
-    </div>
+    
   </div>
+
+</div>
         
         
         </div>
@@ -768,13 +987,18 @@
        
        
       </div>
-            
-          </div>
-        </div>
-        
-      </div>
-      
      
+   
+
+      </div>
+  </div>
+</div>
+        
+
+     
+  
+
+
       
     </main>
     <!-- Essential javascripts for application to work-->
@@ -845,7 +1069,8 @@
       }
     </script>
     
-    <script type="text/javascript">
+    
+      <script type="text/javascript">
  
  var cardo = document.querySelector('.cardo');
  cardo.addEventListener( 'click', function() {
@@ -853,5 +1078,6 @@
  });
  
  </script>
+    
   </body>
 </html>
