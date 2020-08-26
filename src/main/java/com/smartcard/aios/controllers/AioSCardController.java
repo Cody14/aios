@@ -95,8 +95,13 @@ public class AioSCardController {
 		List<Sector> sectorList = sectorService.getSectors();
 		model.addAttribute("sectors", sectorList);
 		
-		return "page-invoice";
+		//return "print";
+		
+		return "printAIO";
 	}
+	
+	
+	
 	
 	
 	
@@ -124,6 +129,34 @@ public class AioSCardController {
 		
 		return "aioSCard";
 	}
+	
+	
+	@GetMapping("/aioSCardCitizenInfosToPrint")
+	public String getAioSmartCardInfosToPrint(Model model,String keyword) {
+		if(keyword!=null) {
+			model.addAttribute("citizens", citizenService.findByKeyword(keyword));
+			model.addAttribute("aioSCards", aioSCardService.findByKeyword(keyword));
+			List<Sector> sectorList = sectorService.getSectors();
+			model.addAttribute("sectors", sectorList);
+		}else {
+			
+			//List<Citizen> citizenList = citizenService.getCitizens();
+			//model.addAttribute("citizens", citizenList);
+		}
+		
+		List<District> districtList = districtService.getDistricts();
+		model.addAttribute("districts", districtList);
+		
+		List<Village> villageList = villageService.getVillages();
+		model.addAttribute("villages", villageList);
+		
+		List<Sector> sectorList = sectorService.getSectors();
+		model.addAttribute("sectors", sectorList);
+		
+		return "printAIO";
+	}
+	
+	
 	
 	@GetMapping("/LinkNidAndAio")
 	public String getNidAndAioSCard(Model model,String keyword) {

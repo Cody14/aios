@@ -1,0 +1,59 @@
+
+@import url(https://fonts.googleapis.com/css?family=Iceland);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800);
+
+
+.scene {
+  width: 450px;
+  height: 260px;
+  border: 1px solid #CCC;
+  margin: 40px 0;
+  perspective: 600px;
+  margin-left: 3%;
+  border-radius: 10px;
+ 
+}
+
+.cardi {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+  
+  
+   
+}
+
+.cardi.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  color: white;
+
+
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
+.cardName{
+	font: 800 28px @sansSerif;
+}
+.card__face--front {
+  background-image:url("/uploads/e23.jpg");
+  background-size:cover;
+  border-radius: 10px;
+}
+
+.card__face--back {
+  background: #baba86;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}

@@ -13,16 +13,23 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>ALL IN ONE SMART CARD</title>
+    <title>Print AIO Smart Card</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/aioscard.css">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/aioscardPrint.css">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <style>
+  
+  
+  
+  </style>
+  
   </head>
   <body class="app sidebar-mini">
     <!-- Navbar-->
@@ -80,7 +87,7 @@
           <ul class="dropdown-menu settings-menu dropdown-menu-right">
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
             <li><a class="dropdown-item" href="page-user.html"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-            <li><a class="dropdown-item" th:href="@{/login}"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+            <li><a class="dropdown-item" href="page-login.html"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
           </ul>
         </li>
       </ul>
@@ -88,41 +95,40 @@
     <!-- Sidebar menu-->
     <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
     <aside class="app-sidebar">
-       <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" th:src=" @{'/uploads/' +  ${#authentication.getPrincipal().getUsername()} + '.jpg'}" height="38" width="38" alt="User">
+      <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" th:src=" @{'/uploads/' +  ${#authentication.getPrincipal().getUsername()} + '.jpg'}" height="38" width="38" alt="User">
         <div>
           <p class="app-sidebar__user-name"> <span style="font-weight: bolder;font-family:Cambria Math;text-transform: capitalize; font-size: 16px;" th:text="${#authentication.getPrincipal().getUsername()}"></span></p>
           <p class="app-sidebar__user-designation" style="font-family: Monaco; font-size: 12px; text-transform:capitalize ;font-weight: bolder;" >AIO SYSTEM USER</p>
         </div>
       </div>
-      
       <ul class="app-menu">
-       <li><a class="app-menu__item " th:href="@{/citizens}"><i class="app-menu__icon fa fa-edit"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Fill The Form</span></a></li>
+        <li><a class="app-menu__item " th:href="@{/citizens}"><i class="app-menu__icon fa fa-edit"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Fill The Form</span></a></li>
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-id-card"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Add Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
-            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
-            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Health Insurance</a></li>
+            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-circle-o"></i> National Id</a></li>
+            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-circle-o"></i> Driving License</a></li>
+            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-circle-o"></i> Health Insurance</a></li>
           </ul>
         </li>
-        <li><a class="app-menu__item active" th:href="@{/aioSCards}"><i class="app-menu__icon fa fa-credit-card-alt"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label" >AIO SMART CARD</span></a></li>
+        <li><a class="app-menu__item" th:href="@{/aioSCards}"><i class="app-menu__icon fa fa-credit-card-alt"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label" >AIO SMART CARD</span></a></li>
         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-link"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">LINK Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" th:href="@{/linkNid}"><i class="icon fa fa-dot-circle-o"></i> Link National Id</a></li>
-            <li><a class="treeview-item" th:href="@{/linkDl}" ><i class="icon fa fa-dot-circle-o"></i> Link Driving License</a></li>
-            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Link Health Insurance</a></li>
+            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-circle-o"></i> National Id</a></li>
+            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-circle-o"></i> Driving License</a></li>
+            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-circle-o"></i> Health Insurance</a></li>
           </ul>
         </li>
         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-chain-broken"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">UNLINK Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
-            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
-            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Health Insurance</a></li>
+            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-circle-o"></i> National Id</a></li>
+            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-circle-o"></i> Driving License</a></li>
+            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-circle-o"></i> Health Insurance</a></li>
           </ul>
         </li>
         
-        <li><a class="app-menu__item" th:href="@{/aiosCardPrint}"><i class="app-menu__icon fa fa-print"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label" >PRINT AIOS CARD</span></a></li>
+        <li><a class="app-menu__item active" th:href="@{/aiosCardPrint}"><i class="app-menu__icon fa fa-print"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label" >PRINT AIOS CARD</span></a></li>
         
         <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">ABOUT US</span></a></li>
       
@@ -133,198 +139,42 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;" ><i class="fa fa-credit-card-alt"></i> ALL IN ONE SMART CARD</h1>
-          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">Smart Card That is able to hold other cards information</p>
+          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;" ><i class="fa fa-print"></i> AIO Smart Card Print</h1>
+          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">Print AIO Smart Card with its all connected other cards</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item" style="font-weight: bolder;font-family:Cambria Math;text-transform: capitalize; font-size: 12px;" ><a th:href="@{/citizens}">Back</a></li>
+          <li style="font-weight: bolder;font-family:Cambria Math;text-transform: capitalize; font-size: 12px;" class="breadcrumb-item"><a href="#">Refresh</a></li>
         </ul>
       </div>
-     <div class="row">
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small primary coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
-            <div class="info">
-              <h4 style="font-weight: bolder;font-family:Gabriola;text-transform: uppercase; font-size: 20px; ">NATIONAL ID</h4>
-              <p style="font-weight: bolder;font-family: Agency FB;"><b>5</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small info coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
-            <div class="info">
-              <h4 style="font-weight: bolder;font-family:Gabriola;text-transform: uppercase; font-size: 20px;">DRIVING LICENSE</h4>
-              <p style="font-weight: bolder;font-family: Agency FB;"><b>25</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small warning coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
-            <div class="info">
-              <h4 style="font-weight: bolder;font-family:Gabriola;text-transform: uppercase; font-size: 20px;">HEALTH INSURANCE</h4>
-              <p style="font-weight: bolder;font-family: Agency FB;"><b>10</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small danger coloured-icon"><i class="icon fa fa-credit-card-alt fa-3x"></i>
-            <div class="info">
-              <h4 style="font-weight: bolder;font-family:Gabriola;text-transform: uppercase; font-size: 20px;">AIO SMART CARD</h4>
-              <p style="font-weight: bolder;font-family: Agency FB;"><b>500</b></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-       <div class="tile mb-4">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="page-header">
-              <h2 style=" border-bottom-color: #009688; font-family: Gabriola; text-transform:uppercase ;"  class="mb-3 line-head" id="dialogs">INFOS</h2>
-            </div>
-            
-       <div class="row">
-        <div class="col-md-7">
-        
-        <div style="height: 320px; width: 100%; background-color:#dc3545;border-radius: 3px;">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="tile">
+          
+            <section class="invoice">
+              <div class="row mb-4">
+                <div class="col-6">
+                  <h2 class="page-header" style="font-size: 17px; text-transform: uppercase;font-family: Agency FB; font-weight: bolder;margin-left: 8%;"><i class="fa fa-globe"></i> AIO SMART CARD</h2>
+                </div>
+              </div>
+              <div class="row">
+              
+              <div class="col-md-11">
+              <div style="height: 340px; width: 100%; background-color:#009688;border-radius: 3px;margin-left: 4%;">
+              <div style="height: 50px; width: 100%; background-color: orange;border-bottom: 1px solid white;">
+              <form th:action="@{/aioSCardCitizenInfosToPrint}" method="get"> 
+              <div style="height: 50px; width: 100%; background-color: #222d32;border-bottom: 1px solid white;">
         
         
-        <form th:action="@{/aioSCardCitizenInfos}" method="get"> 
-        <div style="height: 50px; width: 100%; background-color: #222d32;border-bottom: 1px solid white;">
-        
-        
-		    <button class="btn btn-light px-5" style="margin-top:1%; margin-left:1%; font-weight: bolder;font-family: BrowalliaUPC;">GET INFO</button>
-		    <input type="text"  name="keyword" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"  placeholder="Username">
+		       <button class="btn btn-light px-5" style="margin-top:0.6%; margin-left:1%; font-weight: bolder;font-family: BrowalliaUPC;">GET INFO</button>
+		      <input type="text"  name="keyword" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"  placeholder="Username">
 		     
        
-        </div>
-         </form>
-        <form th:action="@{/nationalIdCitizenInfos}" th:object="${citizen}" method="get"> 
-				<div style="height: 260px;margin-top:3px; width: 96%; margin-left:2%;">
-			
-			<div style="float: left;height: 260px;width: 33.5%; padding-right: 7px;">
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%; color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">FIRST NAME</label>
-			</div>
-			
-			<div style=" border-radius:3px;  margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.firstname}"></span>
-
-			</div>
-			
-			<div style="text-align: center;">
-			  	<label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">LAST NAME</label>
-			</div>
-			
-		
-			<div style=" border-radius:3px; margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-	
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.lastname}"></span>
-	
-			</div>
-			
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">DOB</label>
-			</div>
-			
-			<div style=" border-radius:3px;  margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-	
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.dateOfBirth}"></span>
-
-			</div>
-			
-           
-            
-           
-			
-			</div>
-			
-			<div style="float: left;height: 260px;width: 33.5%;padding-right: 7px;">
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">GENDER</label>
-			</div>
-			
-			<div style=" border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-	
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.gender}"></span>
-
-			</div>
-			<div style="text-align: center;">
-			<label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">CATEGORY</label>
-			</div>
-			
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.category}"></span>
-
-			</div>
-			<div style="text-align: center;">
-			 <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">B.PLACE</label>
-			</div>
-			
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-	
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.birthPlace.districtName}"></span>
-
-			</div>
-            
-          
-           
-           
-			
-			</div>
-			
-			<div style="float: left;height: 260px;width: 33%;padding-right: 7px;">
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">C.PLACE</label>
-			</div>
-            
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-	
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.currentPlace.villageName}"></span>
-
-			</div>
-			<div style="text-align: center;">
-			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">M.STATUS</label>
-			</div>
-			
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-	
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.martialStatus}"></span>
-
-			</div>
-			<div style="text-align: center;">
-			 <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">USERNAME</label>
-			</div>
-			
-			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-		
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.username}"></span>
-
-			</div>
-           
-           
-           
-			</div>
-			
-			
-			</div>
-            </form>
-        
-        </div>
-        </div>
-        <div class="col-md-5">
-        
-        <div style="height: 320px; width: 100%; background-color: #dc3545;border-radius: 3px;">
-          <form >
-        <div style="height: 50px; width: 100%;padding-top: 1%; background-color: #222d32;border-bottom: 1px solid white;">
-        
-        <div style="margin-left: 1.4%;margin-top: 1.5px;">
-		    <button style="font-family: BrowalliaUPC;font-weight: bolder;"  type="button" id="submit" class="btn btn-light px-5" data-toggle="modal" data-target="#addModal">ADD AIO</button>  
-        </div>
-        
-         <div class="scene scene--cardi" style="margin-top: 2.5%;margin-left: 5%;">
+              </div>
+              </form>
+            <div id="GFG"> 
+            <div style="float: left; margin-left: 5%;">
+           <div class="scene scene--cardi" style="margin-top: 3%;margin-left: 4%; ">
            <div class="cardi">
            <div class="card__face card__face--front">
           <div style="height: 35px; width: 100%;">
@@ -338,7 +188,8 @@
           </div>
       
         <div style="height: 75px; width: 100%; border-radius: 0px 0px 9px 9px;float: left;">
-         
+           <tr  th:each="aioSCard:${aioSCards}">
+         <td >
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -346,10 +197,18 @@
       font-size:22px;
       letter-spacing:12.5px;
       font-weight: bolder;
-      font-family:Agency FB;
-      font-variant-numeric: tabular-nums;
-      text-shadow: -5px 1px 3px black;" th:each="aioSCard:${aioSCards}" th:text="${aioSCard.aioscardNo}"></span>
       
+      font-family:Agency FB;
+      
+      
+      font-variant-numeric: tabular-nums;
+      text-shadow: -5px 1px 3px black;
+      "th:text="${aioSCard.aioscardNo}"></span>
+         </td> 
+        </tr> 
+         
+        
+          
        <div style="height: 40px; width: 100%;">
        
         <h6 style="font-size: 9px;margin-left: 33%;
@@ -361,7 +220,8 @@
           text-shadow: -5px 1px 3px black;
           float: left;
           ">VALID FROM <br> 
-         
+          <tr  th:each="aioSCard:${aioSCards}">
+         <td >
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -374,8 +234,9 @@
       text-shadow: -5px 1px 3px black;
       float: left;
       margin-top: 2%;
-      " th:each="aioSCard:${aioSCards}" th:text="${#dates.format(new java.util.Date(aioSCard.issuedDate),'MM/yy')}"></span>
-        
+      "th:text="${#dates.format(new java.util.Date(aioSCard.issuedDate),'MM/yy')}"></span>
+         </td> 
+        </tr> 
           </h6>
            
           
@@ -388,7 +249,8 @@
           text-shadow: -5px 1px 3px black;
           float: left;
           ">UNTIL END <br>
-          
+          <tr  th:each="aioSCard:${aioSCards}">
+         <td >
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -401,8 +263,9 @@
       text-shadow: -5px 1px 3px black;
       float: left;
       margin-top: 2%;
-      " th:each="aioSCard:${aioSCards}" th:text="${#dates.format(new java.util.Date(aioSCard.expireDate),'MM/yy')}"></span>
-          
+      "th:text="${#dates.format(new java.util.Date(aioSCard.expireDate),'MM/yy')}"></span>
+         </td> 
+        </tr>     
           </h6> 
        </div>
          
@@ -421,7 +284,8 @@
           CARDHOLDER NAME
           
           <br>
-        
+          <tr  th:each="aioSCard:${aioSCards}">
+         <td >
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -432,8 +296,14 @@
       font-family:Agency FB;
       font-variant-numeric: tabular-nums;
       text-shadow: -5px 1px 3px black;
-      " th:each="aioSCard:${aioSCards}" th:text="${aioSCard.ownerStatus}"></span>
-  
+      "th:text="${aioSCard.ownerStatus}"></span>
+      
+         </td> 
+        </tr> 
+       
+          
+          <tr  th:each="aioSCard:${aioSCards}">
+         <td >
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -444,8 +314,9 @@
       font-family:Yu Mincho;
       font-variant-numeric: tabular-nums;
       text-shadow: -5px 1px 3px black;
-      " th:each="aioSCard:${aioSCards}" th:text="${aioSCard.ownerName}"></span>
-  
+      "th:text="${aioSCard.ownerName}"></span>
+         </td> 
+        </tr> 
         </h6>
         
         
@@ -471,9 +342,18 @@
      
            
            </div>
-           <div class="card__face card__face--back">
+
+           </div>
+           </div>
+           </div>
+           <div style="float: left; margin-left: 3%;"> 
+            <div class="scene scene--cardi" style="margin-top: 3%;margin-left: 12%;">
+           <div class="cardi">
+
            
-           <div style="height: 15px; width: 100%;border-radius: 9px 9px 0px 0px;">
+           <div class="card__face card__face--front" style=" background: #baba86;">
+           
+                 <div style="height: 15px; width: 100%;border-radius: 9px 9px 0px 0px;">
             <span style=" letter-spacing:1px; font-size: 9px; font-weight: bolder;color: black;font-family: Cambria Math;float: left;margin-left: 3%; margin-top:0.4%;  text-transform: uppercase;">www.aiosmartcard.org.rw</span>
            </div>
            <div style="height: 40px; width: 100%; background-color: black;">
@@ -489,7 +369,8 @@
            
            <div style="height: 40px; width: 15%;float: left;">
            
-         
+            <tr  th:each="aioSCard:${aioSCards}">
+         <td >
             <span style="
 	    text-transform: uppercase;
       color:black;
@@ -499,8 +380,10 @@
       font-weight:bolder;
       font-family:Agency FB;
       float: left;
-      " th:each="aioSCard:${aioSCards}" th:text="${aioSCard.cvv}"></span>
-     
+      "th:text="${aioSCard.cvv}"></span>
+         </td> 
+        </tr> 
+           
            </div>
            
            </div>
@@ -531,90 +414,33 @@
            <h6 style="font-size: 10px;font-family: Cambria Math;color: black ;float: right;margin-right: 4%;">RELOADABLE</h6>
           
            </div>
+     
           
            </div>
+           
            </div>
-           </div>
-        
-        </div>
-        
-   
-   </form>
-        </div>
-        
-        </div>
-      </div>
-            
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
+                
+              
+              </div>
+              </div>
            
            
-          </div>
-          <div class="col-lg-6">
-          
+             </div> 
+              </div>
+              
+              
+              </div>
+              </div>
+              </div>
+             
+            </section>
             
-          
+            <div class="row d-print-none mt-2">
+                <div class="col-12 text-right"><a class="btn btn-primary"  onclick="printDiv()" style="text-transform: uppercase; font-weight: bolder;color: white;float: right; margin-right: 5%;"><i class="fa fa-print"></i> Print</a></div>
+              </div>
           </div>
         </div>
       </div>
-      
-       <!-- ADD MODAL -->
-  <div  class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <form th:action="@{/aioSCards/addNew}" method="post">
-  <div class="modal-dialog modal-lg" role="document" style="width:70%">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">AIO Data</h5>
-      
-      </div>
-
-      <div class="modal-body">
-		<form>
-		<table width="100%">
-			<tr>
-				<td width="50%">
-				
-				 <div class="form-group row">
-				    <label for="issuedDate" class="col-sm-4 col-form-label">Issued Date</label>
-				    <div class="col-sm-6">
-				      <input type="date" class="form-control" id="issuedDate" name="issuedDate">
-				    </div>
-				  </div>
-				 
-
-				</td>
-				
-				<td width="50%" style="padding-left:10px">
-				
-				
-				
-			      <div class="form-group row">
-				    <label for="txtcitizenUsernameAdd" class="col-sm-4 col-form-label">Username</label>
-				    <div class="col-sm-6">
-				      <input type="text" class="form-control" id="txtcitizenUsernameAdd" name="citizenUsername" th:value="${#authentication.getPrincipal().getUsername()}" placeholder="Username">
-				    </div>
-				  </div>
-				  
-
-				
-				</td>
-			</tr>
-		</table>
-		</form>
-      </div>
-
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-success">Save</button>
-        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
-        
-      </div>
-    </div>
-  </div>
- </form>
-</div>
-      
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -624,54 +450,6 @@
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/chart.js"></script>
-    <script type="text/javascript">
-      var data = {
-      	labels: ["January", "February", "March", "April", "May"],
-      	datasets: [
-      		{
-      			label: "My First dataset",
-      			fillColor: "rgba(220,220,220,0.2)",
-      			strokeColor: "rgba(220,220,220,1)",
-      			pointColor: "rgba(220,220,220,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(220,220,220,1)",
-      			data: [65, 59, 80, 81, 56]
-      		},
-      		{
-      			label: "My Second dataset",
-      			fillColor: "rgba(151,187,205,0.2)",
-      			strokeColor: "rgba(151,187,205,1)",
-      			pointColor: "rgba(151,187,205,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(151,187,205,1)",
-      			data: [28, 48, 40, 19, 86]
-      		}
-      	]
-      };
-      var pdata = [
-      	{
-      		value: 300,
-      		color: "#46BFBD",
-      		highlight: "#5AD3D1",
-      		label: "Complete"
-      	},
-      	{
-      		value: 50,
-      		color:"#F7464A",
-      		highlight: "#FF5A5E",
-      		label: "In-Progress"
-      	}
-      ]
-      
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
-    </script>
     <!-- Google analytics script-->
     <script type="text/javascript">
       if(document.location.hostname == 'pratikborsadiya.in') {
@@ -684,13 +462,29 @@
       }
     </script>
     
-    <script type="text/javascript">
- 
- var cardi = document.querySelector('.cardi');
- cardi.addEventListener( 'click', function() {
-   cardi.classList.toggle('is-flipped');
- });
- 
- </script>
+     <script> 
+     
+   
+        function printDiv() { 
+            var divContents = document.getElementById("GFG").innerHTML;
+            
+            var a = window.open('','', 'height=750, width=1800');  
+            a.document.write('<link rel="stylesheet" type="text/css" href="css/aioscardPrint.css">');
+            a.document.write('<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">');
+            a.document.write('<link rel="stylesheet" type="text/css" href="css/main.css">');
+            a.document.write('<html>');
+            a.document.write('<body>');
+            a.document.write(divContents); 
+            a.document.write('</body></html>');
+            
+            setTimeout(function () {
+            	 a.print();
+                 a.document.close(); 
+                }, 2000)
+            
+           
+            
+        } 
+    </script> 
   </body>
 </html>

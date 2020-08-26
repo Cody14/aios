@@ -208,11 +208,9 @@
 			</div>
 			
 			<div style=" border-radius:3px;  margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			  <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.firstname}"></span>
-			 </td> 
-             </tr>
+
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.firstname}"></span>
+
 			</div>
 			
 			<div style="text-align: center;">
@@ -221,13 +219,9 @@
 			
 		
 			<div style=" border-radius:3px; margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			  <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.lastname}"></span>
-			 </td> 
-             </tr>
-			
+
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.lastname}"></span>
+
 			</div>
 			
 			<div style="text-align: center;">
@@ -235,13 +229,9 @@
 			</div>
 			
 			<div style=" border-radius:3px;  margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			 <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.dateOfBirth}"></span>
-			 </td> 
-             </tr>
-			
+	
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.dateOfBirth}"></span>
+	
 			</div>
 			
            
@@ -256,41 +246,27 @@
 			</div>
 			
 			<div style=" border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.gender}"></span>
-			 </td> 
-             </tr>
-			
-			
+	
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.gender}"></span>
+
 			</div>
 			<div style="text-align: center;">
 			<label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">CATEGORY</label>
 			</div>
 			
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.category}"></span>
-			 </td> 
-             </tr>
-			
+
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.category}"></span>
+
 			</div>
 			<div style="text-align: center;">
 			 <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">B.PLACE</label>
 			</div>
 			
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.birthPlace.districtName}"></span>
-			 </td> 
-             </tr>
-			
-			
+	
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.birthPlace.districtName}"></span>
+
 			</div>
             
           
@@ -305,40 +281,27 @@
 			</div>
             
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.currentPlace.villageName}"></span>
-			 </td> 
-             </tr>
-			
-			
+		
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.currentPlace.villageName}"></span>
+
 			</div>
 			<div style="text-align: center;">
 			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">M.STATUS</label>
 			</div>
 			
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			 <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.martialStatus}"></span>
-			 </td> 
-             </tr>
-			
+	
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.martialStatus}"></span>
+
 			</div>
 			<div style="text-align: center;">
 			 <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">USERNAME</label>
 			</div>
 			
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			 <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.username}"></span>
-			 </td> 
-             </tr>
-			
+	
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.username}"></span>
+
 			</div>
            
            
@@ -361,7 +324,7 @@
 		    <button style="font-family: BrowalliaUPC;font-weight: bolder;"  type="button" id="submit" class="btn btn-light px-5" data-toggle="modal" data-target="#addModal">ADD HI</button>  
         </div>
         
-        <div class="cardi " style=" margin-left: 2%;margin-top: 3.5%;">
+        <div class="cardi " style=" margin-left: 5%;margin-top: 3.5%;">
     <div class="additional" >
       <div class="user-cardi">
       <div style="height: 28px; width:100%;padding-top:5%; margin-left:8%; font-size: 18px; color: white; font-weight: bolder;font-family: SimHei;">R.S.S.B</div>
@@ -398,8 +361,7 @@
           <div style="padding-top: 2%;"></div>
            <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >FULL NAMES</span>
               <br>
-       <tr  th:each="healthInsurance:${healthInsurances}">
-         <td >
+      
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -408,14 +370,12 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${healthInsurance.ownerName}"></span>
-         </td> 
-        </tr>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.ownerName}"></span>
+        
      <br>
      <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >DATE OF BIRTH</span>
       <br>
-           <tr  th:each="healthInsurance:${healthInsurances}">
-         <td >
+          
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -424,14 +384,12 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:13px; font-weight: bolder; font-family: Cambria Math;" th:text="${healthInsurance.ownerDob}"></span>
-         </td> 
-        </tr>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:13px; font-weight: bolder; font-family: Cambria Math;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.ownerDob}"></span>
+       
          <br>
      <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >GENDER</span>
        <br>
-        <tr  th:each="healthInsurance:${healthInsurances}">
-         <td >
+       
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -440,14 +398,11 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${healthInsurance.ownerGender}"></span>
-         </td> 
-     </tr>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.ownerGender}"></span>
+       
      <br>
      <span style="margin-left:10px;color: black;font-family:Futara; font-size:11px; font-weight: bold" >RSSB ID No</span>
 
-     <tr  th:each="healthInsurance:${healthInsurances}">
-         <td >
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -456,21 +411,14 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:1%; font-size:15px; font-weight: bolder; font-family: Cambria Math;" th:text="${healthInsurance.rssbNo}"></span>
-         </td> 
-     </tr>        
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:1%; font-size:15px; font-weight: bolder; font-family: Cambria Math;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.rssbNo}"></span>
+          
           </div>
           
           <div class="crdNo" style="width: 100%; height: 23px;padding-left: 3%;">
-          
-          <tr  th:each="healthInsurance:${healthInsurances}">
-           <td >
-            <span style="color:white;font-weight:bolder;font-size:14px; " th:text="${healthInsurance.affiliateName}"></span>
-         </td> 
-        </tr>
-          
-          
-          
+  
+            <span style="color:white;font-weight:bolder;font-size:14px; " th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.affiliateName}"></span>
+
         </div>
       </div>
     </div>

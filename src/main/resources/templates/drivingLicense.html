@@ -209,11 +209,9 @@
 			</div>
 			
 			<div style=" border-radius:3px;  margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			  <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.firstname}"></span>
-			 </td> 
-             </tr>
+			 
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.firstname}"></span>
+		
 			</div>
 			
 			<div style="text-align: center;">
@@ -223,12 +221,8 @@
 		
 			<div style=" border-radius:3px; margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
 			
-			  <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.lastname}"></span>
-			 </td> 
-             </tr>
-			
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.lastname}"></span>
+
 			</div>
 			
 			<div style="text-align: center;">
@@ -237,12 +231,8 @@
 			
 			<div style=" border-radius:3px;  margin-left:9%; text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
 			
-			 <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.dateOfBirth}"></span>
-			 </td> 
-             </tr>
-			
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.dateOfBirth}"></span>
+	
 			</div>
 			
            
@@ -257,27 +247,18 @@
 			</div>
 			
 			<div style=" border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.gender}"></span>
-			 </td> 
-             </tr>
-			
-			
+		
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.gender}"></span>
+
 			</div>
 			<div style="text-align: center;">
 			<label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">CATEGORY</label>
 			</div>
 			
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.category}"></span>
-			 </td> 
-             </tr>
-			
+
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.category}"></span>
+
 			</div>
 			<div style="text-align: center;">
 			 <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">B.PLACE</label>
@@ -285,13 +266,8 @@
 			
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
 			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.birthPlace.districtName}"></span>
-			 </td> 
-             </tr>
-			
-			
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.birthPlace.districtName}"></span>
+		
 			</div>
             
           
@@ -306,40 +282,27 @@
 			</div>
             
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			<tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.currentPlace.villageName}"></span>
-			 </td> 
-             </tr>
-			
-			
+		
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.currentPlace.villageName}"></span>
+
 			</div>
 			<div style="text-align: center;">
 			  <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">M.STATUS</label>
 			</div>
 			
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			 <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.martialStatus}"></span>
-			 </td> 
-             </tr>
-			
+		
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.martialStatus}"></span>
+
 			</div>
 			<div style="text-align: center;">
 			 <label style="padding-top: 6%;color: white;font-family: Rockwell Extra Bold;font-size: 12px;font-weight: bolder;">USERNAME</label>
 			</div>
 			
 			<div style="border-radius:3px;margin-left:9%;text-align:center;padding-top:3%; border-width:1px;border-style:solid; height: 40px;width: 85%;">
-			
-			 <tr  th:each="citizen:${citizens}">
-              <td >
-			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:text="${citizen.username}"></span>
-			 </td> 
-             </tr>
-			
+	
+			   <span style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" th:each="citizen:${citizens}" th:text="${citizen.username}"></span>
+	
 			</div>
            
            
@@ -366,7 +329,7 @@
         </div>
         </div>
         
-     <div class="cardi"  style="float:left; margin-left: 2%;margin-top: 1.8%;margin-bottom: 1.2%;">
+     <div class="cardi"  style="float:left; margin-left: 5%;margin-top: 1.8%;">
     <div class="additional" >
       <div class="user-cardi">
  
@@ -404,8 +367,7 @@
            <div style="height: 45px; width: 100%;">
            <span style="margin-left:10px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >FULL NAMES</span>
               <br>
-           <tr  th:each="drivingLicense:${drivingLicenses}">
-         <td >
+          
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -414,9 +376,8 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${drivingLicense.ownerName}"></span>
-         </td> 
-        </tr>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.ownerName}"></span>
+        
 
            </div>
            <div style="height: 45px; width: 100%;">
@@ -424,22 +385,7 @@
             <span style="margin-left:130px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >GENDER</span>
             <br>
            
-           <tr  th:each="drivingLicense:${drivingLicenses}">
-         <td >
-            <span style="color: #fff;
-	text-transform: uppercase;
-	
-	border-radius: 90px;
-	font-weight: bold;
-	padding: 0.125rem 0.75rem;
-    top: 30%;
-    left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white;margin-left:0%; text-align:center; font-size:13px; font-weight: bolder; font-family: Cambria Math;" th:text="${drivingLicense.ownerDob}"></span>
-         </td> 
-        </tr>
         
-        <tr  th:each="drivingLicense:${drivingLicenses}">
-         <td >
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -448,11 +394,20 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:42%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${drivingLicense.ownerGender}"></span>
-         </td> 
-        </tr>
-           
-           
+    -webkit-transform: translate(-50%, -50%);color:white;margin-left:0%; text-align:center; font-size:13px; font-weight: bolder; font-family: Cambria Math;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.ownerDob}"></span>
+       
+        
+      
+            <span style="color: #fff;
+	text-transform: uppercase;
+	
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:42%; font-size:15px; font-weight: bolder; font-family: Gabriola;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.ownerGender}"></span>
+       
            </div>
            <div style="height: 50px; width: 100%; ">
            <div style="height: 50px; width: 35%; float: left;">
@@ -460,8 +415,7 @@
            
            <br>
       
-      <tr  th:each="drivingLicense:${drivingLicenses}">
-         <td >
+      
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -470,19 +424,14 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:12%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${drivingLicense.cat_A} + ' ' + ${drivingLicense.cat_A1}  + ' ' + ${drivingLicense.cat_B} + ' ' +  ${drivingLicense.cat_B1} +  ' ' + ${drivingLicense.cat_C} + ' ' + ${drivingLicense.cat_D} + ' ' + ${drivingLicense.cat_D1} + ' ' + ${drivingLicense.cat_E}"></span>
-         </td> 
-     </tr>
-          
-       
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:12%; font-size:15px; font-weight: bolder; font-family: Gabriola;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.cat_A} + ' ' + ${drivingLicense.cat_A1}  + ' ' + ${drivingLicense.cat_B} + ' ' +  ${drivingLicense.cat_B1} +  ' ' + ${drivingLicense.cat_C} + ' ' + ${drivingLicense.cat_D} + ' ' + ${drivingLicense.cat_D1} + ' ' + ${drivingLicense.cat_E}"></span>
+      
            </div>
            
            <div style="height: 50px; width: 36%; float: left;">
             <span style=" margin-left:5px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >PLACE ISSUE</span>
             <br>
-            
-            <tr  th:each="drivingLicense:${drivingLicenses}">
-         <td >
+          
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -491,17 +440,14 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:10%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${drivingLicense.dlplaceIssue.districtName}"></span>
-         </td> 
-     </tr>  
-            
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:10%; font-size:15px; font-weight: bolder; font-family:Gabriola;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.dlplaceIssue.districtName}"></span>
+     
            </div>
            
            <div style="height: 50px; width: 28%; float: left;">
            <span style="margin-left:6px; color: black;font-family:Futara; font-size:10px; font-weight: bold" >EXPIRY DATE</span>
            <br>
-           <tr  th:each="drivingLicense:${drivingLicenses}">
-         <td >
+        
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -510,9 +456,8 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white;text-align:center; font-size:12px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.expireDate_B}"></span>
-         </td> 
-     </tr>
+    -webkit-transform: translate(-50%, -50%);color:white;text-align:center; font-size:12px; font-weight: bolder; font-family: Monaco;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.expireDate_B}"></span>
+       
            </div>
            
            </div>       
@@ -524,14 +469,9 @@
           
         
         <div style="padding-top: 1%;margin-left: 2%;">
-        <tr  th:each="drivingLicense:${drivingLicenses}">
-           <td >
-            <span style="color:white;font-weight:bolder; font-size:17px; padding-right: 37%; " th:text="${drivingLicense.dlNo}"></span>
-         </td> 
-        </tr>
-                
-      
-          
+       
+            <span style="color:white;font-weight:bolder; font-size:17px; padding-right: 37%; "  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.dlNo}"></span>
+        
         </div>
         </div>
       </div>
@@ -561,34 +501,21 @@
       <span style="color: white; font-size: 10px; font-weight: bolder;">   A1  <img src="/uploads/A1.png"  style="margin-left: 4%;" alt="Bus"  width="17" height="20">  <img src="/assets/uploads/w.png"  style="margin-left: 4%; " alt="Bus"  width="12" height="10"></span>
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
-     
-      <tr  th:each="drivingLicense:${drivingLicenses}">
-         
-         <td >
-         
+    
             <span style="color: #fff;
 	text-transform: uppercase;
-color:white;  font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_A1}"></span>
-         </td> 
-        </tr>
-     
+color:white;  font-size:11px; font-weight: bolder; font-family: Monaco;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.issuedDate_A1}"></span>
+       
       </div>
       <div style="border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
        <span style=" color: white; font-size: 10px; font-weight: bolder;text-align: center; ">A<img src="/uploads/A1.png"  style="margin-left: 4%;" alt="Bus"  width="17" height="20"></span>
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;   height: 24px; width: 25%; background-color: #292929; float: left;text-align:center; ">
-      
-       <tr  th:each="drivingLicense:${drivingLicenses}">
-         
-         <td >
-         
+
             <span style="color: #fff;
 	text-transform: uppercase;
-color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_A}"></span>
-         </td> 
-        </tr>
-        
-        
+color:white;font-size:11px; font-weight: bolder; font-family: Monaco;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.issuedDate_A}"></span>
+      
       </div>
       <br>
       <div style=" border-right: 1px solid white; margin-top:1px; height: 24px; width: 25%; background-color: #292929; float: left; padding-left: 3%;">
@@ -596,70 +523,41 @@ color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
       
-      <tr  th:each="drivingLicense:${drivingLicenses}">
-         
-         <td >
-         
+  
             <span style="color: #fff;
 	text-transform: uppercase;
- color:white; font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_B1}"></span>
-         </td> 
-        </tr>
-      
-      
-      
+ color:white; font-size:11px; font-weight: bolder; font-family: Monaco;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.issuedDate_B1}"></span>
+   
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
        <span style="color: white; font-size: 10px; font-weight: bolder;text-align: center;">B  <img src="/uploads/B1.png"  style="margin-left: 4%;" alt="Bus"  width="22" height="27"></span>
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;   height: 24px; width: 25%; background-color: #292929;text-align:center; float: left;">
-       
-      
-        
-        <tr  th:each="drivingLicense:${drivingLicenses}">
-         
-         <td >
-         
+   
     <span style="color: #fff;
 	text-transform: uppercase;
-	color:white;  font-size:11px; text-align:center; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_B}"></span>
-         </td> 
-        </tr>
-    
-        
+	color:white;  font-size:11px; text-align:center; font-weight: bolder; font-family: Monaco;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.issuedDate_B}"></span>
+      
       </div>
       <br>
       <div style=" border-right: 1px solid white; margin-top:1px; height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
       <span style="color: white; font-size: 10px; font-weight: bolder;">D1 <img src="/uploads/D1.png"  style="margin-left: 4%;" alt="Bus"  width="25" height="28"></span>
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
-       <tr  th:each="drivingLicense:${drivingLicenses}">
-         
-         <td >
-         
+  
             <span style="color: #fff;
 	text-transform: uppercase;
-   color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_D1}"></span>
-         </td> 
-        </tr>
-        
-        
+   color:white;font-size:11px; font-weight: bolder; font-family: Monaco;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.issuedDate_D1}"></span>
+ 
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
        <span style="color: white; font-size: 10px; font-weight: bolder;text-align: center;">D <img src="/uploads/D.png"  style="margin-left: 4%;" alt="Bus"  width="22" height="24"></span>
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;   height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
-      
-      <tr  th:each="drivingLicense:${drivingLicenses}">
-         
-         <td >
-         
+  
             <span style="color: #fff;
 	text-transform: uppercase;
-color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_D}"></span>
-         </td> 
-        </tr>
-      
+color:white;font-size:11px; font-weight: bolder; font-family: Monaco;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.issuedDate_D}"></span>
       
       </div>
       <br>
@@ -667,36 +565,20 @@ color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="
       <span style="color: white; font-size: 10px; font-weight: bolder;">C <img src="/uploads/C.png"  style="margin-left: 14%;" alt="Bus"  width="26" height="24"></span>
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
-      
-             <tr  th:each="drivingLicense:${drivingLicenses}">
-         
-         <td >
-         
+  
             <span style="color: #fff;
 	text-transform: uppercase;
-color:white;  font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_C}"></span>
-         </td> 
-        </tr>
-      
-      
-      
+color:white;  font-size:11px; font-weight: bolder; font-family: Monaco;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.issuedDate_C}"></span>
+  
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;  height: 24px; width: 25%; background-color: #292929; float: left;padding-left: 3%;">
        <span style="color: white; font-size: 10px; font-weight: bolder;text-align: center;">E  <img src="/uploads/E.png"  style="margin-left: 8%;" alt="Bus"  width="25" height="30"></span>
       </div>
       <div style=" border-right: 1px solid white; margin-top:1px;   height: 24px; width: 25%; background-color: #292929; float: left;text-align: center;">
-     
-     
-      <tr  th:each="drivingLicense:${drivingLicenses}">
-         
-         <td >
-         
+  
             <span style="color: #fff;
 	text-transform: uppercase;
-color:white;font-size:11px; font-weight: bolder; font-family: Monaco;" th:text="${drivingLicense.issuedDate_E}"></span>
-         </td> 
-        </tr>
-     
+color:white;font-size:11px; font-weight: bolder; font-family: Monaco;"  th:each="drivingLicense:${drivingLicenses}" th:text="${drivingLicense.issuedDate_E}"></span>
      
       </div>
       <br>

@@ -327,8 +327,7 @@
           <div style="padding-top: 2%;"></div>
            <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >FULL NAMES</span>
               <br>
-       <tr  th:each="healthInsurance:${healthInsurances}">
-         <td >
+ 
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -337,14 +336,12 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:text="${healthInsurance.ownerName}"></span>
-         </td> 
-        </tr>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.ownerName}"></span>
+  
      <br>
      <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >DATE OF BIRTH</span>
       <br>
-           <tr  th:each="healthInsurance:${healthInsurances}">
-         <td >
+  
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -353,14 +350,12 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:13px; font-weight: bolder; font-family: Cambria Math;" th:text="${healthInsurance.ownerDob}"></span>
-         </td> 
-        </tr>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:13px; font-weight: bolder; font-family: Cambria Math;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.ownerDob}"></span>
+   
          <br>
      <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >GENDER</span>
        <br>
-        <tr  th:each="healthInsurance:${healthInsurances}">
-         <td >
+  
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -369,14 +364,11 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:text="${healthInsurance.ownerGender}"></span>
-         </td> 
-     </tr>
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.ownerGender}"></span>
+   
      <br>
      <span style="margin-left:10px;color: black;font-family:Futara; font-size:11px; font-weight: bold" >RSSB ID No</span>
 
-     <tr  th:each="healthInsurance:${healthInsurances}">
-         <td >
             <span style="color: #fff;
 	text-transform: uppercase;
 	
@@ -385,21 +377,14 @@
 	padding: 0.125rem 0.75rem;
     top: 30%;
     left: 24%;
-    -webkit-transform: translate(-50%, -50%);color:white; margin-left:1%; font-size:15px; font-weight: bolder; font-family: Cambria Math;" th:text="${healthInsurance.rssbNo}"></span>
-         </td> 
-     </tr>        
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:1%; font-size:15px; font-weight: bolder; font-family: Cambria Math;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.rssbNo}"></span>
+          
           </div>
           
           <div class="crdNo" style="width: 100%; height: 23px;padding-left: 3%;">
-          
-          <tr  th:each="healthInsurance:${healthInsurances}">
-           <td >
-            <span style="color:white;font-weight:bolder;font-size:14px; " th:text="${healthInsurance.affiliateName}"></span>
-         </td> 
-        </tr>
-          
-          
-          
+    
+            <span style="color:white;font-weight:bolder;font-size:14px; " th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.affiliateName}"></span>
+ 
         </div>
       </div>
     </div>
@@ -530,8 +515,7 @@
           </div>
       
         <div style="height: 75px; width: 100%; border-radius: 0px 0px 9px 9px;float: left;">
-           <tr  th:each="aioSCard:${aioSCards}">
-         <td >
+       
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -545,12 +529,8 @@
       
       font-variant-numeric: tabular-nums;
       text-shadow: -5px 1px 3px black;
-      "th:text="${aioSCard.aioscardNo}"></span>
-         </td> 
-        </tr> 
-         
-        
-          
+      "  th:each="aioSCard:${aioSCards}" th:text="${aioSCard.aioscardNo}"></span>
+    
        <div style="height: 40px; width: 100%;">
        
         <h6 style="font-size: 9px;margin-left: 33%;
@@ -562,8 +542,7 @@
           text-shadow: -5px 1px 3px black;
           float: left;
           ">VALID FROM <br> 
-          <tr  th:each="aioSCard:${aioSCards}">
-         <td >
+       
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -576,9 +555,8 @@
       text-shadow: -5px 1px 3px black;
       float: left;
       margin-top: 2%;
-      "th:text="${#dates.format(new java.util.Date(aioSCard.issuedDate),'MM/yy')}"></span>
-         </td> 
-        </tr> 
+      "  th:each="aioSCard:${aioSCards}" th:text="${#dates.format(new java.util.Date(aioSCard.issuedDate),'MM/yy')}"></span>
+  
           </h6>
            
           
@@ -591,8 +569,7 @@
           text-shadow: -5px 1px 3px black;
           float: left;
           ">UNTIL END <br>
-          <tr  th:each="aioSCard:${aioSCards}">
-         <td >
+   
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -605,9 +582,8 @@
       text-shadow: -5px 1px 3px black;
       float: left;
       margin-top: 2%;
-      "th:text="${#dates.format(new java.util.Date(aioSCard.expireDate),'MM/yy')}"></span>
-         </td> 
-        </tr>     
+      "  th:each="aioSCard:${aioSCards}" th:text="${#dates.format(new java.util.Date(aioSCard.expireDate),'MM/yy')}"></span>
+       
           </h6> 
        </div>
          
@@ -626,8 +602,7 @@
           CARDHOLDER NAME
           
           <br>
-          <tr  th:each="aioSCard:${aioSCards}">
-         <td >
+ 
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -638,14 +613,8 @@
       font-family:Agency FB;
       font-variant-numeric: tabular-nums;
       text-shadow: -5px 1px 3px black;
-      "th:text="${aioSCard.ownerStatus}"></span>
-      
-         </td> 
-        </tr> 
-       
-          
-          <tr  th:each="aioSCard:${aioSCards}">
-         <td >
+      "  th:each="aioSCard:${aioSCards}" th:text="${aioSCard.ownerStatus}"></span>
+  
             <span style="
 	    text-transform: uppercase;
       color:white;
@@ -656,9 +625,8 @@
       font-family:Yu Mincho;
       font-variant-numeric: tabular-nums;
       text-shadow: -5px 1px 3px black;
-      "th:text="${aioSCard.ownerName}"></span>
-         </td> 
-        </tr> 
+      "  th:each="aioSCard:${aioSCards}" th:text="${aioSCard.ownerName}"></span>
+ 
         </h6>
         
         
@@ -701,9 +669,7 @@
            </div>
            
            <div style="height: 40px; width: 15%;float: left;">
-           
-            <tr  th:each="aioSCard:${aioSCards}">
-         <td >
+    
             <span style="
 	    text-transform: uppercase;
       color:black;
@@ -713,10 +679,8 @@
       font-weight:bolder;
       font-family:Agency FB;
       float: left;
-      "th:text="${aioSCard.cvv}"></span>
-         </td> 
-        </tr> 
-           
+      "  th:each="aioSCard:${aioSCards}" th:text="${aioSCard.cvv}"></span>
+  
            </div>
            
            </div>
