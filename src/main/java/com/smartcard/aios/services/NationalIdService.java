@@ -49,7 +49,7 @@ public class NationalIdService {
 			
 			Citizen citizen = citizenRepository.findAllByUsername(nationalId.getCitizenUsername());
 			
-			if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("M")&&citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+			if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("Male")&&citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
 				cat = 1;
 				int M=8;
 			    int agec=1;
@@ -66,7 +66,7 @@ public class NationalIdService {
 				nationalId.setPhoto(citizen.getPhoto());
 				nationalId.setCitizen(citizen);
 				nationalIdRepository.save(nationalId);	
-			}else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("F")&&citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+			}else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("Female")&&citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
 				cat = 1;
 				int F=7;
 			    int agec=1;
@@ -83,7 +83,7 @@ public class NationalIdService {
 				nationalId.setPhoto(citizen.getPhoto());
 				nationalId.setCitizen(citizen);
 				nationalIdRepository.save(nationalId);	
-			}else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("M")&&citizen.getDateOfBirth().getYear()>2000&&citizen.getDateOfBirth().getYear()<=2020) {
+			}else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("Male")&&citizen.getDateOfBirth().getYear()>=2000&&citizen.getDateOfBirth().getYear()<=2020) {
 				cat = 1;
 				int M=8;
 			    int agec=2;
@@ -100,7 +100,7 @@ public class NationalIdService {
 				nationalId.setPhoto(citizen.getPhoto());
 				nationalId.setCitizen(citizen);
 				nationalIdRepository.save(nationalId);	
-			}else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("F")&&citizen.getDateOfBirth().getYear()>2000&&citizen.getDateOfBirth().getYear()<=2020) {
+			}else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("Female")&&citizen.getDateOfBirth().getYear()>=2000&&citizen.getDateOfBirth().getYear()<=2020) {
 				cat = 1;
 				int F=7;
 			    int agec=2;
@@ -122,7 +122,7 @@ public class NationalIdService {
 			//Refugee
 			
 			
-			if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("M")&&citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+			if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("Male")&&citizen.getDateOfBirth().getYear()>=1940&&citizen.getDateOfBirth().getYear()<=1999) {
 				cat = 3;
 				int M=8;
 			    int agec=1;
@@ -139,7 +139,7 @@ public class NationalIdService {
 				nationalId.setPhoto(citizen.getPhoto());
 				nationalId.setCitizen(citizen);
 				nationalIdRepository.save(nationalId);	
-			}else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("F")&&citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+			}else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("Female")&&citizen.getDateOfBirth().getYear()>=1940&&citizen.getDateOfBirth().getYear()<=1999) {
 				cat = 3;
 				int F=7;
 			    int agec=1;
@@ -156,7 +156,7 @@ public class NationalIdService {
 				nationalId.setPhoto(citizen.getPhoto());
 				nationalId.setCitizen(citizen);
 				nationalIdRepository.save(nationalId);	
-			}else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("M")&&citizen.getDateOfBirth().getYear()>2000&&citizen.getDateOfBirth().getYear()<=2020) {
+			}else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("Male")&&citizen.getDateOfBirth().getYear()>=2000&&citizen.getDateOfBirth().getYear()<=2020) {
 				cat = 3;
 				int M=8;
 			    int agec=2;
@@ -173,7 +173,7 @@ public class NationalIdService {
 				nationalId.setPhoto(citizen.getPhoto());
 				nationalId.setCitizen(citizen);
 				nationalIdRepository.save(nationalId);	
-			}else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("F")&&citizen.getDateOfBirth().getYear()>2000&&citizen.getDateOfBirth().getYear()<=2020) {
+			}else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("Female")&&citizen.getDateOfBirth().getYear()>=2000&&citizen.getDateOfBirth().getYear()<=2020) {
 				cat = 3;
 				int F=7;
 			    int agec=2;
@@ -198,7 +198,7 @@ public class NationalIdService {
 			//FOREIGN
 			
 			
-			if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("M")&&citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+			if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("Male")&&citizen.getDateOfBirth().getYear()>=1940&&citizen.getDateOfBirth().getYear()<=1999) {
 				cat = 2;
 				int M=8;
 			    int agec=1;
@@ -215,7 +215,7 @@ public class NationalIdService {
 				nationalId.setPhoto(citizen.getPhoto());
 				nationalId.setCitizen(citizen);
 				nationalIdRepository.save(nationalId);	
-			}else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("F")&&citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+			}else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("Female")&&citizen.getDateOfBirth().getYear()>=1940&&citizen.getDateOfBirth().getYear()<=1999) {
 				cat = 2;
 				int F=7;
 			    int agec=1;
@@ -232,7 +232,7 @@ public class NationalIdService {
 				nationalId.setPhoto(citizen.getPhoto());
 				nationalId.setCitizen(citizen);
 				nationalIdRepository.save(nationalId);	
-			}else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("M")&&citizen.getDateOfBirth().getYear()>2000&&citizen.getDateOfBirth().getYear()<=2020) {
+			}else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("Male")&&citizen.getDateOfBirth().getYear()>=2000&&citizen.getDateOfBirth().getYear()<=2020) {
 				cat = 2;
 				int M=8;
 			    int agec=2;
@@ -249,7 +249,7 @@ public class NationalIdService {
 				nationalId.setPhoto(citizen.getPhoto());
 				nationalId.setCitizen(citizen);
 				nationalIdRepository.save(nationalId);	
-			}else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("F")&&citizen.getDateOfBirth().getYear()>2000&&citizen.getDateOfBirth().getYear()<=2020) {
+			}else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("Female")&&citizen.getDateOfBirth().getYear()>=2000&&citizen.getDateOfBirth().getYear()<=2020) {
 				cat = 2;
 				int F=7;
 			    int agec=2;

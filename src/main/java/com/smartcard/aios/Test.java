@@ -4,6 +4,7 @@ import com.smartcard.aios.models.AioSCard;
 import com.smartcard.aios.models.Citizen;
 import com.smartcard.aios.models.District;
 import com.smartcard.aios.models.NationalId;
+import com.smartcard.aios.models.Village;
 
 public class Test {
 
@@ -17,7 +18,12 @@ public class Test {
 		
 
 		
+		Village village = new Village();
 		
+		village.setId(1);
+		village.setVillageName("Rukiri");
+		
+		citizen.setCurrentPlace(village);
 		
 		citizen.setId(1);
 		citizen.setFirstname("Fiona");
@@ -32,10 +38,10 @@ public class Test {
 		aioSCard.setNationalId(nationalId);
 		aioSCard.setCitizen(citizen);
 		
+		System.out.println("VILLAGE NAME : "+citizen.getCurrentPlace().getVillageName());
 		
 		
-		
-		System.out.println("AIO SMART CARD "+aioSCard.getCitizen().getFirstname() + " National Id No "+aioSCard.getNationalId().getNidNo() );
+		//System.out.println("AIO SMART CARD "+aioSCard.getCitizen().getFirstname() + " National Id No "+aioSCard.getNationalId().getNidNo() );
 		
 
 	}

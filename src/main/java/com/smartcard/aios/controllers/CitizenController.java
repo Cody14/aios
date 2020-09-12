@@ -64,6 +64,27 @@ public class CitizenController {
 	}
 	
 	
+	@GetMapping("/citizenByUsername")
+	public String getCitizen(Model model, String keyword) {
+
+		if(keyword!=null) {
+			model.addAttribute("citizens", citizenService.findByKeyword(keyword));
+		}else {
+			
+			//List<Citizen> citizenList = citizenService.getCitizens();
+			//model.addAttribute("citizens", citizenList);
+		}
+		
+		List<District> districtList = districtService.getDistricts();
+		model.addAttribute("districts", districtList);
+		
+		List<Village> villageList = villageService.getVillages();
+		model.addAttribute("villages", villageList);
+		
+		return "eForms";
+	}
+	
+	
 	
 	
 	

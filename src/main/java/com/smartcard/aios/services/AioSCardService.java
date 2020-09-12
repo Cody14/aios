@@ -109,7 +109,7 @@ public class AioSCardService {
 		  
 		   
 			
-		    if(citizen.getGender().equalsIgnoreCase("M")) {
+		    if(citizen.getGender().equalsIgnoreCase("Male")) {
 		    	
 		    	    aioSCard.setAioscardNo(""+aioscardnop1+" "+" "+aioscardnop2+" "+aioscardnop3+" "+aioscardnop4);
 				    aioSCard.setCvv(""+cvv);
@@ -124,7 +124,7 @@ public class AioSCardService {
 					aioSCard.setExpireDate(aioSCard.getIssuedDate().plusYears(10));
 				    aioSCardRepository.save(aioSCard);
 		    	
-		    }if(citizen.getGender().equalsIgnoreCase("F")) {
+		    }if(citizen.getGender().equalsIgnoreCase("Female")) {
 		    	
 		    	aioSCard.setAioscardNo(""+aioscardnop1+" "+" "+aioscardnop2+" "+aioscardnop3+" "+aioscardnop4);
 			    aioSCard.setCvv(""+cvv);

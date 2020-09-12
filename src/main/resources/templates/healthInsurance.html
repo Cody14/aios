@@ -114,13 +114,7 @@
           </ul>
         </li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-chain-broken"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">UNLINK Cards</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" th:href="@{/nationalIds}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
-            <li><a class="treeview-item" th:href="@{/drivingLicenses}" ><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
-            <li><a class="treeview-item" th:href="@{/healthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Health Insurance</a></li>
-          </ul>
-        </li>
+       
         
         <li><a class="app-menu__item" th:href="@{/aiosCardPrint}"><i class="app-menu__icon fa fa-print"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label" >PRINT AIOS CARD</span></a></li>
         
@@ -184,8 +178,308 @@
             </div>
             
        <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-12">
         
+    <div style="height: 730px; width: 100%;border-top: 1px solid black;">
+       
+       <div style="height: 60px; width: 100%; background-color:#222d32;">
+       
+       <form th:action="@{/healthInsuranceCitizenInfos}" method="get"> 
+        <div style="height: 60px; width: 20%; background-color: #222d32; float: left;">
+        
+        
+		    <button class="btn btn-light px-5" style="margin-top:5%; margin-left:3%; font-weight: bolder;font-family: BrowalliaUPC;">GET INFO</button>
+		    <input type="text"  name="keyword" th:value="${#authentication.getPrincipal().getUsername()}" readonly hidden="true"  placeholder="Username">
+        </div>
+         </form>
+       <div style="margin-left: 1.4%;margin-top: 1.5px; float: left; margin-left: 42%;padding-top:1%; ">
+		    <button style="font-family: BrowalliaUPC;font-weight: bolder;"  type="button" id="submit" class="btn btn-light px-5" data-toggle="modal" data-target="#addModal">ADD HL</button>  
+        </div>
+       
+       </div>
+         <div style="height: 309px; width: 100%;margin-top: 1px;">
+       <div style="height: 309px; width: 56%;float: left;">
+       <div style="height: 50px; width: 100%;">
+        <h5 style="margin-left:32%;font-size: 15px;font-family: Cambria Math; color: black; padding-top:2%;">CITIZEN'S INFORMATION</h5>
+       <div style="height: 1px; width: 80%; background-color: black;margin-left: 6%;"></div>
+       
+       <div style="height: 259px; width: 100%;">
+       
+       <div style="height: 60px; width: 100%;">
+       <h5 style="margin-left:13%;font-size: 12px;font-family:Cambria Math;font-weight:bolder; color: black;padding-top:2.1%; text-transform: uppercase;">This phase shows all the citizen's information that are going to be used <br>
+       &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to generate HEALTH INSURANCE CARD. HEALTH INSURANCE CARD <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; is given &nbsp;to every citizen who is able to afford it.
+       </h5>
+       </div>
+       <div style="height: 195px; width: 100%;margin-top: 2%;">
+       <div style="height: 195px; width: 100%; background-color:#222d32;  margin-left: 0%;">
+       
+       <div style="height: 185px; width: 30%;float: left;margin-left: 3%;">
+       
+       <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">FIRST NAME</h5>
+       </div>
+       <div style="height: 40px; width: 100%;border-width:1px; border-radius: 3px;border-width:1px;border-style:solid;border-color: white; ">
+       <h5 th:each="citizen:${citizens}" th:text="${citizen.firstname}" style="color:white; font-weight: bolder;font-family: Gabriola;font-size: 20px;text-align: center;padding-top: 4%;"></h5>
+       </div>
+        <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">LAST NAME</h5>
+       </div>
+       <div style="height: 40px; width: 100%;border-width:1px; border-radius: 3px;border-width:1px;border-style:solid;border-color: white; ">
+       <h5 th:each="citizen:${citizens}" th:text="${citizen.lastname}" style="color:white; font-weight: bolder;font-family: Gabriola;font-size: 20px;text-align: center;padding-top: 4%;"></h5>
+       </div>
+        <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">CATEGORY</h5>
+       </div>
+       <div style="height: 40px; width: 100%;border-width:1px; border-radius: 3px;border-width:1px;border-style:solid;border-color: white; ">
+       <h5 th:each="citizen:${citizens}" th:text="${citizen.category}" style="color:white; font-weight: bolder;font-family: Gabriola;font-size: 20px;text-align: center;padding-top: 4%;"></h5>
+       </div>
+        
+       
+       </div>
+       
+       <div style="height: 185px; width: 30%;float: left;margin-left: 2%;">
+       
+       <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">DATE OF BIRTH</h5>
+       </div>
+       <div style="height: 40px; width: 100%;border-width:1px; border-radius: 3px;border-width:1px;border-style:solid;border-color: white; ">
+       <h5 th:each="citizen:${citizens}" th:text="${citizen.dateOfBirth}" style="color:white; font-weight: bolder;font-family: Cambria Math; font-size: 13.2px;text-align: center;padding-top: 7%;"></h5>
+       </div>
+        <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">GENDER</h5>
+       </div>
+       <div style="height: 40px; width: 100%;border-width:1px; border-radius: 3px;border-width:1px;border-style:solid;border-color: white; ">
+       <h5 th:each="citizen:${citizens}" th:text="${citizen.gender}" style="color:white; font-weight: bolder;font-family: Gabriola;;font-size: 20px;text-align: center;padding-top: 4%;"></h5>
+       </div>
+        <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">MARTIAL STATUS</h5>
+       </div>
+       <div style="height: 40px; width: 100%;border-width:1px; border-radius: 3px;border-width:1px;border-style:solid;border-color: white; ">
+       <h5 th:each="citizen:${citizens}" th:text="${citizen.martialStatus}" style="color:white; font-weight: bolder;font-family: Gabriola;font-size: 20px;text-align: center;padding-top: 4%;"></h5>
+       </div>
+       
+       </div>
+       
+       <div style="height: 185px; width: 30%;float: left;margin-left: 2%;">
+       
+       <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">BIRTH PLACE</h5>
+       </div>
+       <div style="height: 40px; width: 100%;border-width:1px; border-radius: 3px;border-width:1px;border-style:solid;border-color: white; ">
+       <h5 th:each="citizen:${citizens}" th:text="${citizen.birthPlace.districtName}" style="color:white; font-weight: bolder;font-family: Gabriola;font-size: 20px;text-align: center;padding-top: 4%;"></h5>
+       </div>
+        <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">CURRENT PLACE</h5>
+       </div>
+       <div style="height: 40px; width: 100%;border-width:1px; border-radius: 3px;border-width:1px;border-style:solid;border-color: white; ">
+       <h5 th:each="citizen:${citizens}" th:text="${citizen.currentPlace.villageName}" style="color:white; font-weight: bolder;font-family: Gabriola;font-size: 20px;text-align: center;padding-top: 4%;"></h5>
+       </div>
+        <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">PHONE NUMBER</h5>
+       </div>
+       <div style="height: 40px; width: 100%;border-width:1px; border-radius: 3px;border-width:1px;border-style:solid;border-color: white; ">
+       <h5 th:each="citizen:${citizens}" th:text="${citizen.phoneNumber}" style="color:white; font-weight: bolder;font-family: Cambria Math;font-size: 13px;text-align: center;padding-top: 7%;"></h5>
+       </div>
+       
+       </div>
+       
+     
+       
+       </div>
+     
+       
+       </div>       
+       </div>
+       
+       
+       </div>
+       </div>
+       <div style="height: 309px; width: 43.6%;float: left;margin-left: 0.4%;">
+       
+       <!-- 
+       
+        -->
+       <div style="height: 50px;width: 100%;">
+       
+       <h5 style="margin-left:35%; font-size: 15px;font-family: Cambria Math; color: black; padding-top:3%; ">HEALTH INSURANCE CARD</h5>
+       <div style="height: 1px; width: 80%; background-color: black;margin-left: 9%;"></div>
+       </div>
+       <div style="height: 259px;width: 100%;">
+       
+               
+     <div class="cardi " style=" margin-left: 8%;margin-top: 0.8%;">
+    <div class="additional" >
+      <div class="user-cardi">
+      <div style="height: 28px; width:100%;padding-top:5%; margin-left:8%; font-size: 18px; color: white; font-weight: bolder;font-family: SimHei;">R.S.S.B</div>
+      <div style="height: 10px; width: 100%; text-transform:uppercase;margin-left:6%; color: white;font-family:Tahoma; font-size: 7px; font-weight: bolder;">Rwanda Social Security Board</div>
+      <div style="padding-top: 26%;margin-left: 14%;" >
+          <span style="padding-bottom: 13%;" >
+             <img alt="" th:src="@{'/uploads/' +  ${#authentication.getPrincipal().getUsername()} + '.jpg'}" width="108" height="132">
+           </span>
+           <div style="padding-top: 14%;">
+            <span style="color: black; font-weight: bold;font-family:Lucida Bright; font-size: 13px;">AFFILIATE NAME </span> 
+           </div>
+          
+      </div>
+ 
+      
+ 
+        
+        
+      </div>
+      <div class="more-info">
+          <div class="hder" style="height: 40px; width: 100%; border-bottom: 2px solid black;">
+            <div style=" padding-top:3%;  float: left; padding-left: 15%; font-weight: bolder; color: black;font-family: Cambria Math;">REPUBLIC OF RWANDA</div>
+            <div class="flg" style="float: right; margin-right: 1%;margin-top: 4px;">
+                <span class="lo">
+                  <img alt="" th:src="@{'/uploads/' +  flag + '.png'}" width="60" height="30">
+                 </span>
+            </div>
+          </div>
+          <div class="crdType" style="width: 100%; height: 25px;">
+           <div style="margin-left: 15%;"><span style="color: black;font-family: Cambria; font-size: 12px; font-weight: bolder;">HEALTH INSURANCE CARD</span> </div>
+          </div>
+          
+          <div class="crdBody" style="width: 100%;height: 162px;border-bottom: 2px solid black;">
+          <div style="padding-top: 2%;"></div>
+           <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >FULL NAMES</span>
+              <br>
+      
+            <span style="color: #fff;
+	text-transform: uppercase;
+	
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family: Gabriola;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.ownerName}"></span>
+        
+     <br>
+     <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >DATE OF BIRTH</span>
+      <br>
+          
+            <span style="color: #fff;
+	text-transform: uppercase;
+	
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:13px; font-weight: bolder; font-family: Cambria Math;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.ownerDob}"></span>
+       
+         <br>
+     <span style="margin-left:10px; color: black;font-family:Futara; font-size:11px; font-weight: bold" >GENDER</span>
+       <br>
+       
+            <span style="color: #fff;
+	text-transform: uppercase;
+	
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:0%; font-size:15px; font-weight: bolder; font-family:Gabriola;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.ownerGender}"></span>
+       
+     <br>
+     <span style="margin-left:10px;color: black;font-family:Futara; font-size:11px; font-weight: bold" >RSSB ID No</span>
+
+            <span style="color: #fff;
+	text-transform: uppercase;
+	
+	border-radius: 90px;
+	font-weight: bold;
+	padding: 0.125rem 0.75rem;
+    top: 30%;
+    left: 24%;
+    -webkit-transform: translate(-50%, -50%);color:white; margin-left:1%; font-size:15px; font-weight: bolder; font-family: Cambria Math;" th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.rssbNo}"></span>
+          
+          </div>
+          
+          <div class="crdNo" style="width: 100%; height: 23px;padding-left: 3%;">
+  
+            <span style="color:white;font-weight:bolder;font-size:14px; " th:each="healthInsurance:${healthInsurances}" th:text="${healthInsurance.affiliateName}"></span>
+
+        </div>
+      </div>
+    </div>
+    <div class="general">
+     <div style="padding-top: 3%;">
+      <span style=" margin-left:5.5%; color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;">If found, please return this card to</span><br>
+      <span style=" margin-left:15%; color: black; text-transform:uppercase; font-family:Snell Roundhan;font-weight: bolder; font-size: 11px;"> the nearest police station</span> 
+     </div>
+     <div style="margin-top:2%; background-color:black; height: 2px;width: 100%;"></div>
+    
+    
+     
+     
+    
+    <div style="padding-top: 45%;">
+       <span class="lo">
+       <img alt="" th:src="@{'/uploads/' +  scn21 + '.jpg'}" width="272" height="60">
+      </span>
+    </div>
+     
+    </div>
+  </div>
+       
+       
+       </div>
+       
+       </div>
+       
+       
+       </div>
+       
+       
+       <div style="height: 368px; width: 100%;">
+       <div id="map" style="height: 358px; width: 56%; background-image: url(images/map1.jpg);margin-left: 0%;float: left;border-right: 1px solid white;margin-top:0.4%;">
+       
+       </div>
+       <div style="height: 358px; width: 43.6%;float: left;margin-left: 0%;margin-left: 0.4%;margin-top: 0.4%;">
+       <div style="height: 90px; width: 100%; background-image: url(images/cnt3.jpg); background-size: cover;background-repeat: no-repeat;background-position: center; background-color: hsla(120, 100%, 50%, 0.3);">
+              </div>
+       <div style="height: 267px; width: 100%; background-color:#162625; margin-top: 1px;">
+       
+       <div style="height: 267px; width: 60%;margin-left: 20%;">
+      <div style="height: 7px;"></div>
+       <form>
+                <div class="form-group">
+                 
+                  <input class="form-control" type="text" placeholder="Full name">
+                </div>
+                <div class="form-group">
+                  
+                  <input class="form-control" type="email" placeholder="Username">
+                </div>
+                <div class="form-group">
+                  
+                  <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+                </div>
+               
+                <button style="font-family: Cambria Math;font-weight: bolder;text-transform:uppercase ;font-size: 13px; margin-left: 35%;" class="btn btn-primary"  type="submit">Contact <i class="fa fa-fw  fa fa-envelope"></i></button>
+              </form>
+       
+       
+        
+         
+       </div>
+       
+       </div>
+       </div>
+       
+       </div>
+       
+       </div>
+        
+        
+        
+        
+        
+        
+        <!-- 
         <div style="height: 320px; width: 100%; background-color:#ffc107;border-radius: 3px;">
         
         
@@ -313,9 +607,15 @@
             </form>
         
         </div>
-        </div>
-        <div class="col-md-5">
+         
+         -->
         
+        </div>
+        
+        
+        <div class="col-md-5">
+        <!-- 
+     
         <div style="height: 320px; width: 100%; background-color: #ffc107;border-radius: 3px;">
           <form th:action="@{healthInsurances}"  th:object="${healthInsurance}" method="get">
         <div style="height: 50px; width: 100%;padding-top: 1%; background-color: #222d32;border-bottom: 1px solid white;">
@@ -448,6 +748,7 @@
    </form>
         </div>
         
+        -->
         </div>
       </div>
             
@@ -530,6 +831,60 @@
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
     <script type="text/javascript" src="js/plugins/chart.js"></script>
+    
+    
+       
+    <script type="text/javascript">
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    
+    
+      <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCPJpjD-qcR_yIxJnS8maR5W9KB0E3EzYI&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+    
+    
+    
     <script type="text/javascript">
       var data = {
       	labels: ["January", "February", "March", "April", "May"],

@@ -95,57 +95,59 @@
       </div>
       
             <ul class="app-menu">
-        <li><a class="app-menu__item" th:href="@{/admins}"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label" style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;">Dashboard</span></a></li>
+        <li><a class="app-menu__item " th:href="@{/admins}"><i class="app-menu__icon fa fa-dashboard"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Dashboard</span></a></li>
         
-         <li><a class="app-menu__item active" th:href="@{/eForms}"><i class="app-menu__icon fa fa-tasks"></i><span class="app-menu__label" style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;">Form Evaluation</span></a></li>
+         <li><a class="app-menu__item active" th:href="@{/eForms}"><i class="app-menu__icon fa fa-tasks"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Form Evaluation</span></a></li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">UI Elements</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/cd1.png" height="24" width="20" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label"> &nbsp;&nbsp;CHECK CARDS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> Bootstrap Elements</a></li>
-            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Font Icons</a></li>
-            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Cards</a></li>
-            <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> Widgets</a></li>
+            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> National Id</a></li>
+            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Driving License</a></li>
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Health Insurance</a></li>
+            <li><a class="treeview-item" href="widgets.html"><i class="icon fa fa-circle-o"></i> AIO Smart Card</a></li>
           </ul>
         </li>
+        
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/lockcd2.png" height="25" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">&nbsp;&nbsp; DISABLE CARDS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> National Id</a></li>
+            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Driving License</a></li>
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Health Insurance</a></li>
+            
+          </ul>
+        </li>
+        
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/ucd1.png" height="24" width="22" >  <span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">&nbsp;&nbsp; UNLINK CARDS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> National Id</a></li>
+            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> Driving License</a></li>
+            <li><a class="treeview-item" href="ui-cards.html"><i class="icon fa fa-circle-o"></i> Health Insurance</a></li>
+          </ul>
+        </li>
+        
+        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/rp.png" height="22" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label"> &nbsp;&nbsp; Reports</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+          <ul class="treeview-menu">
+            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> About Cards</a></li>
+            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> General reports</a></li>
+            
+          </ul>
+        </li>
+        
         <li><a class="app-menu__item" th:href="@{/citizens}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Citizens</span></a></li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">Forms</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="form-components.html"><i class="icon fa fa-circle-o"></i> Form Components</a></li>
-            <li><a class="treeview-item" href="form-custom.html"><i class="icon fa fa-circle-o"></i> Custom Components</a></li>
-            <li><a class="treeview-item" href="form-samples.html"><i class="icon fa fa-circle-o"></i> Form Samples</a></li>
-            <li><a class="treeview-item" href="form-notifications.html"><i class="icon fa fa-circle-o"></i> Form Notifications</a></li>
-          </ul>
-        </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-th-list"></i><span class="app-menu__label">Tables</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="table-basic.html"><i class="icon fa fa-circle-o"></i> Basic Tables</a></li>
-            <li><a class="treeview-item" href="table-data-table.html"><i class="icon fa fa-circle-o"></i> Data Tables</a></li>
-          </ul>
-        </li>
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-file-text"></i><span class="app-menu__label">Pages</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" href="blank-page.html"><i class="icon fa fa-circle-o"></i> Blank Page</a></li>
-            <li><a class="treeview-item" href="page-login.html"><i class="icon fa fa-circle-o"></i> Login Page</a></li>
-            <li><a class="treeview-item" href="page-lockscreen.html"><i class="icon fa fa-circle-o"></i> Lockscreen Page</a></li>
-            <li><a class="treeview-item" href="page-user.html"><i class="icon fa fa-circle-o"></i> User Page</a></li>
-            <li><a class="treeview-item" href="page-invoice.html"><i class="icon fa fa-circle-o"></i> Invoice Page</a></li>
-            <li><a class="treeview-item" href="page-calendar.html"><i class="icon fa fa-circle-o"></i> Calendar Page</a></li>
-            <li><a class="treeview-item" href="page-mailbox.html"><i class="icon fa fa-circle-o"></i> Mailbox</a></li>
-            <li><a class="treeview-item" href="page-error.html"><i class="icon fa fa-circle-o"></i> Error Page</a></li>
-          </ul>
-        </li>
-        <li><a class="app-menu__item" href="docs.html"><i class="app-menu__icon fa fa-file-code-o"></i><span class="app-menu__label">Docs</span></a></li>
+        
+        
+        
+       
       </ul>
     </aside>
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1><i class="fa fa-th-list"></i> Data Table</h1>
-          <p>Table to display analytical data effectively</p>
+          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;"><i class="fa fa-th-list"></i> Data Table</h1>
+          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">Table to display analytical data effectively</p>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item">Tables</li>
           <li class="breadcrumb-item active"><a th:href="@{/eForms}">Data Table</a></li>
         </ul>
       </div>
@@ -157,12 +159,12 @@
                 <table class="table table-hover table-bordered" id="sampleTable">
                   <thead>
                     <tr>
-                      <th style="text-align: center;">Photo</th>
-                      <th style="text-align: center;">Full Name</th>
-                      <th style="text-align: center;">Dob</th>
-                      <th style="text-align: center;">Category</th>
-                      <th style="text-align: center;">Location</th>
-                      <th style="text-align: center;">Decision</th>
+                      <th style="text-align: center;font-family: Cambria Math;text-transform: uppercase;font-size: 12px;font-weight: bolder;">Photo</th>
+                      <th style="text-align: center;font-family: Cambria Math;text-transform: uppercase;font-size: 12px;font-weight: bolder;">Full Name</th>
+                      <th style="text-align: center;font-family: Cambria Math;text-transform: uppercase;font-size: 12px;font-weight: bolder;">Dob</th>
+                      <th style="text-align: center;font-family: Cambria Math;text-transform: uppercase;font-size: 12px;font-weight: bolder;">Category</th>
+                      <th style="text-align: center;font-family: Cambria Math;text-transform: uppercase;font-size: 12px;font-weight: bolder;">Location</th>
+                      <th style="text-align: center;font-family: Cambria Math;text-transform: uppercase;font-size: 12px;font-weight: bolder;">Decision</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -186,9 +188,9 @@
                     
                     <td style=" padding-left: 6.8%;">
                       
-                        <a class="btn btn-primary"  id="editButton" th:href="@{/citizens/findById/(id=${citizen.id})}">View<i class="icon_pencil-edit"></i></a>
-                        <a class="btn btn-success" id="acceptButton" th:href="@{/citizens/accept/(id=${citizen.id})}">Accept<i class="icon_document_alt"></i></a>
-                        <a class="btn btn-danger" id="rejectButton" th:href="@{/citizens/reject/(id=${citizen.id})}">Reject<i class="icon_close_alt2"></i></a>
+                        <a class="btn btn-primary"  id="bioModalButton" style="color: white;" th:href="@{/citizens/findById/(id=${citizen.id})}"> <i class="fa fa-eye"></i></a>
+                        <a class="btn btn-success" id="acceptButton" th:href="@{/citizens/accept/(id=${citizen.id})}"> <i class="fa fa-check"></i></a>
+                        <a class="btn btn-danger" id="rejectButton" th:href="@{/citizens/reject/(id=${citizen.id})}"> <i class="fa fa-trash-o"></i></a>
                     
                     </td>
                     
@@ -219,11 +221,8 @@
       </div>
 
       <div class="modal-body">
-		<div style="float:left; height: 200px; width: 30%; background-color: orange;">
 		
-		</div>
-		<div style="height: 200px; width: 2%; float: left;"></div>
-		<div style="float: left; height: 200px; width: 68%;">
+		<div style="float: left; height: 200px; width: 100%;">
 		
 		<div class="bs-component">
               <ul class="nav nav-tabs">
@@ -232,11 +231,18 @@
                 
               </ul>
               <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade active show" id="home">
-                  <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                <div class="tab-pane fade active show" id="profile">
+                
+                <div class="form-group row">
+				   
+				    <div class="col-sm-6">
+				      <input type="text" class="form-control" id="txtFirstname"  placeholder="First Name">
+				    </div>
+				  </div>
+                
                 </div>
-                <div class="tab-pane fade" id="profile">
-                  <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+                <div class="tab-pane fade" id="home">
+                
                 </div>
               </div>
             </div>
@@ -245,26 +251,7 @@
 		</div>
 		
 		
-		<!-- 
-		
-		<table width="100%">
-			<tr>
-				<td width="50%">
-				
-				
-				
-				</td>
-				
-				<td width="50%" style="padding-left:10px">
-				 
-		      
 
-				</td>
-			</tr>
-		</table>
-		
-		 -->
-		
 		
       </div>
 
@@ -285,12 +272,181 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Photo</h5>
+        <h5 class="modal-title" style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;">Photo</h5>
        
       </div>
       <div class="modal-body">
       		<img id="citizenPhoto" src="" width="95%" height="95%">
+   		
+      </div>
+       
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
     </div>
+  </div>
+</div> 
+
+
+<!-- USER BIO -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="bioModal">
+  <div class="modal-dialog modal-lg" role="document" style="width:70%">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;">Citizen</h5>
+       
+      </div>
+      <div class="modal-body">
+      
+      <div style="float: left; height: 350px; width: 100%; background-color:white;">
+      
+      <div style="height: 147px; width: 100%;">
+      <div style="height: 140px; width: 30%;background-color: orange;margin-left: 0.5%;margin-top: 0.5%;border-color: white;border-radius: 3px;border: 1px solid #a4a6a5;float: left;">
+	  <img id="citizenPhoto"   th:src=" @{'/uploads/oo.jpg'}" width="100%" height="100%" style="border-radius: 3px;">
+	  </div>
+	  <div style="height: 140px; width: 68.7%; border-left:1px solid #a4a6a5; border-top:1px solid #a4a6a5 ;border-bottom:1px solid white;border-right:1px solid #a4a6a5;  float: left;margin-top: 0.5%;margin-left: 0.4%;">
+	  <h5 style=" margin-top:1%;text-align:center;  color: black; font-size: 19px; font-family: Gabriola; font-weight: bolder;"> APPLYING TO BE A RWANDAN CITIZEN LEGALLY
+	  <div style="height: 1px; width: 62%; background-color: black;margin-left: 19%;"></div>
+	  </h5>
+	  <div style="height: 95px; width: 90%;margin-left: 4.5%;">
+	  <h5 style="color: black; font-size: 13px; font-weight: bolder; font-family:Bahnschrift Condensed;text-transform: uppercase;">
+	  
+	  Rwanda has a population of over 12.6 million living on 26,338 km2 (10,169 mi2) of land, and is the most densely populated mainland African country. 
+	  The population is young & predominantly rural, with a density among the highest in Africa.
+	  Rwanda today struggles to heal and rebuild, showing signs of rapid economic development,[39] but with growing international 
+	  concern about the decline of human rights within the country.Rwanda is developing on high rate scale since 2003
+	  
+	  </h5>
+	
+	  
+	  </div>
+	  
+	  </div>
+	  
+      </div>
+      
+      <div style="height: 203px; width: 100%;">
+      
+      <div style="height: 203px; width: 99.1%;margin-top: 0%;border-top: 1px solid #a4a6a5;margin-left: 0.5%;border-bottom:1px solid #a4a6a5; ">
+	  <div style="height: 203px; width: 33%;float: left;margin-left: 0.3%;border-right: 1px solid white;">
+	   <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">FIRST NAME</h5>
+       </div>
+       <div style="height: 40px; width: 99%; ">
+       <div class="form-group row">
+				    <div class="col-sm-12">
+				      <input type="text" class="form-control" id="txtfirstname" >
+				    </div>
+		</div>
+       </div>
+       
+       <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">LAST NAME</h5>
+       </div>
+       <div style="height: 40px; width: 99%; ">
+       <div class="form-group row">
+				    <div class="col-sm-12">
+				      <input type="text" class="form-control" id="txtlastname">
+				    </div>
+		</div>
+       </div>
+       
+       <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">GENDER</h5>
+       </div>
+       <div style="height: 40px; width: 99%; ">
+       <div class="form-group row">
+				    <div class="col-sm-12">
+				      <input type="text" class="form-control" id="txtgender">
+				    </div>
+		</div>
+       </div>
+	  
+	  </div>
+	  <div style="height: 203px; width: 33%;float: left;margin-left: 0.3%;border-right: 1px solid white;">
+	  
+	  <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">DATE OF BIRTH</h5>
+       </div>
+       <div style="height: 40px; width: 99%; ">
+       <div class="form-group row">
+				    <div class="col-sm-12">
+				      <input type="text" class="form-control" id="txtdob" >
+				    </div>
+		</div>
+       </div>
+       
+       <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">CATEGORY</h5>
+       </div>
+       <div style="height: 40px; width: 99%; ">
+       <div class="form-group row">
+				    <div class="col-sm-12">
+				      <input type="text" class="form-control" id="txtcategory" >
+				    </div>
+		</div>
+       </div>
+       
+       <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">MARTIAL STATUS</h5>
+       </div>
+       <div style="height: 40px; width: 99%; ">
+       <div class="form-group row">
+				    <div class="col-sm-12">
+				      <input type="text" class="form-control" id="txtmartialStatus" >
+				    </div>
+		</div>
+       </div>
+	  
+	  </div>
+	  <div style="height: 203px; width: 33.1%;float: left;margin-left: 0.3%;border-right: 1px solid white;">
+	  
+	  <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">BIRTH PLACE</h5>
+       </div>
+       <div style="height: 40px; width: 99%; ">
+       <div class="form-group row">
+				    <div class="col-sm-12">
+				      <input type="text" class="form-control" id="txtbirthPlace" >
+				    </div>
+		</div>
+       </div>
+       
+       <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">CURRENT PLACE</h5>
+       </div>
+       <div style="height: 40px; width: 99%; ">
+       <div class="form-group row">
+			 <div class="col-sm-12">
+		<input type="text" class="form-control" id="txtcurrentPlace">
+		</div>
+		</div>
+       </div>
+       
+       <div style="height: 20px; width: 100%;">
+       <h5 style="font-size: 12px; font-family: Cambria;text-transform:uppercase; font-weight: bolder; color: white; text-align: center;padding-top: 2%;">PHONE NUMBER</h5>
+       </div>
+       <div style="height: 40px; width: 99%; ">
+       <div class="form-group row">
+				    <div class="col-sm-12">
+				      <input type="text" class="form-control" id="txtphoneNumber" >
+				    </div>
+		</div>
+       </div>
+	  
+	  </div>
+	  </div>
+      
+      </div>
+	  
+	  
+
+		</div>
+		
+      
+      	
+      </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
@@ -303,6 +459,7 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/eforms.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
@@ -344,16 +501,51 @@
       
       
       
+      
+      $('.table #bioModalButton').on('click',function(event) {
+		   event.preventDefault();
+		   var href = $(this).attr('href');
+		   
+		   $.get(href, function(citizen, status){
+   			$('#txtfirstname').val(citizen.firstname);
+   			$('#txtlastname').val(citizen.lastname);
+   			$('#txtgender').val(citizen.gender);
+   			$('#txtdob').val(citizen.dateOfBirth);
+   			$('#txtcategory').val(citizen.category);
+   			$('#txtmartialStatus').val(citizen.martialStatus);
+   			
+   			$('#txtbirthPlace').val(citizen.birthPlace.districtName);
+   			$('#txtphoneNumber').val(citizen.phoneNumber);
+   			$('#txtcurrentPlace').val(citizen.username);
+   			
+   		});
+		   
+		   $('#bioModal').modal();
+		   $('#bioModal #citizenPhoto').attr('th:src', href);   		
+	}); 
+      
+      
+      
       $('.table #editButton').on('click',function(event){		
-    		event.preventDefault();		
+    		event.preventDefault();	
     		var href= $(this).attr('href');
+    
     		
     		$.get(href, function(citizen, status){
-    			
+    			$('#txtFirstname').val(citizen.firstname);
     			
     		});			
     		$('#editModal').modal();
       });
+      
+      
+      
+      
+      
+     
+      
+      
+      
       
     </script>
   </body>

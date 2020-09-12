@@ -28,7 +28,6 @@ public class Person {
 	private Integer id;
 	private String firstname;
 	private String lastname;
-	private String middlename;
 	private String gender;
 	private String phoneNumber;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")

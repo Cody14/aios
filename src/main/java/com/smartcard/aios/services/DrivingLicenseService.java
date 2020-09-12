@@ -64,7 +64,7 @@ public class DrivingLicenseService {
 			
 		   Citizen citizen = citizenRepository.findAllByUsername(drivingLicense.getCitizenUsername());
 		   
-		   if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("M")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+		   if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("Male")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
 			   cat =1;
 			   g= 8;
 			   agec=1;
@@ -78,7 +78,7 @@ public class DrivingLicenseService {
 //			   drivingLicense.setExpireDate(drivingLicense.getIssuedDate().plusYears(10));
 			   drivingLicense.setCitizen(citizen);
 			   drivingLicenseRepository.save(drivingLicense);
-		   }else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("F")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+		   }else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("Female")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
 			   cat =1;
 			   g= 7;
 			   agec=1;
@@ -92,7 +92,7 @@ public class DrivingLicenseService {
 			  // drivingLicense.setExpireDate(drivingLicense.getIssuedDate().plusYears(10));
 			   drivingLicense.setCitizen(citizen);
 			   drivingLicenseRepository.save(drivingLicense);
-		   }else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("M")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
+		   }else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("Male")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
 			   cat =1;
 			   g= 8;
 			   agec=2;
@@ -107,7 +107,7 @@ public class DrivingLicenseService {
 			  // drivingLicense.setExpireDate(drivingLicense.getIssuedDate().plusYears(10));
 			   drivingLicense.setCitizen(citizen);
 			   drivingLicenseRepository.save(drivingLicense);
-		   }else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("F")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
+		   }else if(citizen.getCategory().equals("Rwandan") && citizen.getGender().equals("Female")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
 			   cat =1;
 			   g= 7;
 			   agec=2;
@@ -124,7 +124,7 @@ public class DrivingLicenseService {
 			   drivingLicenseRepository.save(drivingLicense);
 		   }
 		   
-		   if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("M")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+		   if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("Male")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
 			   cat =3;
 			   g= 8;
 			   agec=1;
@@ -138,7 +138,7 @@ public class DrivingLicenseService {
 			 //  drivingLicense.setExpireDate(drivingLicense.getIssuedDate().plusYears(10));
 			   drivingLicense.setCitizen(citizen);
 			   drivingLicenseRepository.save(drivingLicense);
-		   }else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("F")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+		   }else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("Female")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
 			   cat =3;
 			   g= 7;
 			   agec=1;
@@ -153,7 +153,7 @@ public class DrivingLicenseService {
 			 //  drivingLicense.setExpireDate(drivingLicense.getIssuedDate().plusYears(10));
 			   drivingLicense.setCitizen(citizen);
 			   drivingLicenseRepository.save(drivingLicense);
-		   }else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("M")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
+		   }else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("Male")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
 			   cat =3;
 			   g= 8;
 			   agec=2;
@@ -167,7 +167,7 @@ public class DrivingLicenseService {
 			 //  drivingLicense.setExpireDate(drivingLicense.getIssuedDate().plusYears(10));
 			   drivingLicense.setCitizen(citizen);
 			   drivingLicenseRepository.save(drivingLicense);
-		   }else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("F")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
+		   }else if(citizen.getCategory().equals("Refugees") && citizen.getGender().equals("Female")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
 			   cat =3;
 			   g= 7;
 			   agec=2;
@@ -184,7 +184,7 @@ public class DrivingLicenseService {
 			   drivingLicenseRepository.save(drivingLicense);
 		   }
 		   
-		   if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("M")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+		   if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("Male")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
 			   cat =2;
 			   g= 8;
 			   agec=1;
@@ -198,7 +198,7 @@ public class DrivingLicenseService {
 			 //  drivingLicense.setExpireDate(drivingLicense.getIssuedDate().plusYears(10));
 			   drivingLicense.setCitizen(citizen);
 			   drivingLicenseRepository.save(drivingLicense);
-		   }else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("F")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
+		   }else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("Female")&& citizen.getDateOfBirth().getYear()>1940&&citizen.getDateOfBirth().getYear()<1999) {
 			   cat =1;
 			   g= 7;
 			   agec=1;
@@ -212,7 +212,7 @@ public class DrivingLicenseService {
 			 //  drivingLicense.setExpireDate(drivingLicense.getIssuedDate().plusYears(10));
 			   drivingLicense.setCitizen(citizen);
 			   drivingLicenseRepository.save(drivingLicense);
-		   }else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("M")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
+		   }else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("Male")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
 			   cat =2;
 			   g= 8;
 			   agec=2;
@@ -227,7 +227,7 @@ public class DrivingLicenseService {
 			 //  drivingLicense.setExpireDate(drivingLicense.getIssuedDate().plusYears(10));
 			   drivingLicense.setCitizen(citizen);
 			   drivingLicenseRepository.save(drivingLicense);
-		   }else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("F")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
+		   }else if(citizen.getCategory().equals("Foreigner") && citizen.getGender().equals("Female")&& citizen.getDateOfBirth().getYear()>20000&&citizen.getDateOfBirth().getYear()<=2020) {
 			   cat =2;
 			   g= 7;
 			   agec=2;

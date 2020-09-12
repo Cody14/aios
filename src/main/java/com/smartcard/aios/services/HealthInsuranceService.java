@@ -50,7 +50,7 @@ public class HealthInsuranceService {
 
 			
 			int rssbNo = (int)((Math.random() * 900000)+100000);
-			if(category.equals("Rwandan") && gender.equals("M")&& ad<=30 ) {
+			if(category.equals("Rwandan") && gender.equals("Male")&& ad<=30 ) {
 			    cat=0;
 				g=0;
 				ag=1;
@@ -69,7 +69,7 @@ public class HealthInsuranceService {
 				
 			}
 			
-			else if(category.equals("Rwandan") && gender.equals("M")&& ad>=30) {
+			else if(category.equals("Rwandan") && gender.equals("Male")&& ad>=30) {
 			    cat=0;
 				g=0;
 				ag=0;
@@ -83,7 +83,7 @@ public class HealthInsuranceService {
 				healthInsurance.setCitizen(citizen);
 				healthInsurance.setRssbNo(""+cat+""+g+""+ag+""+rssbNo);
 				healthInsuranceRepository.save(healthInsurance);
-			}else if(category.equals("Rwandan") && gender.equals("F")&& ad<=30) {
+			}else if(category.equals("Rwandan") && gender.equals("Female")&& ad<=30) {
 				cat=0;
 				g=1;
 				ag=1;
@@ -97,7 +97,7 @@ public class HealthInsuranceService {
 				healthInsurance.setCitizen(citizen);
 				healthInsurance.setRssbNo(""+cat+""+g+""+ag+""+rssbNo);
 				healthInsuranceRepository.save(healthInsurance);
-			}else if(category.equals("Rwandan") && gender.equals("F")&& ad>=30) {
+			}else if(category.equals("Rwandan") && gender.equals("Female")&& ad>=30) {
 				cat=0;
 				g=1;
 				ag=0;
@@ -115,7 +115,7 @@ public class HealthInsuranceService {
 			}
 			
 			
-			else if(category.equals("Foreigner") && gender.equals("M")&& ad<=30 ) {
+			else if(category.equals("Foreigner") && gender.equals("Male")&& ad<=30 ) {
 			    cat=2;
 				g=0;
 				ag=1;
@@ -131,7 +131,7 @@ public class HealthInsuranceService {
 				healthInsurance.setRssbNo(""+cat+""+g+""+ag+""+rssbNo);
 				healthInsuranceRepository.save(healthInsurance);
 				
-			}else if(category.equals("Foreigner") && gender.equals("M")&& ad>=30) {
+			}else if(category.equals("Foreigner") && gender.equals("Male")&& ad>=30) {
 			    cat=2;
 				g=0;
 				ag=0;
@@ -146,7 +146,7 @@ public class HealthInsuranceService {
 				healthInsurance.setCitizen(citizen);
 				healthInsurance.setRssbNo(""+cat+""+g+""+ag+""+rssbNo);
 				healthInsuranceRepository.save(healthInsurance);
-			}else if(category.equals("Foreigner") && gender.equals("F")&& ad<=30) {
+			}else if(category.equals("Foreigner") && gender.equals("Female")&& ad<=30) {
 				cat=2;
 				g=1;
 				ag=1;
@@ -161,7 +161,7 @@ public class HealthInsuranceService {
 				healthInsurance.setCitizen(citizen);
 				healthInsurance.setRssbNo(""+cat+""+g+""+ag+""+rssbNo);
 				healthInsuranceRepository.save(healthInsurance);
-			}else if(category.equals("Foreigner") && gender.equals("F")&& ad>=30) {
+			}else if(category.equals("Foreigner") && gender.equals("Female")&& ad>=30) {
 				cat=2;
 				g=1;
 				ag=0;
@@ -178,7 +178,7 @@ public class HealthInsuranceService {
 				healthInsuranceRepository.save(healthInsurance);
 			}
 			
-			else if(category.equals("Refugees") && gender.equals("M")&& ad<=30 ) {
+			else if(category.equals("Refugees") && gender.equals("Male")&& ad<=30 ) {
 			    cat=1;
 				g=0;
 				ag=1;
@@ -194,7 +194,7 @@ public class HealthInsuranceService {
 				healthInsurance.setRssbNo(""+cat+""+g+""+ag+""+rssbNo);
 				healthInsuranceRepository.save(healthInsurance);
 				
-			}else if(category.equals("Refugees") && gender.equals("M")&& ad>=30) {
+			}else if(category.equals("Refugees") && gender.equals("Male")&& ad>=30) {
 			    cat=1;
 				g=0;
 				ag=0;
@@ -209,7 +209,7 @@ public class HealthInsuranceService {
 				healthInsurance.setCitizen(citizen);
 				healthInsurance.setRssbNo(""+cat+""+g+""+ag+""+rssbNo);
 				healthInsuranceRepository.save(healthInsurance);
-			}else if(category.equals("Refugees") && gender.equals("F")&& ad<=30) {
+			}else if(category.equals("Refugees") && gender.equals("Female")&& ad<=30) {
 				cat=1;
 				g=1;
 				ag=1;
@@ -224,7 +224,7 @@ public class HealthInsuranceService {
 				healthInsurance.setCitizen(citizen);
 				healthInsurance.setRssbNo(""+cat+""+g+""+ag+""+rssbNo);
 				healthInsuranceRepository.save(healthInsurance);
-			}else if(category.equals("Refugees") && gender.equals("F")&& ad>=30) {
+			}else if(category.equals("Refugees") && gender.equals("Female")&& ad>=30) {
 				cat=1;
 				g=1;
 				ag=0;
