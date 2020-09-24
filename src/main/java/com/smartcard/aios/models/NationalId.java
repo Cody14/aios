@@ -24,6 +24,8 @@ public class NationalId extends Card {
 	 private Integer placeIssueId;
      private String nidNo;
      private String citizenUsername;
+     private String nidStatus= "active";
+     private String linkStatus="linked";
      
      @OneToOne(mappedBy = "nationalId")
      private AioSCard aioSCard;

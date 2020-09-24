@@ -38,10 +38,12 @@ public class Test {
 		aioSCard.setNationalId(nationalId);
 		aioSCard.setCitizen(citizen);
 		
-		System.out.println("VILLAGE NAME : "+citizen.getCurrentPlace().getVillageName());
 		
 		
-		//System.out.println("AIO SMART CARD "+aioSCard.getCitizen().getFirstname() + " National Id No "+aioSCard.getNationalId().getNidNo() );
+		//System.out.println("VILLAGE NAME : "+citizen.getCurrentPlace().getVillageName());
+		
+		
+		System.out.println("AIO SMART CARD "+aioSCard.getCitizen().getFirstname() + " National Id No "+aioSCard.getNationalId().getNidNo() );
 		
 
 	}

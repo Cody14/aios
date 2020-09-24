@@ -262,4 +262,18 @@ public class HealthInsuranceService {
 		public List<HealthInsurance> findByKeyword(String keyword){
 			return healthInsuranceRepository.findByKeyowrd(keyword);
 		}
+		
+		public List<HealthInsurance> getActiveHiList(){
+			return healthInsuranceRepository.activeHiList();
+		}
+		
+		public List<HealthInsurance> getinActiveHiList(){
+			return healthInsuranceRepository.inactiveHiList();
+		}
+		
+		public List<HealthInsurance> getLinkedHiList(){
+			return healthInsuranceRepository.linkedHIList();
+		}
+		
+		
 }

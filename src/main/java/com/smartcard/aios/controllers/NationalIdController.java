@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.smartcard.aios.models.Citizen;
 import com.smartcard.aios.models.District;
 import com.smartcard.aios.models.NationalId;
 import com.smartcard.aios.models.Sector;
@@ -63,6 +64,31 @@ public class NationalIdController {
 		
 		return "nationalId";
 	}
+	
+
+	
+	@GetMapping("/dnationalIds")
+	public String getDNationalIds(Model model) {
+		List<NationalId> activeNidList = nationalIdService.activeNidsList();
+		model.addAttribute("nationalIds", activeNidList);
+		return "dnationalId";
+	}
+	
+	@GetMapping("/anationalIds")
+	public String getInactiveDNationalIds(Model model) {
+		List<NationalId> inactiveNidList = nationalIdService.inactiveNidsList();
+		model.addAttribute("nationalIds", inactiveNidList);
+		return "anationalId";
+	}
+	
+	
+	@GetMapping("/unationalIds")
+	public String getUNationalIds(Model model) {
+		List<NationalId> activeNidList = nationalIdService.linkedNidsList();
+		model.addAttribute("nationalIds", activeNidList);
+		return "unationalId";
+	}
+	
 	
 	
 	@GetMapping("/nationalIdCitizenInfos")
@@ -127,6 +153,10 @@ public class NationalIdController {
 	    nationalIdService.delete(id);
 	    return "redirect:/nationalIds";
 	}
+	
+	
+	
+	
 	
 	
 }

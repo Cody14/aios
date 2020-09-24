@@ -276,4 +276,20 @@ public class DrivingLicenseService {
 		public List<DrivingLicense> findByKeyword(String keyword){
 			return drivingLicenseRepository.findByKeyowrd(keyword);
 		}
+		
+		public List<DrivingLicense> activeDlList(){
+			return drivingLicenseRepository.activeDlList();
+		}
+		
+		public List<DrivingLicense> inactiveDlList(){
+			return drivingLicenseRepository.inactiveDlList();
+		}
+		
+		
+		public List<DrivingLicense> linkedDlList(){
+			return drivingLicenseRepository.linkedDlList();
+		}
+		
+		
+		
 }

@@ -86,6 +86,27 @@ public class DrivingLicenseController {
 		return "drivingLicense";
 	}
 	
+	@GetMapping("/ddrivingLicenses")
+	public String getDdrivingLicenses(Model model) {
+		List<DrivingLicense> activeDlList = drivingLicenseService.activeDlList();
+		model.addAttribute("drivingLicenses", activeDlList);
+		return "ddrivingLicense";
+	}
+	
+	@GetMapping("/adrivingLicenses")
+	public String getinactiveDdrivingLicenses(Model model) {
+		List<DrivingLicense> inactiveDlList = drivingLicenseService.inactiveDlList();
+		model.addAttribute("drivingLicenses", inactiveDlList);
+		return "adrivingLicense";
+	}
+	
+	
+	@GetMapping("/udrivingLicenses")
+	public String getUdrivingLicenses(Model model) {
+		List<DrivingLicense> linkedDlList = drivingLicenseService.linkedDlList();
+		model.addAttribute("drivingLicenses", linkedDlList);
+		return "udrivingLicense";
+	}
 	
 	
 	
@@ -309,6 +330,7 @@ public class DrivingLicenseController {
 	    drivingLicenseService.delete(id);
 	    return "redirect:/drivingLicenses";
 	}
+	
 	
 	
 }

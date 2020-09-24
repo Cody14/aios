@@ -27,7 +27,6 @@ import com.smartcard.aios.services.VillageService;
 
 
 
-
 @Controller
 public class CitizenController {
 
@@ -131,9 +130,24 @@ public class CitizenController {
 			return "eforms";
 			
 		} 
-		
+	
 	
 		
+	
+	    @GetMapping("/acitizens")
+		public String getAcceptedCitizens(Model model) {
+	    	List<Citizen> listOfCitizensAccepted=citizenService.acceptedList();	
+	    	model.addAttribute("citizens", listOfCitizensAccepted);
+	    	
+			return "acitizen";
+		}
+	    
+	    @GetMapping("/rcitizens")
+		public String getRejectedCitizens(Model model) {
+	    	List<Citizen> listOfCitizensRejected=citizenService.rejectedList();
+	    	model.addAttribute("citizens", listOfCitizensRejected);
+			return "rcitizen";
+		}
 	
 	
 	
@@ -232,12 +246,30 @@ public class CitizenController {
 	    return "redirect:/eForms";
 	}
 	
+	@RequestMapping(value ="/rcitizens/reject", method= {RequestMethod.PUT,RequestMethod.GET})
+	public String rejectedCitizens(Integer id,String status) {			
+		citizenService.reject(id,status);
+	    return "redirect:/acitizens";
+	}
+	
+	
+	
+	
+	
 	@RequestMapping(value ="/citizens/accept", method= {RequestMethod.PUT,RequestMethod.GET})
 	public String accept(Integer id,String status,String passKey) {	
 		
 		citizenService.accept(id,status,passKey);
 		
 	    return "redirect:/eForms";
+	}
+	
+	@RequestMapping(value ="/acitizens/accept", method= {RequestMethod.PUT,RequestMethod.GET})
+	public String acceptedCitizens(Integer id,String status,String passKey) {	
+		
+		citizenService.accept(id,status,passKey);
+		
+	    return "redirect:/rcitizens";
 	}
 	
 	

@@ -291,7 +291,21 @@ public class NationalIdService {
 		
 		public List<NationalId> findByKeyword(String keyword){
 			return nationalIdRepository.findByKeyowrd(keyword);
-		}		
+		}
+		
+		
+		
+		public List<NationalId> activeNidsList(){
+			return nationalIdRepository.activeNidList();
+		}
+		
+		public List<NationalId> inactiveNidsList(){
+			return nationalIdRepository.inactiveNidList();
+		}
+		
+		public List<NationalId> linkedNidsList(){
+			return nationalIdRepository.linkedNidList();
+		}
 		
 		
 }

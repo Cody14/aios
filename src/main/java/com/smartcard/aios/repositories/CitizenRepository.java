@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.smartcard.aios.models.Citizen;
+import com.smartcard.aios.models.NationalId;
 
 
 @Repository
@@ -34,7 +35,7 @@ public interface CitizenRepository extends JpaRepository<Citizen, Integer> {
    @Transactional 
    @Modifying
    @Query(value = "UPDATE citizen c SET c.form_request =:status  where c.id =:cid", nativeQuery = true)
-   void reject(@Param("cid") Integer cid,@Param("status") String status); //SEARCH BY CITIZEN USERNAME
+   void reject(@Param("cid") Integer cid,@Param("status") String status); //Reject citizen
    
    
    
@@ -42,7 +43,13 @@ public interface CitizenRepository extends JpaRepository<Citizen, Integer> {
    @Transactional 
    @Modifying
    @Query(value = "UPDATE citizen c SET c.form_request =:status, c.pass_key =:passKey  where c.id =:cid", nativeQuery = true)
-   void accept(@Param("cid") Integer cid,@Param("status") String status,@Param("passKey") String passKey); //SEARCH BY CITIZEN USERNAME
+   void accept(@Param("cid") Integer cid,@Param("status") String status,@Param("passKey") String passKey); //accept citizen
+   
+   @Query(value = " select * from citizen c where c.form_request='Rejected' ", nativeQuery = true)
+   List<Citizen> rejectedList(); // list of rejected ctz
+   
+   @Query(value = " select * from citizen c where c.form_request='Accepted' ", nativeQuery = true)
+   List<Citizen> acceptedList(); // list of accepted ctz
    
    
    

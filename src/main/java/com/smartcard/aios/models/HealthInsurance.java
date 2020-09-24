@@ -21,4 +21,6 @@ public class HealthInsurance extends Card {
        private String citizenUsername;
        @OneToOne(mappedBy = "healthInsurance")
        private AioSCard aioSCard;
+       private String hi_status= "active";
+       private String linkStatus = "linked";
 }

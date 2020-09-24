@@ -88,6 +88,10 @@ public class DrivingLicense extends Card {
     
     @OneToOne(mappedBy = "drivingLicense")
     private AioSCard aioSCard;
+    
+    private String dlStatus= "active";
+    
+    private String linkStatus ="linked";
 
   
 }

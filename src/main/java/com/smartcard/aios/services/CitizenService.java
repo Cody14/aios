@@ -132,6 +132,14 @@ public class CitizenService {
 			return citizenRepository.findByKeyowrd(keyword);
 		}
 		
+		public List<Citizen> rejectedList(){
+			return citizenRepository.rejectedList();
+		}
+		
+		public List<Citizen> acceptedList(){
+			return citizenRepository.acceptedList();
+		}
+		
 	
 		
 }

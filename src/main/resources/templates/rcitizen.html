@@ -13,7 +13,7 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Evaluate Requests</title>
+    <title>Rejected Citizens</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -97,9 +97,9 @@
             <ul class="app-menu">
         <li><a class="app-menu__item " th:href="@{/admins}"><i class="app-menu__icon fa fa-dashboard"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Dashboard</span></a></li>
         
-         <li><a class="app-menu__item active" th:href="@{/eForms}"><i class="app-menu__icon fa fa-tasks"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Form Evaluation</span></a></li>
+         <li><a class="app-menu__item " th:href="@{/eForms}"><i class="app-menu__icon fa fa-tasks"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Form Evaluation</span></a></li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/users.png" height="27" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label"> &nbsp;&nbsp;CITIZEN LIST</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+       <li class="treeview"><a class="app-menu__item active" href="#" data-toggle="treeview"><img src="uploads/users.png" height="27" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label"> &nbsp;&nbsp;CITIZEN LIST</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" th:href="@{/acitizens}"><i class="icon fa fa-dot-circle-o"></i> Accepted List</a></li>
             <li><a class="treeview-item" th:href="@{/rcitizens}"><i class="icon fa fa-dot-circle-o"></i> Rejected List</a></li>
@@ -116,14 +116,7 @@
           </ul>
         </li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/acard1.png" height="30" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">&nbsp;&nbsp; ACTIVE CARDS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-          <ul class="treeview-menu">
-            <li><a class="treeview-item" th:href="@{/anationalIds}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
-            <li><a class="treeview-item" th:href="@{/adrivingLicenses}"><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
-            <li><a class="treeview-item" th:href="@{/ahealthInsurances}"><i class="icon fa fa-dot-circle-o"></i> Health Insurance</a></li>
-          </ul>
-        </li>
-        
+         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/unlink1.png" height="25" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">&nbsp;&nbsp; UNLINK CARDS</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
             <li><a class="treeview-item" th:href="@{/unationalIds}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
@@ -150,8 +143,8 @@
     <main class="app-content">
       <div class="app-title">
         <div>
-          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;"><i class="fa fa-th-list"></i> CITIZEN REQUESTS</h1>
-          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">List of all Citizen Requests that are submitted</p>
+          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;"><i class="fa fa-th-list"></i> REJECTED CITIZENS</h1>
+          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">List of all Citizen Requests that have been Rejected</p>
         </div>
         <ul class="app-breadcrumb breadcrumb side">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
@@ -193,11 +186,10 @@
                     
                     <td th:text="${citizen.currentPlace.villageName}" style="text-align: center;padding-top: 1.9%;">Current Place</td>
                     
-                    <td style=" padding-left: 6.8%;">
+                    <td style=" padding-left: 5%;">
                    
                         <a class="btn btn-primary" title='View' id="bioModalButton" style="color: white;" th:href="@{/citizens/findById/(id=${citizen.id})}"><img alt="" src="/uploads/eye.png" width="18" height="17"></a>
-                        <a class="btn btn-success" title='Approve' id="acceptButton" th:href="@{/citizens/accept/(id=${citizen.id})}"><img alt="" src="/uploads/accept.png" width="18" height="17"></a>
-                        <a class="btn btn-danger" title='Reject' id="rejectButton" th:href="@{/citizens/reject/(id=${citizen.id})}"><img alt="" src="/uploads/close.png" width="18" height="17"></a>
+                        <a class="btn btn-success" title='Approve' id="acceptButton" th:href="@{/acitizens/accept/(id=${citizen.id})}"><img alt="" src="/uploads/accept.png" width="18" height="17"></a>
                     
                     </td>
                     
