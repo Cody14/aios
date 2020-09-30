@@ -29,5 +29,8 @@ public class NationalId extends Card {
      
      @OneToOne(mappedBy = "nationalId")
      private AioSCard aioSCard;
-
+     
+     
+     
+    
 }

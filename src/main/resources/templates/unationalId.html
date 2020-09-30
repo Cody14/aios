@@ -133,10 +133,12 @@
           </ul>
         </li>
         
-        <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/rp.png" height="22" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label"> &nbsp;&nbsp; Reports</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/rp.png" height="22" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label"> &nbsp;&nbsp; Reports</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-dot-circle-o"></i> About Cards</a></li>
-            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-dot-circle-o"></i> General reports</a></li>
+            <li><a class="treeview-item" th:href="@{/nidAllReport}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
+            <li><a class="treeview-item" th:href="@{/dlAllReport}"><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
+            <li><a class="treeview-item" th:href="@{/hiAllReport}"><i class="icon fa fa-dot-circle-o"></i> Health Insurance</a></li>
+            <li><a class="treeview-item" th:href="@{/aioAllReport}"><i class="icon fa fa-dot-circle-o"></i> AIO Smart Card</a></li>
             
           </ul>
         </li>

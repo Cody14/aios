@@ -16,7 +16,7 @@ public class Test {
 		
 		Citizen citizen = new Citizen();
 		
-
+        
 		
 		Village village = new Village();
 		

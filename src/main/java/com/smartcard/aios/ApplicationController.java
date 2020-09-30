@@ -38,7 +38,6 @@ public class ApplicationController {
 	
 	
 	
-
 	
 	@GetMapping("/logout")
 	public String logout() {

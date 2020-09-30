@@ -3,7 +3,9 @@ package com.smartcard.aios.controllers;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,6 +100,50 @@ public class AioSCardController {
 		//return "print";
 		
 		return "printAIO";
+	}
+	
+	
+	@GetMapping("/chart")
+	public String chart(Model model) {
+		Map<String, Integer> surveyMap = new HashMap<>();
+		
+		return "admin";
+	}
+	
+	@GetMapping("/aioAllReport")
+	public String aioAllRepots(Model model) {
+		List<AioSCard> activeAioList = aioSCardService.getAioSCards();
+		model.addAttribute("aioSCards", activeAioList);
+		return "aioReportAll";
+	}
+	
+	
+	@GetMapping("/nidAllReport")
+	public String nidAllRepots(Model model) {
+		List<NationalId> activeNidList = nationalIdService.activeNidsList();
+		model.addAttribute("nationalIds", activeNidList);
+		return "nidReportAll";
+	}
+	
+	@GetMapping("/dlAllReport")
+	public String dlAllRepots(Model model) {
+		List<DrivingLicense> activeDlList = drivingLicenseService.activeDlList();
+		model.addAttribute("drivingLicenses", activeDlList);
+		return "dlReportAll";
+	}
+	
+	@GetMapping("/hiAllReport")
+	public String hiAllRepots(Model model,String keyword) {
+		List<HealthInsurance> activeHiList = healthInsuranceService.getActiveHiList();
+		model.addAttribute("healthInsurances", activeHiList);
+		return "hiReportAll";
+	}
+	
+	@GetMapping("/allreports")
+	public String reports(Model model) {
+		List<AioSCard> allAio = aioSCardService.getAioSCards();
+		model.addAttribute("aioSCards", allAio);		
+		return "reports";
 	}
 	
 	

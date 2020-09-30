@@ -1,24 +1,21 @@
 package com.smartcard.aios.controllers;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.ApplicationContext;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.smartcard.aios.models.Citizen;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.smartcard.aios.models.District;
 import com.smartcard.aios.models.NationalId;
 import com.smartcard.aios.models.Sector;
@@ -29,7 +26,6 @@ import com.smartcard.aios.services.NationalIdService;
 import com.smartcard.aios.services.SectorService;
 import com.smartcard.aios.services.VillageService;
 
-import lombok.extern.java.Log;
 
 @Controller
 public class NationalIdController {
@@ -48,10 +44,14 @@ public class NationalIdController {
 	
 	@Autowired
 	private VillageService villageService;
+	
+	@Autowired
+	private ApplicationContext applicationContext;
 
 	
 	@GetMapping("/nationalIds")
 	public String getNationalIds(Model model,String keyword) {
+		
 		
 		if(keyword!=null) {
 			model.addAttribute("nationalIds", nationalIdService.findByKeyword(keyword));
@@ -62,8 +62,11 @@ public class NationalIdController {
 		List<Sector> sectorList = sectorService.getSectors();
 		model.addAttribute("sectors", sectorList);
 		
+		
 		return "nationalId";
 	}
+	
+	
 	
 
 	

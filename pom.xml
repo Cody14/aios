@@ -99,6 +99,16 @@
       	<groupId>jakarta.activation</groupId>
       	<artifactId>jakarta.activation-api</artifactId>
       </dependency>
+      
+      
+      <dependency>
+    <groupId>net.sf.jasperreports</groupId>
+    <artifactId>jasperreports</artifactId>
+    <version>6.14.0</version>
+   </dependency>
+   
+    
+      
 	</dependencies>
 
 	<build>

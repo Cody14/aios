@@ -39,6 +39,8 @@ public class NationalIdService {
 			return nationalIdRepository.findAll();
 		}
 		
+		
+		
 		public NationalId getNationalId(String citizenUsername) {
 			return nationalIdRepository.findByCitizenUsername(citizenUsername);
 		}

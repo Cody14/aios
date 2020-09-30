@@ -34,6 +34,14 @@ public interface NationalIdRepository extends JpaRepository<NationalId, Integer>
 	   @Query(value = " select * from national_id n where n.nid_status='active' ", nativeQuery = true)
 	   List<NationalId> activeNidList(); // list of active nids
 	   
+	   
+	  
+	   
+	   
+	  
+	   
+	   
+	   
 	   @Query(value = " select * from national_id n where n.nid_status='inactive' ", nativeQuery = true)
 	   List<NationalId> inactiveNidList(); // list of inactive nids
 	   

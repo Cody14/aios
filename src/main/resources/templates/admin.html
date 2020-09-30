@@ -134,8 +134,10 @@
         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/rp.png" height="22" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label"> &nbsp;&nbsp; Reports</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" href="bootstrap-components.html"><i class="icon fa fa-circle-o"></i> About Cards</a></li>
-            <li><a class="treeview-item" href="https://fontawesome.com/v4.7.0/icons/" target="_blank" rel="noopener"><i class="icon fa fa-circle-o"></i> General reports</a></li>
+            <li><a class="treeview-item" th:href="@{/nidAllReport}"><i class="icon fa fa-dot-circle-o"></i> National Id</a></li>
+            <li><a class="treeview-item" th:href="@{/dlAllReport}"><i class="icon fa fa-dot-circle-o"></i> Driving License</a></li>
+            <li><a class="treeview-item" th:href="@{/hiAllReport}"><i class="icon fa fa-dot-circle-o"></i> Health Insurance</a></li>
+            <li><a class="treeview-item" th:href="@{/aioAllReport}"><i class="icon fa fa-dot-circle-o"></i> AIO Smart Card</a></li>
             
           </ul>
         </li>
@@ -196,17 +198,13 @@
         <div class="col-md-6">
           <div class="tile">
             <h3 class="tile-title" style="font-weight: bolder;font-family:Cambria Math;text-transform: uppercase; font-size: 20px;">Movements</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="lineChartDemo"></canvas>
-            </div>
+             <canvas id="bar-chart" height="160"></canvas>
           </div>
         </div>
         <div class="col-md-6">
-          <div class="tile">
-            <h3 class="tile-title" style="font-weight: bolder;font-family:Cambria Math;text-transform: uppercase; font-size: 20px;">REQUEST DECSIONS</h3>
-            <div class="embed-responsive embed-responsive-16by9">
-              <canvas class="embed-responsive-item" id="pieChartDemo"></canvas>
-            </div>
+         <div class="tile">
+            <h3 class="tile-title" style="font-weight: bolder;font-family:Cambria Math;text-transform: uppercase; font-size: 20px;">Movements</h3>
+           <canvas id="doughnut-chart" height="160"></canvas>
           </div>
         </div>
       </div>
@@ -291,7 +289,7 @@
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
-    <script type="text/javascript" src="js/plugins/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script type="text/javascript">
     
     
@@ -305,52 +303,6 @@
     
     
     
-    
-      var data = {
-      	labels: ["January", "February", "March", "April", "May"],
-      	datasets: [
-      		{
-      			label: "My First dataset",
-      			fillColor: "rgba(220,220,220,0.2)",
-      			strokeColor: "rgba(220,220,220,1)",
-      			pointColor: "rgba(220,220,220,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(220,220,220,1)",
-      			data: [65, 59, 80, 81, 56]
-      		},
-      		{
-      			label: "My Second dataset",
-      			fillColor: "rgba(151,187,205,0.2)",
-      			strokeColor: "rgba(151,187,205,1)",
-      			pointColor: "rgba(151,187,205,1)",
-      			pointStrokeColor: "#fff",
-      			pointHighlightFill: "#fff",
-      			pointHighlightStroke: "rgba(151,187,205,1)",
-      			data: [28, 48, 40, 19, 86]
-      		}
-      	]
-      };
-      var pdata = [
-      	{
-      		value: 300,
-      		color: "#46BFBD",
-      		highlight: "#5AD3D1",
-      		label: "Accepted"
-      	},
-      	{
-      		value: 50,
-      		color:"#F7464A",
-      		highlight: "#FF5A5E",
-      		label: "Rejected"
-      	}
-      ]
-      
-      var ctxl = $("#lineChartDemo").get(0).getContext("2d");
-      var lineChart = new Chart(ctxl).Line(data);
-      
-      var ctxp = $("#pieChartDemo").get(0).getContext("2d");
-      var pieChart = new Chart(ctxp).Pie(pdata);
     </script>
     <!-- Google analytics script-->
     <script type="text/javascript">
@@ -363,5 +315,63 @@
       	ga('send', 'pageview');
       }
     </script>
+    
+    
+     <script type="text/javascript">
+    
+ // Bar chart
+    new Chart(document.getElementById("bar-chart"), {
+        type: 'bar',
+        data: {
+          labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+          datasets: [
+            {
+              label: "Population (millions)",
+              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+              data: [2478,5267,734,784,433]
+            }
+          ]
+        },
+        options: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: 'Predicted world population (millions) in 2050'
+          }
+        }
+    });
+    
+    
+    
+    </script>
+   
+    <script type="text/javascript">
+    
+    new Chart(document.getElementById("doughnut-chart"), {
+        type: 'doughnut',
+        data: {
+          labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+          datasets: [
+            {
+              label: "Population (millions)",
+              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+              data: [2478,5267,734,784,433]
+            }
+          ]
+        },
+        options: {
+          title: {
+            display: true,
+            text: 'Predicted world population (millions) in 2050'
+          }
+        }
+    });
+    
+  
+    
+    </script>
+  
+    
+    
   </body>
 </html>
