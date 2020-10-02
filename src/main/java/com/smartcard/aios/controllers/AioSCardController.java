@@ -10,6 +10,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.zxing.WriterException;
 import com.smartcard.aios.models.AioSCard;
 import com.smartcard.aios.models.Citizen;
@@ -27,6 +31,7 @@ import com.smartcard.aios.models.District;
 import com.smartcard.aios.models.DrivingLicense;
 import com.smartcard.aios.models.HealthInsurance;
 import com.smartcard.aios.models.NationalId;
+import com.smartcard.aios.models.PieStat;
 import com.smartcard.aios.models.Sector;
 import com.smartcard.aios.models.Village;
 import com.smartcard.aios.repositories.NationalIdRepository;
@@ -36,6 +41,7 @@ import com.smartcard.aios.services.DistrictService;
 import com.smartcard.aios.services.DrivingLicenseService;
 import com.smartcard.aios.services.HealthInsuranceService;
 import com.smartcard.aios.services.NationalIdService;
+import com.smartcard.aios.services.PieStatService;
 import com.smartcard.aios.services.SectorService;
 import com.smartcard.aios.services.VillageService;
 
@@ -67,6 +73,11 @@ public class AioSCardController {
 	
 	@Autowired
 	private HealthInsuranceService healthInsuranceService;
+	
+
+	
+	@Autowired
+	PieStatService pieStatService;
 
 	
 	@GetMapping("/aioSCards")
@@ -103,12 +114,34 @@ public class AioSCardController {
 	}
 	
 	
-	@GetMapping("/chart")
-	public String chart(Model model) {
-		Map<String, Integer> surveyMap = new HashMap<>();
-		
-		return "admin";
+	@RequestMapping("/chart")
+	@ResponseBody
+	public String chart() {
+		List<Citizen> citizenList = citizenService.getCitizens();
+		JsonArray jsonNames = new JsonArray();
+		JsonArray jsonYears = new JsonArray();
+		JsonObject json = new JsonObject();
+	    citizenList.forEach(data->{
+		jsonNames.add(data.getFirstname());
+		jsonYears.add(data.getDateOfBirth().getYear());
+	});	
+	
+	json.add("names", jsonNames);
+	json.add("years", jsonYears);
+	
+	return json.toString(); 
 	}
+	
+	
+	
+	@RequestMapping("/pieStat")
+	@ResponseBody
+	public ResponseEntity<?> pieChart(){		
+		List<PieStat> listPieStats = pieStatService.getPieStats();
+		return new ResponseEntity<>(listPieStats,HttpStatus.OK);
+		
+	}
+	
 	
 	@GetMapping("/aioAllReport")
 	public String aioAllRepots(Model model) {
