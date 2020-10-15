@@ -65,26 +65,7 @@ public class HealthInsuranceController {
 		return "healthInsurance";
 	}
 	
-	@GetMapping("/dhealthInsurances")
-	public String getActiveHiList(Model model) {
-		List<HealthInsurance> activeHiList = healthInsuranceService.getActiveHiList();
-		model.addAttribute("healthInsurances", activeHiList);
-		return "dhealthInsurance";
-	}
 	
-	@GetMapping("/ahealthInsurances")
-	public String getinActiveHiList(Model model) {
-		List<HealthInsurance> inactiveHiList = healthInsuranceService.getinActiveHiList();
-		model.addAttribute("healthInsurances", inactiveHiList);
-		return "ahealthInsurance";
-	}
-	
-	@GetMapping("/uhealthInsurances")
-	public String getLinkedHiList(Model model) {
-		List<HealthInsurance> linkHiList = healthInsuranceService.getLinkedHiList();
-		model.addAttribute("healthInsurances", linkHiList);
-		return "uhealthInsurance";
-	}
 	
 	
 	@GetMapping("/healthInsuranceCitizenInfos")

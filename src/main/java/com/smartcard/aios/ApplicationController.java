@@ -1,20 +1,60 @@
 package com.smartcard.aios;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.smartcard.aios.models.User;
+import com.smartcard.aios.services.UserService;
+
+import javassist.compiler.ast.Keyword;
 
 @Controller
 public class ApplicationController {
+	
+	@Autowired
+	private UserService userService;
+	
 
 	@GetMapping("/")
 	public String goHome() {
-		return "citizen";
+	  return "redirect:/citizens";
 	}
 	
 	@GetMapping("/login")
 	public String login() {
-		return "login";
+	return "login";	
 	}
+	
+	@GetMapping("/adminLogin")
+	public String adminLogin(String keyword) {		
+		
+		if(keyword!=null) {
+			
+		User user =	userService.findByUsername(keyword);
+		
+		if(user.getFullname().contentEquals("Cody")) {
+			System.out.println("OKEEEEEEEEEEEEY "+user.getFullname());
+			return"redirect:/admins";
+		}else {
+			
+			return"adminLogin";
+		}
+		}
+		else {
+			
+			return"adminLogin";
+		}
+			
+			
+	
+			
+	}
+	
+	
 	
 	@GetMapping("/register")
 	public String register() {

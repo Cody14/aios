@@ -70,27 +70,7 @@ public class NationalIdController {
 	
 
 	
-	@GetMapping("/dnationalIds")
-	public String getDNationalIds(Model model) {
-		List<NationalId> activeNidList = nationalIdService.activeNidsList();
-		model.addAttribute("nationalIds", activeNidList);
-		return "dnationalId";
-	}
 	
-	@GetMapping("/anationalIds")
-	public String getInactiveDNationalIds(Model model) {
-		List<NationalId> inactiveNidList = nationalIdService.inactiveNidsList();
-		model.addAttribute("nationalIds", inactiveNidList);
-		return "anationalId";
-	}
-	
-	
-	@GetMapping("/unationalIds")
-	public String getUNationalIds(Model model) {
-		List<NationalId> activeNidList = nationalIdService.linkedNidsList();
-		model.addAttribute("nationalIds", activeNidList);
-		return "unationalId";
-	}
 	
 	
 	

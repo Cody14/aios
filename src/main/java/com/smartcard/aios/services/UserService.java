@@ -27,9 +27,17 @@ public class UserService {
 	public List<User> getUsers(){
 		return userRepository.findAll();
 	}
+	public User getAdminUser(String keyword){
+		return userRepository.adminUser(keyword);
+	}
 	
 	public User findByUsername(String username) {
 	   return userRepository.findByUsername(username);
+	}
+	
+	public User findAdmin(String username) {
+		username="Admin";
+		return userRepository.findByUsername(username);
 	}
 	
 	// save a new user
