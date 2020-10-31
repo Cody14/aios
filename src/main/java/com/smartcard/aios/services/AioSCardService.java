@@ -1120,7 +1120,7 @@ public class AioSCardService {
    		    
    		     NationalId nationalId = nationalIdRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
    		     
-   		    
+   		    HealthInsurance healthInsurance = healthInsuranceRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
    		      DrivingLicense drivingLicense = drivingLicenseRepository.findByCitizenUsername(aioSCard.getCitizenUsername());
    		    
                 if(aioSCard.getNationalId()==null && aioSCard.getDrivingLicense()==null) {
@@ -1139,6 +1139,7 @@ public class AioSCardService {
     			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
 
     			aioSCard.setHealthInsurance(null);
+    			healthInsurance.setLinkStatus("unlinked");
     			aioSCard.setQrcodePhoto(qrcodePicture);
     			aioSCardRepository.save(aioSCard);
     		    
@@ -1159,6 +1160,7 @@ public class AioSCardService {
      			    				MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path);
 
      			aioSCard.setHealthInsurance(null);
+     			healthInsurance.setLinkStatus("unlinked");
      			aioSCard.setQrcodePhoto(qrcodePicture);
      			aioSCardRepository.save(aioSCard);
                	 
@@ -1180,6 +1182,7 @@ public class AioSCardService {
 
       			aioSCard.setHealthInsurance(null);
       			aioSCard.setQrcodePhoto(qrcodePicture);
+      			healthInsurance.setLinkStatus("unlinked");
       			aioSCardRepository.save(aioSCard);
                 }else if(aioSCard.getNationalId()!=null && aioSCard.getDrivingLicense()!=null) {
                	 QRCodeWriter writer = new QRCodeWriter();
@@ -1200,6 +1203,7 @@ public class AioSCardService {
 
        			aioSCard.setHealthInsurance(null);
        			aioSCard.setQrcodePhoto(qrcodePicture);
+       			healthInsurance.setLinkStatus("unlinked");
        			aioSCardRepository.save(aioSCard);
                 }
                

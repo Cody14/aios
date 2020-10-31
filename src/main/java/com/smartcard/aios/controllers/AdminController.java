@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.zxing.WriterException;
 import com.smartcard.aios.models.Admin;
+import com.smartcard.aios.models.AdminMessage;
 import com.smartcard.aios.models.AioSCard;
 import com.smartcard.aios.models.Citizen;
 import com.smartcard.aios.models.District;
@@ -28,6 +31,7 @@ import com.smartcard.aios.models.HealthInsurance;
 import com.smartcard.aios.models.NationalId;
 import com.smartcard.aios.models.PieStat;
 import com.smartcard.aios.models.Village;
+import com.smartcard.aios.services.AdminMessageService;
 import com.smartcard.aios.services.AdminService;
 import com.smartcard.aios.services.AioSCardService;
 import com.smartcard.aios.services.CitizenService;
@@ -72,7 +76,6 @@ public class AdminController {
 	@Autowired
 	private HealthInsuranceService healthInsuranceService;
 	
-
 	
 	@Autowired
 	PieStatService pieStatService;
@@ -82,6 +85,10 @@ public class AdminController {
 	public String getAdmins(Model model) {
 		
 		List<Admin> adminList = adminService.getAdmins();
+		
+		List<PieStat> pieStatsList = pieStatService.getPieStats();
+		model.addAttribute("pieStats", pieStatsList);
+		
 		model.addAttribute("admins", adminList);
 		
 		List<Citizen> citizenList = citizenService.getCitizens();
@@ -257,37 +264,85 @@ public class AdminController {
 	
 	// UNLINK NID
 		@RequestMapping(value = "/unlinkAioSCardWithNid", method= {RequestMethod.PUT,RequestMethod.GET})
-		public String unlinkNid1(AioSCard aioSCard,String keyword) throws WriterException, IOException {	
-			aioSCard = aioSCardService.getAioSCardByKeyword(keyword);	
-			aioSCard.setNationalId(null);   
-			aioSCardService.UNLINKNid1Service(aioSCard, keyword);
-			return "redirect:/unationalIds";
+		public RedirectView unlinkNid1(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
+			
+			try {
+				
+				aioSCard = aioSCardService.getAioSCardByKeyword(keyword);	
+				aioSCard.setNationalId(null);   
+				aioSCardService.UNLINKNid1Service(aioSCard, keyword);
+				
+				RedirectView  redirectView = new RedirectView("/unationalIds",true);
+				 redir.addFlashAttribute("reqM",aioSCard.getOwnerName().toUpperCase()+"'S "+"NATIONAL ID IS UNLINKED SUCCESSFULY!");
+				 return redirectView;
+				
+			} catch (Exception e) {
+				RedirectView  redirectView = new RedirectView("/unationalIds",true);
+				 redir.addFlashAttribute("reqMe","NATIONAL ID FAILED TO BE UNLINKED!");
+				 return redirectView;
+			}
+
 		}
 		// END UNLINK NID
 		
 		
 		// DISABLE NID
 			@RequestMapping(value = "/disableAioSCardWithNid", method= {RequestMethod.PUT,RequestMethod.GET})
-			public String disablekNid1(AioSCard aioSCard,String keyword) throws WriterException, IOException {	
-				aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
-				NationalId nationalId = nationalIdService.getNationalId(aioSCard.getCitizenUsername());
-				nationalId.setNidStatus("inactive");
-				aioSCard.setNationalId(nationalId);   
-				aioSCardService.disableNid1Service(aioSCard, keyword);
-				return "redirect:/dnationalIds";
+			public RedirectView disablekNid1(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {	
+				
+				
+				try {
+					
+					aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+					NationalId nationalId = nationalIdService.getNationalId(aioSCard.getCitizenUsername());
+					nationalId.setNidStatus("inactive");
+					aioSCard.setNationalId(nationalId);   
+					aioSCardService.disableNid1Service(aioSCard, keyword);
+					
+					RedirectView  redirectView = new RedirectView("/dnationalIds",true);
+					 redir.addFlashAttribute("reqMe",nationalId.getOwnerName().toUpperCase()+"'S "+"NATIONAL ID IS DISABLED!");
+					 return redirectView;
+					
+				} catch (Exception e) {
+					
+					System.out.println("NATIONAL ID DISABLE ERROR "+e);
+					RedirectView  redirectView = new RedirectView("/dnationalIds",true);
+					 redir.addFlashAttribute("reqMe","NATIONAL ID FAILED TO BE DISABLED");
+					 return redirectView;
+				}
+				
+				
+				
+				
 			}
 			// END DISABLE NID
 			
 			
 			// ACTIVE NID
 					@RequestMapping(value = "/activeAioSCardWithNid", method= {RequestMethod.PUT,RequestMethod.GET})
-					public String activekNid1(AioSCard aioSCard,String keyword) throws WriterException, IOException {	
-						aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
-						NationalId nationalId = nationalIdService.getNationalId(aioSCard.getCitizenUsername());
-						nationalId.setNidStatus("active");
-						aioSCard.setNationalId(nationalId);   
-						aioSCardService.activeNid1Service(aioSCard, keyword);
-						return "redirect:/anationalIds";
+					public RedirectView activekNid1(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
+						
+						
+						try {
+							
+							
+							aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+							NationalId nationalId = nationalIdService.getNationalId(aioSCard.getCitizenUsername());
+							nationalId.setNidStatus("active");
+							aioSCard.setNationalId(nationalId);   
+							aioSCardService.activeNid1Service(aioSCard, keyword);
+							
+							RedirectView  redirectView = new RedirectView("/anationalIds",true);
+							 redir.addFlashAttribute("reqM",nationalId.getOwnerName().toUpperCase()+"'S "+"NATIONAL ID IS ACTIVATED!");
+							 return redirectView;
+							
+							
+						} catch (Exception e) {
+							RedirectView  redirectView = new RedirectView("/anationalIds",true);
+							 redir.addFlashAttribute("reqMe","NATIONAL ID FAILED TO BE ACTIVATED!");
+							 return redirectView;
+						}
+						
 					}
 					// END ACTIVE NID
 					
@@ -295,11 +350,25 @@ public class AdminController {
 					// UNLINK DL
 					
 					@RequestMapping(value = "/unlinkAioSCardWithDl", method= {RequestMethod.PUT,RequestMethod.GET})
-					public String unlinkDl(AioSCard aioSCard,String keyword) throws WriterException, IOException {		
-						aioSCard = aioSCardService.getAioSCardByKeyword(keyword);	
-						aioSCard.setDrivingLicense(null);	
-						aioSCardService.UNLINLDlService(aioSCard, keyword);
-						return "redirect:/udrivingLicenses";
+					public RedirectView unlinkDl(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {	
+						
+						try {
+							
+							aioSCard = aioSCardService.getAioSCardByKeyword(keyword);	
+							aioSCard.setDrivingLicense(null);	
+							aioSCardService.UNLINLDlService(aioSCard, keyword);
+							
+							RedirectView  redirectView = new RedirectView("/udrivingLicenses",true);
+							redir.addFlashAttribute("reqM",aioSCard.getOwnerName().toUpperCase()+"'S "+"DRIVING LICENSE CARD IS UNLINKED SUCCESSFULY!");
+							return redirectView;
+							
+						} catch (Exception e) {
+							RedirectView  redirectView = new RedirectView("/udrivingLicenses",true);
+							redir.addFlashAttribute("reqM",aioSCard.getOwnerName().toUpperCase()+"'S "+"DRIVING LICENSE CARD IS UNLINKED SUCCESSFULY!");
+							return redirectView;
+						}
+						
+						
 					}
 					
 					// END UNLINK DL
@@ -308,13 +377,27 @@ public class AdminController {
 					// DISABLE DL
 					
 						@RequestMapping(value = "/disableAioSCardWithDl", method= {RequestMethod.PUT,RequestMethod.GET})
-						public String disableDl(AioSCard aioSCard,String keyword) throws WriterException, IOException {		
-							aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
-							DrivingLicense drivingLicense = drivingLicenseService.getDrivingLicense(aioSCard.getCitizenUsername());
-							drivingLicense.setDlStatus("inactive");
-							aioSCard.setDrivingLicense(drivingLicense);	
-							aioSCardService.disableDlService(aioSCard, keyword);
-							return "redirect:/ddrivingLicenses";
+						public RedirectView disableDl(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
+							
+							
+							try {
+								
+								aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+								DrivingLicense drivingLicense = drivingLicenseService.getDrivingLicense(aioSCard.getCitizenUsername());
+								drivingLicense.setDlStatus("inactive");
+								aioSCard.setDrivingLicense(drivingLicense);	
+								aioSCardService.disableDlService(aioSCard, keyword);
+								
+								RedirectView  redirectView = new RedirectView("/ddrivingLicenses",true);
+								 redir.addFlashAttribute("reqMe",drivingLicense.getOwnerName().toUpperCase()+"'S "+"DRIVING LICENSE CARD IS DISABLED!");
+								 return redirectView;
+								
+							} catch (Exception e) {
+								RedirectView  redirectView = new RedirectView("/ddrivingLicenses",true);
+								 redir.addFlashAttribute("reqMe","DRIVING LICENSE CARD IS DISABLED!");
+								 return redirectView;
+							}
+
 						}
 						
 						// END DISABLE DL
@@ -323,13 +406,28 @@ public class AdminController {
 						// ACTIVE DL
 						
 							@RequestMapping(value = "/activeAioSCardWithDl", method= {RequestMethod.PUT,RequestMethod.GET})
-							public String activeDl(AioSCard aioSCard,String keyword) throws WriterException, IOException {		
-								aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
-								DrivingLicense drivingLicense = drivingLicenseService.getDrivingLicense(aioSCard.getCitizenUsername());
-								drivingLicense.setDlStatus("active");
-								aioSCard.setDrivingLicense(drivingLicense);	
-								aioSCardService.activeDlService(aioSCard, keyword);
-								return "redirect:/adrivingLicenses";
+							public RedirectView activeDl(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
+								
+								
+								try {
+									
+									aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+									DrivingLicense drivingLicense = drivingLicenseService.getDrivingLicense(aioSCard.getCitizenUsername());
+									drivingLicense.setDlStatus("active");
+									aioSCard.setDrivingLicense(drivingLicense);	
+									aioSCardService.activeDlService(aioSCard, keyword);
+									
+									RedirectView  redirectView = new RedirectView("/adrivingLicenses",true);
+									 redir.addFlashAttribute("reqM",drivingLicense.getOwnerName().toUpperCase()+"'S "+"DRIVING LICENSE CARD IS ACTIVATED!");
+									 return redirectView;
+									
+								} catch (Exception e) {
+									RedirectView  redirectView = new RedirectView("/adrivingLicenses",true);
+									 redir.addFlashAttribute("reqMe","DRIVING LICENSE CARD FAILED TO BE ACTIVATED!");
+									 return redirectView;
+								}
+								
+							
 							}
 							
 							// END ACTIVE DL
@@ -339,11 +437,27 @@ public class AdminController {
 							// UNLINK HL
 							
 							@RequestMapping(value = "/unlinkAioSCardWithHi", method= {RequestMethod.PUT,RequestMethod.GET})
-							public String unlinkHi(AioSCard aioSCard,String keyword) throws WriterException, IOException {
-								aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
-								aioSCard.setHealthInsurance(null);
-								aioSCardService.unlinkHiService(aioSCard, keyword);
-								return "redirect:/uhealthInsurances";
+							public RedirectView unlinkHi(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
+								
+								try {
+									
+									aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+									aioSCard.setHealthInsurance(null);
+									aioSCardService.unlinkHiService(aioSCard, keyword);
+									
+									RedirectView  redirectView = new RedirectView("/uhealthInsurances",true);
+									redir.addFlashAttribute("reqM",aioSCard.getOwnerName().toUpperCase()+"'S "+"HEALTH INSURANCE CARD IS UNLINKED SUCCESSFULY!");
+									return redirectView; 
+									
+								} catch (Exception e) {
+									
+									RedirectView  redirectView = new RedirectView("/uhealthInsurances",true);
+									 redir.addFlashAttribute("reqMe","HEALTH INSURANCE CARD FAILED TO BE ACTIVATED!");
+									 return redirectView;
+									
+									
+								}
+						
 							}
 							
 							
@@ -353,13 +467,25 @@ public class AdminController {
 							// DISABLE HL
 							
 								@RequestMapping(value = "/disableAioSCardWithHi", method= {RequestMethod.PUT,RequestMethod.GET})
-								public String disableHi(AioSCard aioSCard,String keyword) throws WriterException, IOException {
-									aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
-									HealthInsurance healthInsurance = healthInsuranceService.getHealthInsurance(aioSCard.getCitizenUsername());
-									healthInsurance.setHi_status("inactive");
-									aioSCard.setHealthInsurance(healthInsurance);
-									aioSCardService.disableHiService(aioSCard, keyword);
-									return "redirect:/dhealthInsurances";
+								public RedirectView disableHi(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
+									
+									try {
+										aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+										HealthInsurance healthInsurance = healthInsuranceService.getHealthInsurance(aioSCard.getCitizenUsername());
+										healthInsurance.setHi_status("inactive");
+										aioSCard.setHealthInsurance(healthInsurance);
+										aioSCardService.disableHiService(aioSCard, keyword);
+										
+										RedirectView  redirectView = new RedirectView("/dhealthInsurances",true);
+										 redir.addFlashAttribute("reqMe",healthInsurance.getOwnerName().toUpperCase()+"'S "+"HEALTH INSURANCE CARD IS DISABLED!");
+										 return redirectView;
+										
+									} catch (Exception e) {
+										RedirectView  redirectView = new RedirectView("/dhealthInsurances",true);
+										 redir.addFlashAttribute("reqMe","HEALTH INSURANCE CARD IS DISABLED!");
+										 return redirectView;
+									}
+									
 								}
 								
 								
@@ -369,13 +495,27 @@ public class AdminController {
 								// ACTIVE HI
 								
 								@RequestMapping(value = "/activeAioSCardWithHi", method= {RequestMethod.PUT,RequestMethod.GET})
-								public String activeHi(AioSCard aioSCard,String keyword) throws WriterException, IOException {		
-									aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
-									HealthInsurance healthInsurance = healthInsuranceService.getHealthInsurance(aioSCard.getCitizenUsername());
-									healthInsurance.setHi_status("active");
-	                                aioSCard.setHealthInsurance(healthInsurance);
-	                                aioSCardService.activeHiService(aioSCard, keyword);
-									return "redirect:/ahealthInsurances";
+								public RedirectView activeHi(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
+									
+									
+									try {
+										
+										aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+										HealthInsurance healthInsurance = healthInsuranceService.getHealthInsurance(aioSCard.getCitizenUsername());
+										healthInsurance.setHi_status("active");
+		                                aioSCard.setHealthInsurance(healthInsurance);
+		                                aioSCardService.activeHiService(aioSCard, keyword);
+		                                
+		                                RedirectView  redirectView = new RedirectView("/ahealthInsurances",true);
+										 redir.addFlashAttribute("reqM",healthInsurance.getOwnerName().toUpperCase()+"'S "+"HEALTH INSURANCE CARD IS ACTIVATED!");
+										 return redirectView;
+										
+									} catch (Exception e) {
+										RedirectView  redirectView = new RedirectView("/ahealthInsurances",true);
+										 redir.addFlashAttribute("reqMe","HEALTH INSURANCE CARD FAILED TO BE ACTIVATED!");
+										 return redirectView;
+									}
+
 								}
 								
 								// END ACTIVE HI

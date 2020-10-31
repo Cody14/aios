@@ -24,6 +24,11 @@ public class ApplicationController {
 	  return "redirect:/citizens";
 	}
 	
+	@GetMapping("/ex")
+	public String goH() {
+	  return "ex";
+	}
+	
 	@GetMapping("/login")
 	public String login() {
 	return "login";	

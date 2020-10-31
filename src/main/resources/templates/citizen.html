@@ -129,7 +129,7 @@
         
         <li><a class="app-menu__item" th:href="@{/aiosCardPrint}"><i class="app-menu__icon fa fa-print"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label" >PRINT AIOS CARD</span></a></li>
         
-        <li><a class="app-menu__item" th:href="@{/dashb}"><i class="app-menu__icon fa fa-file-code-o"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">ABOUT US</span></a></li>
+        <li><a class="app-menu__item" th:href="@{/contactUs}"><i class="fa fa-envelope" aria-hidden="true"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;margin-left: 10px;" class="app-menu__label"> CONTACT US</span></a></li>
       
         <li><a class="app-menu__item" th:href="@{/admins}"><i class="app-menu__icon fa fa-pie-chart"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Admin</span></a></li>
       
@@ -152,7 +152,11 @@
           <div class="widget-small primary coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
             <div class="info">
               <h4 style="font-weight: bolder;font-family:Gabriola;text-transform: uppercase; font-size: 20px; ">NATIONAL ID</h4>
-              <p style="font-weight: bolder;font-family: Agency FB;"><b>5</b></p>
+              <p style="font-weight: bolder;font-family: Agency FB;">
+              
+              <b>5</b>
+              
+              </p>
             </div>
           </div>
         </div>
@@ -187,12 +191,7 @@
        <div class="row">
         <div class="col-md-12">
          <form id="ctznForm" th:action="@{/citizens/addNew}" method="post" enctype="multipart/form-data">
-          
-         
-        
-          
-          <span th:utext="${reqM}" style="font-family: Cambria Math; font-weight: bolder;text-transform: uppercase;font-size: 14px;color: #265c2c;"></span> 
-            
+
           <div class="tile">
             
            
@@ -203,7 +202,12 @@
 
             <div class="col-lg-12">
             
-              <h2 class="mb-3 line-head" style=" border-bottom-color: #009688; font-family: Gabriola; text-transform:uppercase ;" id="buttons">Fill</h2>
+              <h2 class="mb-3 line-head" style=" border-bottom-color: #009688; font-family: Gabriola; text-transform:uppercase ;" id="buttons">Fill
+              
+               <label style="float: right;"><span th:utext="${reqM}" style="color: #265c2c;"></span> 
+              </label>
+              
+              </h2>
               
               
               
@@ -219,28 +223,29 @@
                 
                 <div class="form-group">
                
-                  <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" type="text" id="firstnameAdd" name="firstname" placeholder="First Name">
+                  <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" type="text" id="firstnameAdd" name="firstname" placeholder="First Name" required>
+      
                 </div>
                 <div class="form-group">
-                  <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" type="text" id="LastnameAdd" name="Lastname" placeholder="Last Name">
+                  <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" type="text" id="LastnameAdd" name="Lastname" placeholder="Last Name" required>
                 </div>
                  
                  <div class="form-group">
-                <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="genderAdd" name="gender" >
+                <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="genderAdd" name="gender" required >
 				          <option value="Male">Male</option>
  						  <option value="Female">Female</option>
   		        </select>
                  </div>
                  
                  <div class="form-group">
-                 <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" type="date" class="form-control" id="dateOfBirthAdd" name="dateOfBirth" placeholder="Date Of Birth" >
+                 <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" type="date" class="form-control" id="dateOfBirthAdd" name="dateOfBirth" placeholder="Date Of Birth" required >
                  </div>
  
               </div>
               <div class="col-lg-4">
                 
                <div class="form-group">
-                <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="categoryAdd" name="category" >
+                <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="categoryAdd" name="category" required >
 				          <option value="Rwandan">Rwandan</option>
  						  <option value="Foreigner">Foreigner</option>
  						  <option value="Refugee">Refugee</option>
@@ -248,7 +253,7 @@
                 </div> 
                 
                 <div class="form-group"> 
-                  <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="birthDistrictAdd" name="birthPlaceId" >  	       		    					  					    					    
+                  <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="birthDistrictAdd" name="birthPlaceId" required>  	       		    					  					    					    
 					<option th:each="district : ${districts}"
 						    th:value="${district.id}"
 						    th:text="${district.districtName}">
@@ -257,7 +262,7 @@
                 </div>  
                   
                <div class="form-group">
-                 <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="currentPlaceAdd" name="currentPlaceId" >    					  					    					    
+                 <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="currentPlaceAdd" name="currentPlaceId"  required >    					  					    					    
 				<option th:each="village : ${villages}"
 						th:value="${village.id}"
 						th:text="${village.villageName}">
@@ -266,7 +271,7 @@
               </div>  
                  
               <div class="form-group">
-               <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="MartialStatusAdd" name="martialStatus" >       
+               <select style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" id="MartialStatusAdd" name="martialStatus"  required>       
 				          <option value="Single">Single</option>
  						  <option value="Married">Married</option>
  						  <option value="Divorced">Divorced</option>
@@ -285,14 +290,14 @@
            </div>
            
             <div class="form-group">
-              <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" type="text" id="phoneNumberAdd" name="phoneNumber" placeholder="Phone Number">
+              <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control" type="text" id="phoneNumberAdd" name="phoneNumber" placeholder="07..." size="10" maxlength="10" required>
             </div> 
             <div class="form-group">
             <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" type="text" class="form-control form-control" hidden="true" id="usernameAdd" name="username" th:value="${#authentication.getPrincipal().getUsername()}" readonly>
            </div>      
                   
            <div class="form-group">
-            <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control-file"  type="file" name="file" aria-describedby="fileHelp">
+            <input style="font-family: Cambria Math;font-weight: bolder;text-transform: capitalize;font-size: 14px;" class="form-control-file"  type="file" name="file" aria-describedby="fileHelp" required>
            </div>      
                  
                 

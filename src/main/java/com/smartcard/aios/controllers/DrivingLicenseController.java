@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.smartcard.aios.models.District;
 import com.smartcard.aios.models.DrivingLicense;
@@ -92,9 +94,22 @@ public class DrivingLicenseController {
 	
 	
 	@PostMapping("/drivingLicenses/addNew")
-	public String addNew(DrivingLicense drivingLicense) {
-	    drivingLicenseService.save(drivingLicense);
-	    return "redirect:/drivingLicenses";
+	public RedirectView addNew(DrivingLicense drivingLicense,RedirectAttributes redir) {
+		
+		try {
+			
+			drivingLicenseService.save(drivingLicense);
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","DRIVING LICENSE CARD Generated Successfuly!");
+			 return redirectView;
+			
+		} catch (Exception e) {
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","DRIVING LICENSE CARD Generated Successfuly!");
+			 return redirectView;
+		}
+		
+		
 	}
 	
 	@RequestMapping("/drivingLicenses/findById")
@@ -121,187 +136,195 @@ public class DrivingLicenseController {
 	}
 	
 	@RequestMapping(value = "/drivingLicenses/addCategoryA", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String addCategoryA(DrivingLicense drivingLicense,String keyword) {
+	public RedirectView addCategoryA(DrivingLicense drivingLicense,String keyword,RedirectAttributes redir) {
 	   
 		try {
 			DrivingLicense dl = drivingLicenseService.getDrivingLicense(keyword);
-
-			
 			dl.setCat_A(drivingLicense.getCat_A());
 			dl.setIssuedDate_A(drivingLicense.getIssuedDate_A());
 			dl.setExpireDate_A(drivingLicense.getIssuedDate_A().plusYears(10));
-			
-			
-			
 			drivingLicenseService.update(dl);
+			
+			 RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY A ADDED Successfuly!");
+			 return redirectView;
+			
+			
 		} catch (Exception e) {
-			return "error update DL "+e;
+			 RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY A FAILED TO BE ADDED");
+			 return redirectView;
 		}
-		
-		
-	    return "redirect:/drivingLicenses";
+
 	}
 	
 	
 	@RequestMapping(value = "/drivingLicenses/addCategoryB", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String addCategoryB(DrivingLicense drivingLicense,String keyword) {
+	public RedirectView addCategoryB(DrivingLicense drivingLicense,String keyword,RedirectAttributes redir) {
 	   
 		try {
 			DrivingLicense dl = drivingLicenseService.getDrivingLicense(keyword);
-
-			
 			dl.setCat_B(drivingLicense.getCat_B());
 			dl.setIssuedDate_B(drivingLicense.getIssuedDate_B());
 			dl.setExpireDate_B(drivingLicense.getIssuedDate_B().plusYears(10));
-			
-			
-			
 			drivingLicenseService.update(dl);
+			
+			 RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY B ADDED Successfuly!");
+			 return redirectView;
+			
 		} catch (Exception e) {
-			return "error update DL "+e;
+			
+			 RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY B FAILED TO BE ADDED");
+			 return redirectView;
 		}
 		
 		
-	    return "redirect:/drivingLicenses";
 	}
 	
 	
 	@RequestMapping(value = "/drivingLicenses/addCategoryC", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String addCategoryC(DrivingLicense drivingLicense,String keyword) {
+	public RedirectView addCategoryC(DrivingLicense drivingLicense,String keyword,RedirectAttributes redir) {
 	   
 		try {
 			DrivingLicense dl = drivingLicenseService.getDrivingLicense(keyword);
-
-			
 			dl.setCat_C(drivingLicense.getCat_C());
 			dl.setIssuedDate_C(drivingLicense.getIssuedDate_C());
 			dl.setExpireDate_C(drivingLicense.getIssuedDate_C().plusYears(10));
-			
-			
-			
 			drivingLicenseService.update(dl);
+			
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY C ADDED Successfuly!");
+			 return redirectView;
+			
+			
 		} catch (Exception e) {
-			return "error update DL "+e;
+			 RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY C FAILED TO BE ADDED");
+			 return redirectView;
 		}
 		
-		
-	    return "redirect:/drivingLicenses";
 	}
 	
 	
 	@RequestMapping(value = "/drivingLicenses/addCategoryD", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String addCategoryD(DrivingLicense drivingLicense,String keyword) {
+	public RedirectView addCategoryD(DrivingLicense drivingLicense,String keyword,RedirectAttributes redir) {
 	   
 		try {
 			DrivingLicense dl = drivingLicenseService.getDrivingLicense(keyword);
-
-			
 			dl.setCat_D(drivingLicense.getCat_D());
 			dl.setIssuedDate_D(drivingLicense.getIssuedDate_D());
 			dl.setExpireDate_D(drivingLicense.getIssuedDate_D().plusYears(10));
-			
-			
-			
 			drivingLicenseService.update(dl);
+			
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY D ADDED Successfuly!");
+			 return redirectView;
+			
+			
 		} catch (Exception e) {
-			return "error update DL "+e;
+			 RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY D FAILED TO BE ADDED");
+			 return redirectView;
 		}
-		
-		
-	    return "redirect:/drivingLicenses";
+
 	}
 	
 	
 	
 	@RequestMapping(value = "/drivingLicenses/addCategoryE", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String addCategoryE(DrivingLicense drivingLicense,String keyword) {
+	public RedirectView addCategoryE(DrivingLicense drivingLicense,String keyword,RedirectAttributes redir) {
 	   
 		try {
 			DrivingLicense dl = drivingLicenseService.getDrivingLicense(keyword);
-
-			
 			dl.setCat_E(drivingLicense.getCat_E());
 			dl.setIssuedDate_E(drivingLicense.getIssuedDate_E());
 			dl.setExpireDate_E(drivingLicense.getIssuedDate_E().plusYears(10));
-			
-			
-			
 			drivingLicenseService.update(dl);
+			
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY E ADDED Successfuly!");
+			 return redirectView;
+			
+			
 		} catch (Exception e) {
-			return "error update DL "+e;
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY E FAILED TO BE ADDED");
+			 return redirectView;
 		}
-		
-		
-	    return "redirect:/drivingLicenses";
+
 	}
 	
 	
 	@RequestMapping(value = "/drivingLicenses/addCategoryA1", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String addCategoryA1(DrivingLicense drivingLicense,String keyword) {
+	public RedirectView addCategoryA1(DrivingLicense drivingLicense,String keyword,RedirectAttributes redir) {
 	   
 		try {
 			DrivingLicense dl = drivingLicenseService.getDrivingLicense(keyword);
-
-			
 			dl.setCat_A1(drivingLicense.getCat_A1());
 			dl.setIssuedDate_A1(drivingLicense.getIssuedDate_A1());
 			dl.setExpireDate_A1(drivingLicense.getIssuedDate_A1().plusYears(10));
-			
-			
-			
 			drivingLicenseService.update(dl);
+			
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY A1 ADDED Successfuly!");
+			 return redirectView;
+			
+			
 		} catch (Exception e) {
-			return "error update DL "+e;
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY A1 FAILED TO BE ADDED");
+			 return redirectView;
 		}
 		
 		
-	    return "redirect:/drivingLicenses";
 	}
 	
 	
 	@RequestMapping(value = "/drivingLicenses/addCategoryB1", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String addCategoryB1(DrivingLicense drivingLicense,String keyword) {
+	public RedirectView addCategoryB1(DrivingLicense drivingLicense,String keyword,RedirectAttributes redir) {
 	   
 		try {
 			DrivingLicense dl = drivingLicenseService.getDrivingLicense(keyword);
-
-			
 			dl.setCat_B1(drivingLicense.getCat_B1());
 			dl.setIssuedDate_B1(drivingLicense.getIssuedDate_B1());
 			dl.setExpireDate_B1(drivingLicense.getIssuedDate_B1().plusYears(10));
-			
-			
-			
 			drivingLicenseService.update(dl);
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY B1 ADDED Successfuly!");
+			 return redirectView;
+			
 		} catch (Exception e) {
-			return "error update DL "+e;
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY B1 FAILED TO BE ADDED");
+			 return redirectView;
 		}
-		
-		
-	    return "redirect:/drivingLicenses";
+	
 	}
 	
 	
 	@RequestMapping(value = "/drivingLicenses/addCategoryD1", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String addCategoryD1(DrivingLicense drivingLicense,String keyword) {
+	public RedirectView addCategoryD1(DrivingLicense drivingLicense,String keyword,RedirectAttributes redir) {
 	   
 		try {
 			DrivingLicense dl = drivingLicenseService.getDrivingLicense(keyword);
-
-			
 			dl.setCat_D1(drivingLicense.getCat_D1());
 			dl.setIssuedDate_D1(drivingLicense.getIssuedDate_D1());
 			dl.setExpireDate_D1(drivingLicense.getIssuedDate_D1().plusYears(10));
-			
-			
-			
 			drivingLicenseService.update(dl);
+			
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY D1 ADDED Successfuly!");
+			 return redirectView;
+			
+			
 		} catch (Exception e) {
-			return "error update DL "+e;
+			RedirectView  redirectView = new RedirectView("/drivingLicenses",true);
+			 redir.addFlashAttribute("reqM","CATEGORY D1 FAILED TO BE ADDED");
+			 return redirectView;
 		}
-		
-		
-	    return "redirect:/drivingLicenses";
+
 	}
 	
 	

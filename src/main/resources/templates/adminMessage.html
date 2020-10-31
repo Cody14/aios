@@ -13,19 +13,19 @@
     <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
     <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
     <meta property="og:description" content="Vali is a responsive and free admin theme built with Bootstrap 4, SASS and PUG.js. It's fully customizable and modular.">
-    <title>Dashboard</title>
+    <title>Admin Messages</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="icon" href="images/logo.png" type="image/x-icon">
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
   </head>
   <body class="app sidebar-mini">
     <!-- Navbar-->
-    <header class="app-header"><a class="app-header__logo" href="index.html" style="font-size: 15px; font-family: Cambria Math; font-weight: bolder;" >AIO SMART CARD</a>
+    <header class="app-header"><a class="app-header__logo" href="index.html">Vali</a>
       <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
       <!-- Navbar Right Menu-->
       <ul class="app-nav">
@@ -93,15 +93,14 @@
           <p class="app-sidebar__user-designation" style="font-family: Monaco; font-size: 12px; text-transform:capitalize ;font-weight: bolder;">AIO SYSTEM ADMIN</p>
         </div>
       </div>
-      
-      <ul class="app-menu">
-        <li><a class="app-menu__item active" th:href="@{/admins}"><i class="app-menu__icon fa fa-dashboard"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Dashboard</span></a></li>
+       <ul class="app-menu">
+        <li><a class="app-menu__item " th:href="@{/admins}"><i class="app-menu__icon fa fa-dashboard"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Dashboard</span></a></li>
         
          <li><a class="app-menu__item" th:href="@{/eForms}"><i class="app-menu__icon fa fa-tasks"></i><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">Form Evaluation</span></a></li>
         
         <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><img src="uploads/users.png" height="27" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label"> &nbsp;&nbsp;CITIZEN LIST</span><i class="treeview-indicator fa fa-angle-right"></i></a>
           <ul class="treeview-menu">
-            <li><a class="treeview-item" th:href="@{/acitizens}"><i class="icon fa fa-dot-circle-o"></i> Approved List</a></li>
+            <li><a class="treeview-item" th:href="@{/acitizens}"><i class="icon fa fa-dot-circle-o"></i> Accepted List</a></li>
             <li><a class="treeview-item" th:href="@{/rcitizens}"><i class="icon fa fa-dot-circle-o"></i> Rejected List</a></li>
             
           </ul>
@@ -144,7 +143,7 @@
         
         <li><a class="app-menu__item" th:href="@{/citizens}"><img src="uploads/users.png" height="22" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">&nbsp;&nbsp; Citizens</span></a></li>
         
-         <li><a class="app-menu__item" th:href="@{/adminMessages}"><img src="uploads/ms.png" height="22" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">&nbsp;&nbsp; Messages</span></a></li>
+         <li><a class="app-menu__item active" th:href="@{/adminMessages}"><img src="uploads/ms.png" height="22" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">&nbsp;&nbsp; Messages</span></a></li>
         
         
         
@@ -152,310 +151,132 @@
       </ul>
     </aside>
     <main class="app-content">
+    
+     
+    
       <div class="app-title">
         <div>
-          <h1 style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;"><i class="fa fa-dashboard"></i> Dashboard</h1>
-          <p style="font-size: 12px; font-family: Limunari;font-style:normal;  text-transform: capitalize;font-weight: bolder;">Activities that are performed by users and admin</p>
+          <h1><i class="fa fa-envelope-o"></i> Message box</h1>
+          <p>A Message box page</p>
         </div>
         <ul class="app-breadcrumb breadcrumb">
           <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-          <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+          <li class="breadcrumb-item"><a th:href="@{/adminMessages}">Message box</a></li>
         </ul>
       </div>
-       <div class="row">
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small primary coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
-            <div class="info">
-              <h4 style="font-weight: bolder;font-family:Gabriola;text-transform: uppercase; font-size: 20px; ">NATIONAL ID</h4>
-              <p style="font-weight: bolder;font-family: Agency FB;">
-              <b>5</b>
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small info coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
-            <div class="info">
-              <h4 style="font-weight: bolder;font-family:Gabriola;text-transform: uppercase; font-size: 20px;">DRIVING LICENSE</h4>
-              <p style="font-weight: bolder;font-family: Agency FB;"><b>25</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small warning coloured-icon"><i class="icon fa fa-id-card fa-3x"></i>
-            <div class="info">
-              <h4 style="font-weight: bolder;font-family:Gabriola;text-transform: uppercase; font-size: 20px;">HEALTH INSURANCE</h4>
-              <p style="font-weight: bolder;font-family: Agency FB;"><b>10</b></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="widget-small danger coloured-icon"><i class="icon fa fa-credit-card-alt fa-3x"></i>
-            <div class="info">
-              <h4 style="font-weight: bolder;font-family:Gabriola;text-transform: uppercase; font-size: 20px;">AIO SMART CARD</h4>
-              <p style="font-weight: bolder;font-family: Agency FB;"><b>500</b></p>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="row">
-        <div class="col-md-6">
-          <div class="tile">
-         
-             
-             <div id="chart1" style="height: 400px;"></div>
-             <!-- 
-             <canvas id="bar-chart" height="160"></canvas>
-              -->
-             
-          </div>
-        </div>
-        <div class="col-md-6">
-         <div class="tile">
-           
-          
-          <div id="pieChart" style="height: 400px;"></div>
-          
-           <!-- 
-           <canvas id="doughnut-chart" height="160"></canvas>
-            -->
-           
-           
-          </div>
-        </div>
-      </div>
-      
-      
-       <div class="row">
-        <div class="col-md-12">
-          <div class="tile">
+        <div class="col-md-3"><a class="mb-2 btn btn-primary btn-block" href="">Message Activities</a>
+          <div class="tile p-0">
+            <h4 class="tile-title folder-head">Folders</h4>
             <div class="tile-body">
-              <div class="table-responsive">
-                <table class="table table-hover table-bordered" id="sampleTable">
-                  <thead>
-                    <tr>
-                      <th style="text-align: center;">Photo</th>
-                      <th style="text-align: center;">Full Name</th>
-                      <th style="text-align: center;">Dob</th>
-                      <th style="text-align: center;">Category</th>
-                      <th style="text-align: center;">Status</th>
-                      <th style="text-align: center;">Location</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+              <ul class="nav nav-pills flex-column mail-nav">
+                <li class="nav-item active"><a class="nav-link" href="#"><i class="fa fa-inbox fa-fw"></i> Inbox<span class="badge badge-pill badge-primary float-right">12</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-envelope-o fa-fw"></i> Sent</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-file-text-o fa-fw"></i> Drafts</a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-filter fa-fw"></i> Junk </a></li>
+                <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-trash-o fa-fw"></i> Trash <span class="badge badge-pill badge-primary float-right">8</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="tile">
+            <div class="mailbox-controls">
+              <div class="animated-checkbox">
+                <label>
+                  <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                </label>
+              </div>
+              <div class="btn-group">
+                <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-trash-o"></i></button>
+                <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-reply"></i></button>
+                <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-share"></i></button>
+                <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-refresh"></i></button>
+              </div>
+            </div>
+            <div class="table-responsive mailbox-messages" th:href="@{/adminMessages}">
+              <table class="table table-hover">
+                <tbody>
+                  <tr th:each="adminMessage:${adminMessages}">
                     
+                    <td><a id="messageBtn" th:href="@{/adminMessages/findById/(id=${adminMessage.id})}"> <i class="fa fa-envelope-o" aria-hidden="true"></i></a></td>
+                    <td th:text="${adminMessage.citizenUsername}" style="color: #009688;font-weight: bolder;"></td>
+                    <td th:text="${adminMessage.reason}" class="mail-subject" style="color: black; font-weight: bolder;"></td>
+                    <td th:text="${adminMessage.message}" class="mail-subject" style="color: black;"></td>
+                    <td style="padding-left: 0.3%;"><i class="fa fa-clock-o" aria-hidden="true" ></i></td>
+                    <td th:text="${adminMessage.localDateTime}" style="padding-left: 1%;"></td>
+                    
+                    <td>
+                    <form th:action="@{/seenAdminMessage}" method="put">
+                    <button class="btn btn-primary btn-sm"><i class="fa fa-trash-o"></i></button> 
+                    <input type="text"  name="username" th:value="${adminMessage.citizenUsername}" readonly="readonly" hidden="true" style="margin-top: 1%;float: left;">
+                    
+                    </form>
+                    </td>
+                  </tr>
+                 
 
-                  <tr th:each="citizen:${citizens}">
-                    
-                     <td style="padding-left: 3.4%;">
-                           <a id="photoButton" th:href="@{'/uploads/'+ ${citizen.username} + '.jpg' }">
-                             <img th:src="@{'/uploads/'+ ${citizen.username} + '.jpg'}" width="40" height="40">
-                           </a>
-                      </td>	
-                    
-                    <td th:text="${citizen.firstname + ' ' + citizen.lastname}" style="text-align: center;padding-top: 1.8%;">Full Name</td>
-                    
-                    <td th:text="${citizen.dateOfBirth}" style="text-align: center;padding-top: 1.8%;"> Dob</td>
-                    
-                    <td th:text="${citizen.category}" style="text-align: center;padding-top: 1.8%;">Category</td>
-                    
-                    <td th:text="${citizen.martialStatus}" style="text-align: center;padding-top: 1.8%;">Martial Status</td>
-                    
-                    <td th:text="${citizen.currentPlace.villageName}" style="text-align: center;padding-top: 1.9%;">Current Place</td>
-                    
-                   
-                    
-                    </tr>
-                  
-
-                  </tbody>
-                </table>
+                </tbody>
+              </table>
+            </div>
+            <div class="text-right"><span class="text-muted mr-2">Showing 1-15 out of 60</span>
+              <div class="btn-group">
+                <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-chevron-left"></i></button>
+                <button class="btn btn-primary btn-sm" type="button"><i class="fa fa-chevron-right"></i></button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      
-       <!-- PHOTO MODAL -->
-
-<div class="modal fade" tabindex="-1" role="dialog" id="photoModal">
+    </main>
+    
+    
+    
+ <div class="modal fade" tabindex="-1" role="dialog" id="messageModal">
+ <form >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Photo</h5>
+        <h5 class="modal-title" style="font-family: Cambria Math;text-transform: uppercase;font-size: 18px;font-weight: bolder;"></h5>
        
       </div>
       <div class="modal-body">
-      		<img id="citizenPhoto" src="" width="95%" height="95%">
-    </div>
+      <label style="font-family: Cambria Math; font-size: 13px; font-weight: bolder;text-transform: uppercase;">FROM</label>
+       <div class="form-group">
+                  <input class="form-control" type="text" name="username" id="txtCitizenUsername" readonly="readonly">
+            </div>
+      	<label style="font-family: Cambria Math; font-size: 13px; font-weight: bolder;text-transform: uppercase;">MESSAGE</label>	
+      		 <div class="form-group">  
+                  <textarea class="form-control" rows="4" id="txtMessage" readonly="readonly" ></textarea>
+            </div>
+   		
+      </div>
+      
+      
+       
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: Cambria Math; font-weight: bolder;">Close</button>
       </div>
     </div>
   </div>
+  </form>
 </div> 
-      
-    </main>
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- Essential javascripts for application to work-->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/charts.js"></script>
     <script src="js/main.js"></script>
     <!-- The javascript plugin to display page loading on top-->
     <script src="js/plugins/pace.min.js"></script>
     <!-- Page specific javascripts-->
-    <!-- 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-     -->
-   
-    
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-    
-  <script type="text/javascript">
-  
-  $.ajax({
-  	url: 'pieStat',
-  	success: function(result){
-  		var series = [];
-  		var data = [];
-  		for(var i = 0; i < result.length; i++){
-  			var object = {};
-  			object.name = result[i].cardName;
-  			object.y = result[i].rowC;
-  			data.push(object);	
-  		}
-  		
-  		var seriesObject = {
-  				name: 'Generated',
-  				 backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-  				data: data
-  				
-  		}
-  		
-  		series.push(seriesObject);
-  		console.log(seriesObject);
-  		drawPieChart(series);
-  	
-  	}
-  })
-  
-  
-   function drawPieChart(series){
-  	Highcharts.chart('pieChart', {
-  	    chart: {
-  	        plotBackgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-  	        plotBorderWidth: null,
-  	        plotShadow: false,
-  	        type: 'pie'
-  	    },
-  	    title: {
-  	        text: 'Current Card Number Generated 2020'
-  	    },
-  	    tooltip: {
-  	        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-  	    },
-  	    accessibility: {
-  	        point: {
-  	            valueSuffix: '%'
-  	        }
-  	    },
-  	    plotOptions: {
-  	        pie: {
-  	            allowPointSelect: true,
-  	            cursor: 'pointer',
-  	            dataLabels: {
-  	                enabled: true,
-  	                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-  	            }
-  	        }
-  	    },
-  	   
-  	    series: series
-  	});
-  }
-  
-  </script>
-  
-    <script type="text/javascript">
-
-    
-    $.ajax({
-    	url: 'chart',
-    	success: function(result){
-    		var names = JSON.parse(result).names;
-    		var years = JSON.parse(result).years;
-    		
-    		 drawLineChart(names,years);
-    	}
-    })
-    
-    
-    
-   
-    
-    
-   function drawLineChart(names,years){
-	   Highcharts.chart('chart1',{
-	    	char: {
-	    		type: 'line',
-	    		width: 400
-	    	},
-	    	title: {
-	    		text: 'Line chart'
-	    	},
-	    	xAxis: {
-	    		categories: names
-	    	},
-	    	tooltip: {
-	    		formatter: function(){
-	    			return '<strong>'+this.x+': </strong>'+this.y;
-	    		}
-	    	},
-	    	
-	    	series: [{
-	    		data: years
-	    	}]
-	    });
-   }
-    
-    
-    </script>
-   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-    
-    <script type="text/javascript">
-    $('.table #photoButton').on('click',function(event) {
-		   event.preventDefault();
-		   var href = $(this).attr('href');
-		   $('#photoModal #citizenPhoto').attr('src', href);
-		   $('#photoModal').modal();		
-	});
-    
-    
-    
-    </script>
     <!-- Google analytics script-->
     <script type="text/javascript">
       if(document.location.hostname == 'pratikborsadiya.in') {
@@ -467,147 +288,27 @@
       	ga('send', 'pageview');
       }
     </script>
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   <!-- 
+    
     <script type="text/javascript">
     
- // Bar chart
-    new Chart(document.getElementById("bar-chart"), {
-        type: 'bar',
-        data: {
-          labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-          datasets: [
-            {
-              label: "Population (millions)",
-              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-              data: [2478,5267,734,784,433]
-            }
-          ]
-        },
-        options: {
-          legend: { display: false },
-          title: {
-            display: true,
-            text: 'Predicted world population (millions) in 2050'
-          }
-        }
-    });
     
+    $('.table #messageBtn').on('click',function(event) {
+		   event.preventDefault();
+		   var href = $(this).attr('href');
+		   
+		   $.get(href, function(adminMessage, status){
+			   
+			$('#txtMessage').val(adminMessage.message);
+			$('#txtCitizenUsername').val(adminMessage.citizenUsername);
+			
+			
+			
+		});
+		   $('#messageModal').modal();
+		   		
+	}); 
     
     
     </script>
-   
-    <script type="text/javascript">
-    
-  
-    
-    new Chart(document.getElementById("doughnut-chart"), {
-        type: 'doughnut',
-        data: {
-          labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
-          datasets: [
-            {
-              label: "Population (millions)",
-              backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-              data: [2478,5267,734,571,433]
-            }
-          ]
-        },
-        options: {
-          title: {
-            display: true,
-            text: 'Predicted world population (millions) in 2050'
-          }
-        }
-    });
-    
-  
-    
-    </script>
-  
-    -->
-    
-    
-    
-    
   </body>
 </html>

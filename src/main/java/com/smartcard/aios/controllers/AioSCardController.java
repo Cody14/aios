@@ -21,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -262,9 +264,21 @@ public class AioSCardController {
 	
 	
 	@PostMapping("/aioSCards/addNew")
-	public String addNew(AioSCard aioSCard) throws WriterException, IOException {
-	    aioSCardService.save(aioSCard);
-	    return "redirect:/aioSCards";
+	public RedirectView addNew(AioSCard aioSCard,RedirectAttributes redir) throws WriterException, IOException {
+		
+		try {
+			aioSCardService.save(aioSCard);
+			    RedirectView  redirectView = new RedirectView("/aioSCards",true);
+			    redir.addFlashAttribute("reqM","AIO SMART CARD GENERATED SUCCESSFULLY!");
+			    return redirectView;
+			
+		} catch (Exception e) {
+			RedirectView  redirectView = new RedirectView("/aioSCards",true);
+			 redir.addFlashAttribute("reqMe","AIO SMART CARD FAILED TO BE GENERATED");
+			return redirectView;
+			
+		}
+	
 	}
 	
 	@RequestMapping("/aioSCards/findById")
@@ -280,17 +294,26 @@ public class AioSCardController {
 	}
 	
 	@RequestMapping(value = "/linkAioSCardWithNid", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String linkNid(AioSCard aioSCard,String keyword) throws WriterException, IOException {
+	public  RedirectView linkNid(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
 		
-		aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+		try {
+			aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+			NationalId nationalId = nationalIdService.getNationalId(aioSCard.getCitizenUsername());
+			aioSCard.setNationalId(nationalId);
+			aioSCardService.linkNidService(aioSCard, keyword);
+			
+			 RedirectView  redirectView = new RedirectView("/LinkNidAndAio",true);
+			 redir.addFlashAttribute("reqM","NATIONAL ID IS LINKED TO AIO SMART CARD Successfuly!");
+			 return redirectView;
+		} catch (Exception e) {
+			
+			 RedirectView  redirectView = new RedirectView("/LinkNidAndAio",true);
+			 redir.addFlashAttribute("reqMe","NATIONAL ID FAILED TO BE LINKED WITH AIO SMART CARD");
+			 return redirectView;
+		}
 		
-		NationalId nationalId = nationalIdService.getNationalId(aioSCard.getCitizenUsername());
 		
-		aioSCard.setNationalId(nationalId);
-       
 		
-		aioSCardService.linkNidService(aioSCard, keyword);
-		return "linknid";
 	}
 	
 	
@@ -302,15 +325,27 @@ public class AioSCardController {
 	
 	
 	@RequestMapping(value = "/linkAioSCardWithDl", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String linkDl(AioSCard aioSCard,String keyword) throws WriterException, IOException {
+	public RedirectView linkDl(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
 		
-		aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
-		DrivingLicense drivingLicense = drivingLicenseService.getDrivingLicense(aioSCard.getCitizenUsername());
+		try {
+			aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+			DrivingLicense drivingLicense = drivingLicenseService.getDrivingLicense(aioSCard.getCitizenUsername());
+			aioSCard.setDrivingLicense(drivingLicense);
+			aioSCardService.linkDlService(aioSCard, keyword);
+			
+			 RedirectView  redirectView = new RedirectView("/LinkDlAndAio",true);
+			 redir.addFlashAttribute("reqM","DRIVING LICENSE CARD IS LINKED TO AIO SMART CARD Successfuly!");
+			 return redirectView;
+			
+			
+			
+		} catch (Exception e) {
+			RedirectView  redirectView = new RedirectView("/LinkDlAndAio",true);
+			 redir.addFlashAttribute("reqMe","DRIVING LICENSE CARD FAILED TO BE LINKED WITH AIO SMART CARD");
+			 return redirectView;
+		}
 		
-		aioSCard.setDrivingLicense(drivingLicense);
 		
-		aioSCardService.linkDlService(aioSCard, keyword);
-		return "linkdl";
 	}
 	
 	
@@ -320,16 +355,27 @@ public class AioSCardController {
 	
 	
 	@RequestMapping(value = "/linkAioSCardWithHi", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String linkHi(AioSCard aioSCard,String keyword) throws WriterException, IOException {
+	public RedirectView linkHi(AioSCard aioSCard,String keyword,RedirectAttributes redir) throws WriterException, IOException {
 		
-		aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+		try {
+			
+			aioSCard = aioSCardService.getAioSCardByKeyword(keyword);
+			HealthInsurance healthInsurance = healthInsuranceService.getHealthInsurance(aioSCard.getCitizenUsername());	
+			aioSCard.setHealthInsurance(healthInsurance);
+			aioSCardService.linkHiService(aioSCard, keyword);
+			
+			RedirectView  redirectView = new RedirectView("/LinkHiAndAio",true);
+			 redir.addFlashAttribute("reqM","HEALTH INSURANCE CARD IS LINKED TO AIO SMART CARD Successfuly!");
+			 return redirectView;
 
-		HealthInsurance healthInsurance = healthInsuranceService.getHealthInsurance(aioSCard.getCitizenUsername());
+		} catch (Exception e) {
+			System.out.println("HEALTH INSURANCE ERROR "+e);
+			RedirectView  redirectView = new RedirectView("/LinkHiAndAio",true);
+			 redir.addFlashAttribute("reqMe","HEALTH INSURANCE CARD FAILED TO BE LINKED WITH AIO SMART CARD");
+			 return redirectView;
+		}
 		
-		aioSCard.setHealthInsurance(healthInsurance);
-
-		aioSCardService.linkHiService(aioSCard, keyword);
-		return "linkhi";
+		
 	}
 	
 	

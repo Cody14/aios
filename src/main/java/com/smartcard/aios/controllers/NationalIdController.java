@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.smartcard.aios.models.District;
 import com.smartcard.aios.models.NationalId;
@@ -103,9 +105,22 @@ public class NationalIdController {
 	
 	
 	@PostMapping("/nationalIds/addNew")
-	public String addNew(NationalId nationalId) {
-	    nationalIdService.save(nationalId);
-	    return "redirect:/nationalIds";
+	public RedirectView addNew(NationalId nationalId,RedirectAttributes redir) {
+		
+		try {
+			 nationalIdService.save(nationalId);
+			 RedirectView  redirectView = new RedirectView("/nationalIds",true);
+			 redir.addFlashAttribute("reqM","National ID Generated Successfuly!");
+			 return redirectView;
+			
+		} catch (Exception e) {
+			
+			 RedirectView  redirectView = new RedirectView("/nationalIds",true);
+			 redir.addFlashAttribute("reqMe","National ID Failed To be Generated");
+			 return redirectView;
+		}
+		
+		
 	}
 	
 	@RequestMapping("/nationalIds/findById")

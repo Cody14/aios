@@ -131,8 +131,12 @@ public class CitizenController {
 			
 		} 
 	
+	@GetMapping("/contactUs")
+	   public String contactUs() {
+		   return "contactUs";
+	   }
 	
-		
+	
 	
 	    @GetMapping("/acitizens")
 		public String getAcceptedCitizens(Model model) {
@@ -239,16 +243,38 @@ public class CitizenController {
 	}
 	
 	@RequestMapping(value ="/citizens/reject", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String reject(Integer id,String status) {			
-		citizenService.reject(id,status);
+	public RedirectView reject(Integer id,String status,RedirectAttributes redir) {
 		
-	    return "redirect:/eForms";
+		try {
+			
+			citizenService.reject(id,status);
+			RedirectView  redirectView = new RedirectView("/eForms",true);
+		    redir.addFlashAttribute("reqMe","REQUEST IS REJECTED!");
+		    return redirectView;
+		} catch (Exception e) {
+			RedirectView  redirectView = new RedirectView("/eForms",true);
+		    redir.addFlashAttribute("reqMe","REQUEST IS REJECTED!");
+		    return redirectView;
+		}
+
 	}
 	
 	@RequestMapping(value ="/rcitizens/reject", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String rejectedCitizens(Integer id,String status) {			
-		citizenService.reject(id,status);
-	    return "redirect:/acitizens";
+	public RedirectView  rejectedCitizens(Integer id,String status,RedirectAttributes redir) {
+		
+		try {
+			citizenService.reject(id,status);
+			RedirectView  redirectView = new RedirectView("/acitizens",true);
+		    redir.addFlashAttribute("reqMe","CITIZEN IS REJECTED!");
+		    return redirectView;
+			
+		} catch (Exception e) {
+			RedirectView  redirectView = new RedirectView("/acitizens",true);
+		    redir.addFlashAttribute("reqMe","CITIZEN IS REJECTED!");
+		    return redirectView;
+		}
+		
+		
 	}
 	
 	
@@ -256,19 +282,38 @@ public class CitizenController {
 	
 	
 	@RequestMapping(value ="/citizens/accept", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String accept(Integer id,String status,String passKey) {	
+	public RedirectView accept(Integer id,String status,String passKey,RedirectAttributes redir) {	
 		
-		citizenService.accept(id,status,passKey);
+		try {
+			    citizenService.accept(id,status,passKey);
+			     RedirectView  redirectView = new RedirectView("/eForms",true);
+			    redir.addFlashAttribute("reqM","REQUEST APPROVED SUCCESSFULLY!");
+			    return redirectView;
+			
+		} catch (Exception e) {
+			 RedirectView  redirectView = new RedirectView("/eForms",true);
+			    redir.addFlashAttribute("reqMe","REQUEST IS REJECTED");
+			    return redirectView;
+		}
 		
-	    return "redirect:/eForms";
 	}
 	
 	@RequestMapping(value ="/acitizens/accept", method= {RequestMethod.PUT,RequestMethod.GET})
-	public String acceptedCitizens(Integer id,String status,String passKey) {	
+	public RedirectView acceptedCitizens(Integer id,String status,String passKey,RedirectAttributes redir) {	
 		
-		citizenService.accept(id,status,passKey);
+		try {
+			citizenService.accept(id,status,passKey);
+			 RedirectView  redirectView = new RedirectView("/rcitizens",true);
+			    redir.addFlashAttribute("reqM","CITIZEN APPROVED SUCCESSFULLY!");
+			    return redirectView;
+			
+		} catch (Exception e) {
+			 RedirectView  redirectView = new RedirectView("/rcitizens",true);
+			    redir.addFlashAttribute("reqMe","CITIZEN DENIED ");
+			    return redirectView;
+		}
 		
-	    return "redirect:/rcitizens";
+	
 	}
 	
 	

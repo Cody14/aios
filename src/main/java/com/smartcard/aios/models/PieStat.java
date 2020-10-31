@@ -16,4 +16,6 @@ public class PieStat {
   private Integer id;
   private String cardName;
   private Integer rowC;
+  
+  
 }

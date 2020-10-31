@@ -1,5 +1,10 @@
 package com.smartcard.aios;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 import com.smartcard.aios.models.AioSCard;
 import com.smartcard.aios.models.Citizen;
 import com.smartcard.aios.models.District;
@@ -41,6 +46,9 @@ public class Test {
 		
 		
 		//System.out.println("VILLAGE NAME : "+citizen.getCurrentPlace().getVillageName());
+		
+		LocalDateTime localDateTime = LocalDateTime.now();
+		System.out.println(localDateTime);
 		
 		
 		System.out.println("AIO SMART CARD "+aioSCard.getCitizen().getFirstname() + " National Id No "+aioSCard.getNationalId().getNidNo() );

@@ -143,8 +143,10 @@
           </ul>
         </li>
         
-        <li><a class="app-menu__item" th:href="@{/citizens}"><i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">Citizens</span></a></li>
+         <li><a class="app-menu__item" th:href="@{/citizens}"><img src="uploads/users.png" height="22" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">&nbsp;&nbsp; Citizens</span></a></li>
         
+         <li><a class="app-menu__item" th:href="@{/adminMessages}"><img src="uploads/ms.png" height="22" width="22" ><span style="font-family: Cambria Math;font-size: 13px; text-transform: uppercase;" class="app-menu__label">&nbsp;&nbsp; Messages</span></a></li>
+                
         
         
        
@@ -162,7 +164,15 @@
         </ul>
       </div>
       <div class="row">
-        <div class="col-md-12">
+      
+      <div style="height: 50px; width: 100%; background-color: white;">
+        <h5 style="font-family: Cambria Math; font-weight: bolder; text-transform: uppercase;float: left;font-size: 18px; color: black; margin-top: 1.2%;margin-left: 2%;">ACTIVE DRIVING LICENSE CARDS</h5>
+        <label style=" margin-right: 2%;font-family: Cambria Math; font-weight: bolder; text-transform: uppercase;float: left;font-size: 18px; color: black; margin-top: 1.2%; float: right;">
+        <span th:utext="${reqMe}" style="color: red;"></span> 
+        </label>
+        </div>
+      
+        <div class="col-md-12" style="margin-top: 1%;">
           <div class="tile">
             <div class="tile-body">
               <div class="table-responsive">

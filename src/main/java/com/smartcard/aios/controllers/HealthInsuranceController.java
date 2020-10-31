@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.smartcard.aios.models.District;
 import com.smartcard.aios.models.HealthInsurance;
@@ -96,9 +98,20 @@ public class HealthInsuranceController {
 	
 	
 	@PostMapping("/healthInsurances/addNew")
-	public String addNew(HealthInsurance healthInsurance) {
-	    healthInsuranceService.save(healthInsurance);
-	    return "redirect:/healthInsurances";
+	public RedirectView addNew(HealthInsurance healthInsurance,RedirectAttributes redir) {
+		
+		try {
+			 healthInsuranceService.save(healthInsurance);
+			 RedirectView  redirectView = new RedirectView("/healthInsurances",true);
+			 redir.addFlashAttribute("reqM","HEALTH INSURANCE CARD Generated Successfuly!");
+			 return redirectView;
+			
+		} catch (Exception e) {
+			 RedirectView  redirectView = new RedirectView("/healthInsurances",true);
+			 redir.addFlashAttribute("reqM","HEALTH INSURANCE CARD Failed To be Generated");
+			 return redirectView;
+		}
+
 	}
 	
 	@RequestMapping("/healthInsurances/findById")
