@@ -86,8 +86,16 @@ public class AdminController {
 		
 		List<Admin> adminList = adminService.getAdmins();
 		
+		Admin admin = new Admin();
+		
+		
+		
 		List<PieStat> pieStatsList = pieStatService.getPieStats();
 		model.addAttribute("pieStats", pieStatsList);
+		
+		int rowCnid = aioSCardService.rowcNid();
+		
+		admin.setRowcnid(rowCnid);
 		
 		model.addAttribute("admins", adminList);
 		

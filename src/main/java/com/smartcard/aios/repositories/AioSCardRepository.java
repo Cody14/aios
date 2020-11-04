@@ -30,6 +30,9 @@ public interface AioSCardRepository extends JpaRepository<AioSCard, Integer> {
 	   @Query(value = " select * from aioscard n where n.citizen_username like %:keyword%  ", nativeQuery = true)
 	   AioSCard findByKeywordUsername(@Param("keyword") String keyword); //SEARCH BY AIOS CARD ID'S OWNER USERNAME
 	   
+	   @Query(value = " select rowc from pie_stat where id = 1 ", nativeQuery = true)
+	   int nidrowc ();
+	   
 	   
 	   @Transactional 
 	   @Modifying

@@ -1454,6 +1454,10 @@ public class AioSCardService {
 			aioSCardRepository.unlinkHL(id);
 		}
 		
+		public int rowcNid() {
+			return aioSCardRepository.nidrowc();
+		}
+		
 		// TESTING
 		
 		

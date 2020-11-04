@@ -11,4 +11,5 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 public class Admin extends Person {
 
+	private int rowcnid;
 }
